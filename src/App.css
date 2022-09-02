@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.counter{
+  border: 1px solid black;
+  width: 200px;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.counter h1{
+  font-size: 50px;
+}
+
+.counter button{
+  font-size: 36px;
+  width: 50px;
+}
