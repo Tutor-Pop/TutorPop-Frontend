@@ -53,3 +53,65 @@
   font-size: 36px;
   width: 50px;
 }
+
+/* Homepage CSS */
+
+.homepage {
+  background: url('./img/bg-homepage.jpg');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: start;
+  position: relative;
+  min-height: 100vh;
+  color: white;
+}
+
+.app-logo {
+  margin: 10px;
+}
+
+.homepage h1 {
+  font-size: 75px;
+  padding: 0;
+  margin: 0;
+}
+
+.app-logo {
+  position: absolute;
+  width: 4.5rem;
+}
+
+.main-container {
+  text-align: center;
+  padding-top: 12.5%;
+}
+
+.sub-text {
+  margin: 30px 0 80px 
+}
+
+.sub-text h2 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.enter-btn {
+  background-color: none;
+}
+
+.link-text {
+  font-size: 20px;
+  padding: 15px 50px;
+  text-decoration: none;
+  color: white;
+  width: 50px;
+  border: 3px white solid;
+  border-radius: 10px;
+}
+
+.link-text:hover {
+  background-color: rgba(255,255,255, 0.2);
+  transition: background-color 0.5s;
+}
