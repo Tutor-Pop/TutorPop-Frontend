@@ -176,3 +176,8 @@ h2:nth-child(2) {
   background-color: #000A65 !important;
   width: 60% !important;
 }
+
+.register{
+  font-style: inherit;
+  font-size: 20px;
+}

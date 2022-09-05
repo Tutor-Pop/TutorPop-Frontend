@@ -10,8 +10,8 @@ const Registerpage = () => {
         </Row>
         <Row>
           <Col>
-            <Label for="fristname">Fristname*</Label>
-            <Input id="fristname" type="text" />
+            <Label for="firstname">Firstname*</Label>
+            <Input id="firstname" type="text" />
           </Col>
           <Col>
             <Label for="lastname">Lastname*</Label>
