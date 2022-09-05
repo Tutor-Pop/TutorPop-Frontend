@@ -21,14 +21,14 @@ const Loginpage = () => {
           <Row>
             <Form>
               <FormGroup className="mt-10">
-                <Label for="exampleUser">Username</Label>
+                <Label for="User">Username</Label>
                 <Input
                   className="input"
                   id="User"
               />
               </FormGroup>
               <FormGroup>
-                <Label for="examplePassword">Password</Label>
+                <Label for="Password">Password</Label>
                 <Input
                   className="input"
                   id="Password"
