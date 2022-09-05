@@ -4,6 +4,7 @@ import Homepage from './views/Homepage';
 import CounterPage from './views/CounterPage';
 import Loginpage from './views/Loginpage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Registerpage from './views/Registerpage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<Homepage/>}/>
         <Route path='/counter' element={<CounterPage/>}/>
         <Route path='/login' element={<Loginpage/>}/>
+        <Route path='/register' element={<Registerpage/>}/>
       </Routes>
     </div>
   );
