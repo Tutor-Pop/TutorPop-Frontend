@@ -1,20 +1,20 @@
 import React from "react";
-import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 
-const Registerpage = () => {
+const RegisterPage = () => {
   return (
-    <div className="register">
+    <Container className="register">
       <Row className="register-box">
         <Row>
           <h1 className="mb-10">Register</h1>
         </Row>
-        <Row>
+        <Row xs={1} md={2}>
           <Col>
-            <Label for="firstname">Firstname*</Label>
+            <Label for="firstname">Firstname<span className="required-star">*</span></Label>
             <Input id="firstname" type="text" />
           </Col>
           <Col>
-            <Label for="lastname">Lastname*</Label>
+            <Label for="lastname">Lastname<span className="required-star">*</span></Label>
             <Input id="lastname" type="text" />
           </Col>
         </Row>
@@ -22,26 +22,26 @@ const Registerpage = () => {
           <Form>
             <FormGroup>
               <Label className="mt-3" for="User">
-                Username*
+                Username<span className="required-star">*</span>
               </Label>
-              <Input className="input" id="User" />
+              <Input required={true} className="input" id="User" />
               <Label className="mt-3" for="Password">
-                Password*
+                Password<span className="required-star">*</span>
               </Label>
-              <Input className="input" id="Password" type="password" />
+              <Input required={true} className="input" id="Password" type="password" />
               <Label className="mt-3" for="Password">
-                Confirm Password*
+                Confirm Password<span className="required-star">*</span>
               </Label>
-              <Input className="input" id="Password" type="password" />
+              <Input required={true} className="input" id="Password" type="password" />
             </FormGroup>
           </Form>
         </Row>
-        <Row>
+        <Row md={2} xs={1}>
           <Col>
             <Form>
               <FormGroup>
-                <Label for="Email">Email*</Label>
-                <Input id="Email" type="email" />
+                <Label for="Email">Email<span className="required-star">*</span></Label>
+                <Input required={true} id="Email" type="email" />
               </FormGroup>
             </Form>
           </Col>
@@ -63,7 +63,7 @@ const Registerpage = () => {
         </Row>
         <Row className="justify-evenly">
         <Button
-                  className="register-btn"
+                  className="register-btn my-20"
                   color="primary"
                   size="lg"
                 >
@@ -71,8 +71,8 @@ const Registerpage = () => {
                 </Button>
         </Row>
       </Row>
-    </div>
+    </Container>
   );
 };
 
-export default Registerpage;
+export default RegisterPage;

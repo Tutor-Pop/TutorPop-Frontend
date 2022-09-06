@@ -129,6 +129,7 @@ h2:nth-child(2) {
 .login-btn{
   background-color: #000A65 !important;
   width: 100% !important;
+  border: none;
 }
 
 .createacc{
@@ -174,10 +175,15 @@ h2:nth-child(2) {
 
 .register-btn{
   background-color: #000A65 !important;
-  width: 60% !important;
+  width: 96.5% !important;
+  border: none;
 }
 
 .register{
   font-style: inherit;
   font-size: 20px;
+}
+
+.required-star{
+  color: red;
 }

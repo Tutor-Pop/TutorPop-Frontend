@@ -19,19 +19,19 @@ const Homepage = () => {
       </div>
       <div className='app-stat'>
         <div className='stat-item'>
-          <p>XXXX</p>
+          <p>0000</p>
           <p>Users</p>
         </div>
         <div className='stat-item'>
-          <p>XXXX</p>
+          <p>0000</p>
           <p>Courses</p>
         </div>
         <div className='stat-item'>
-          <p>XXX</p>
+          <p>0000</p>
           <p>Teachers</p>
         </div>
         <div className='stat-item'>
-          <p>XX</p>
+          <p>0000</p>
           <p>Schools</p>
         </div>
       </div>

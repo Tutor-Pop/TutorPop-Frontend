@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Input, Row, Col, Form, FormGroup, Label, Button } from "reactstrap";
 import { Link } from 'react-router-dom'
 
-const Loginpage = () => {
+const LoginPage = () => {
   return (
     <div className="login">
       <Row className="cardlogin">
@@ -52,4 +52,4 @@ const Loginpage = () => {
     </div>
   );
 };
-export default Loginpage;
+export default LoginPage;
