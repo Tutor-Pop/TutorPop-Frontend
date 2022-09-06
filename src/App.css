@@ -187,3 +187,8 @@ h2:nth-child(2) {
 .required-star{
   color: red;
 }
+
+/* Navbar Component */
+.nav-logo {
+  width: 8%;
+}
