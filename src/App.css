@@ -189,6 +189,13 @@ h2:nth-child(2) {
 }
 
 /* Navbar Component */
+
+.nav {
+  z-index: 1000;
+  position: fixed;
+  background-color: white;
+}
+
 .nav-logo {
   width: 60px;
 }
@@ -222,4 +229,24 @@ h2:nth-child(2) {
   box-sizing: content-box;
   padding-left: 15px;
   border-left: 2.5px solid black;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  padding-left: 20px;
+  border-left: 2.5px solid black;
+}
+
+.nav-name {
+  margin: 0 10px;
+}
+
+.nav-title {
+  margin: 0;
 }

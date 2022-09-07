@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import '../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import AppLogo from '../img/logo-color.png'
 import Heart from '../img/heart.png'
 import Bell from '../img/bell.png'
@@ -27,18 +26,18 @@ import {
 
 const AppNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div className='nav'>
-      <Navbar>
+    <div>
+      <Navbar className='nav'>
         <NavbarBrand href="/search">
           <img class='nav-app-icon' src={AppLogo} all='tutor-pop'/>
         </NavbarBrand>
-        <NavbarText><h5>TUTOR POP</h5></NavbarText>
-        <Nav className="ms-auto nav-items" navbar>
+        <NavbarText><h5 className='nav-title'>TUTOR POP</h5></NavbarText>
+        <Nav className="d-none d-md-flex ms-auto nav-items" navbar>
           <NavItem>
             <NavLink href="/support">
               <img className='nav-icon' src={Support} alt='support'/>
@@ -56,12 +55,18 @@ const AppNav = () => {
           </NavItem>
           {isLogin && 
             <>
-              <NavItem className='nav-profile'>
-                <NavLink href="/user">
-                  <img className='nav-icon' src={UserProfile} alt='user'/>                
-                </NavLink>
-              </NavItem>
-              <NavbarText><h5>Jaroonpong Suklerd</h5></NavbarText>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                <img className='nav-icon' src={UserProfile} alt='user'/>                
+                <NavbarText><h5 className='nav-name'>Jaroonpong Suklerd</h5></NavbarText>
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             </>
           }
           {!isLogin &&
