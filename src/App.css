@@ -192,3 +192,28 @@ h2:nth-child(2) {
 .nav-logo {
   width: 60px;
 }
+
+.nav-items {
+  flex-direction: row;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-app-icon {
+  width: 50px;
+  height: 50px;
+  padding-right: 10px;
+  box-sizing: content-box;
+  border-right: 2.5px solid black;
+}
