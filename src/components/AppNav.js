@@ -27,6 +27,7 @@ import {
 
 const AppNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -36,7 +37,7 @@ const AppNav = () => {
         <NavbarBrand href="/search">
           <img class='nav-app-icon' src={AppLogo} all='tutor-pop'/>
         </NavbarBrand>
-        <NavbarText>TUTOR POP</NavbarText>
+        <NavbarText><h5>TUTOR POP</h5></NavbarText>
         <Nav className="ms-auto nav-items" navbar>
           <NavItem>
             <NavLink href="/support">
@@ -53,12 +54,21 @@ const AppNav = () => {
               <img className='nav-icon' src={Heart} alt='favorite'/>                
             </NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink href="/favorite">
-              <img className='nav-icon' src={UserProfile} alt='user'/>                
-            </NavLink>
-          </NavItem>
-          <NavbarText>Jaroonpong Suklerd</NavbarText>
+          {isLogin && 
+            <>
+              <NavItem className='nav-profile'>
+                <NavLink href="/user">
+                  <img className='nav-icon' src={UserProfile} alt='user'/>                
+                </NavLink>
+              </NavItem>
+              <NavbarText><h5>Jaroonpong Suklerd</h5></NavbarText>
+            </>
+          }
+          {!isLogin &&
+            <NavItem className='nav-profile'>
+              <NavLink href="/login"> <h5>Login</h5></NavLink>
+            </NavItem>
+          }
           
         </Nav>
       </Navbar>
