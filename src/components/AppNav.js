@@ -21,14 +21,22 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Dropdown,
   NavbarText,
 } from 'reactstrap';
 
 const AppNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const [dropdownDelay, setDropdownDelay] = useState(false)
   const [isLogin, setIsLogin] = useState(true);
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => {
+    if(!dropdownDelay){
+      setIsOpenDropdown(!isOpenDropdown)
+      setDropdownDelay(true)
+      setTimeout(()=>setDropdownDelay(false),100)
+    }
+  }
 
   return (
     <div>
@@ -55,7 +63,24 @@ const AppNav = () => {
           </NavItem>
           {isLogin && 
             <>
-            <UncontrolledDropdown nav inNavbar>
+            <Dropdown isOpen={isOpenDropdown} toggle={toggle}>
+              <DropdownToggle nav caret>
+                <img className='nav-icon' src={UserProfile} alt='user'/>                
+                <NavbarText><h5 className='nav-name'>Jaroonpong Suklerd</h5></NavbarText>
+              </DropdownToggle>
+              {/* <DropdownToggle caret>Dropdown</DropdownToggle> */}
+              <DropdownMenu>
+                <DropdownItem header>Header</DropdownItem>
+                <DropdownItem>Some Action</DropdownItem>
+                <DropdownItem text>Dropdown Item Text</DropdownItem>
+                <DropdownItem disabled>Action (disabled)</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Foo Action</DropdownItem>
+                <DropdownItem>Bar Action</DropdownItem>
+                <DropdownItem>Quo Action</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 <img className='nav-icon' src={UserProfile} alt='user'/>                
                 <NavbarText><h5 className='nav-name'>Jaroonpong Suklerd</h5></NavbarText>
@@ -66,7 +91,7 @@ const AppNav = () => {
                 <DropdownItem divider />
                 <DropdownItem>Reset</DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
             </>
           }
           {!isLogin &&
