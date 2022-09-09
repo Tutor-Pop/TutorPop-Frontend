@@ -100,7 +100,7 @@ h2:nth-child(2) {
 
 .cardlogin{
   width: 70%;
-  height: 40%;
+  /* height: 40%; */
   border-radius: 29px;
   position: fixed;
   top: 50%;
