@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 
 const RegisterPage = () => {
+
+  const [firstname,setFirstname] = useState("")
+  const [invalid,setInvalid] = useState({firstname:false})
+  const [valid,setValid] = useState({firstname:false})
+
+  useEffect(()=>{
+    if(firstname == 'abcde'){
+      setInvalid({firstname:true})
+      setValid({firstname:false})
+    }
+    else if(firstname == ''){
+      setValid({firstname:false})
+      setInvalid({firstname:false})
+    }
+    else{
+      setValid({firstname:true})
+      setInvalid({firstname:false})
+    }
+  },[firstname])
+
+  const validation = () => {
+    
+  }
+
   return (
     <Container className="register">
       <Row className="register-box">
@@ -11,7 +35,7 @@ const RegisterPage = () => {
         <Row xs={1} md={2}>
           <Col>
             <Label for="firstname">Firstname<span className="required-star">*</span></Label>
-            <Input id="firstname" type="text" />
+            <Input valid={valid.firstname} invalid={invalid.firstname} id="firstname" type="text" onChange={(e)=>setFirstname(e.target.value)}/>
           </Col>
           <Col>
             <Label for="lastname">Lastname<span className="required-star">*</span></Label>
@@ -25,10 +49,12 @@ const RegisterPage = () => {
                 Username<span className="required-star">*</span>
               </Label>
               <Input required={true} className="input" id="User" />
+
               <Label className="mt-3" for="Password">
                 Password<span className="required-star">*</span>
               </Label>
               <Input required={true} className="input" id="Password" type="password" />
+
               <Label className="mt-3" for="Password">
                 Confirm Password<span className="required-star">*</span>
               </Label>
