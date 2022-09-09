@@ -60,7 +60,7 @@
   margin: 0;
 }
 
-h2:nth-child(2) {
+.sub-text h2:nth-child(2) {
   margin-bottom: 70px;
 }
 
@@ -249,4 +249,41 @@ h2:nth-child(2) {
 
 .nav-title {
   margin: 0;
+}
+
+/* App Container */
+
+.course-container {
+  margin: 0 10%;
+}
+
+.container-box {
+  height: 75vh;
+  background-color: #ECF3FD;
+}
+
+.course-select-btn {
+  display: flex;
+  text-align: center;
+}
+
+.select-left {
+  background-color: #ECF3FD;
+  margin: 0 10px 0 0;
+  padding: 5px 10%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.not-select-left {
+  background-color:#354052;
+  color: white;
+  margin: 0 10px 0 0;
+  padding: 5px 10%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.not-select-left:hover {
+  cursor: pointer;
 }

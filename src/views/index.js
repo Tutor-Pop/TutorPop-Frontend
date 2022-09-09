@@ -4,6 +4,7 @@ import CounterPage from './CounterPage'
 import Dummy from './Dummy';
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
+import MyCourse from './MyCourse';
 import RegisterPage from './RegisterPage'
 
 const Views = () => {
@@ -15,6 +16,7 @@ const Views = () => {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/dummy' element={<Dummy/>}/>
+        <Route path='/my-course' element={<MyCourse/>}/>
       </Routes>
     </div>
   )
