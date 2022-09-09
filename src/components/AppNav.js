@@ -70,14 +70,13 @@ const AppNav = () => {
               </DropdownToggle>
               {/* <DropdownToggle caret>Dropdown</DropdownToggle> */}
               <DropdownMenu>
-                <DropdownItem header>Header</DropdownItem>
-                <DropdownItem>Some Action</DropdownItem>
-                <DropdownItem text>Dropdown Item Text</DropdownItem>
-                <DropdownItem disabled>Action (disabled)</DropdownItem>
+                <DropdownItem>View Profile</DropdownItem>
+                <DropdownItem>Schedule</DropdownItem>
+                <DropdownItem>My Course</DropdownItem>
+                <DropdownItem>My School</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Foo Action</DropdownItem>
-                <DropdownItem>Bar Action</DropdownItem>
-                <DropdownItem>Quo Action</DropdownItem>
+                <DropdownItem>Setting</DropdownItem>
+                <DropdownItem>Logout</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             {/* <UncontrolledDropdown nav inNavbar>
