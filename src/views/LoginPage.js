@@ -45,7 +45,7 @@ const LoginPage = () => {
             </Form>
           </Row>
           <Row className='createacc'>
-            <p className="mt-3">Don’t have an Account? <Link to="/register">Create Account</Link> </p>
+            <p className="mt-3 mb-10">Don’t have an Account? <Link to="/register">Create Account</Link> </p>
           </Row>
         </Col>
       </Row>

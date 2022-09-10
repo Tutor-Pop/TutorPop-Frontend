@@ -60,7 +60,7 @@
   margin: 0;
 }
 
-h2:nth-child(2) {
+.sub-text h2:nth-child(2) {
   margin-bottom: 70px;
 }
 
@@ -100,7 +100,7 @@ h2:nth-child(2) {
 
 .cardlogin{
   width: 70%;
-  height: 40%;
+  /* height: 40%; */
   border-radius: 29px;
   position: fixed;
   top: 50%;
@@ -173,6 +173,10 @@ h2:nth-child(2) {
  padding-top: 3%;
 }
 
+.register-box h1 {
+  margin-top: 50px;
+}
+
 .register-btn{
   background-color: #000A65 !important;
   width: 96.5% !important;
@@ -189,6 +193,102 @@ h2:nth-child(2) {
 }
 
 /* Navbar Component */
+
+.nav {
+  z-index: 1000;
+  position: fixed;
+  background-color: white;
+  border: 1px solid black;
+}
+
 .nav-logo {
   width: 60px;
+}
+
+.nav-items {
+  flex-direction: row;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-app-icon {
+  width: 50px;
+  height: 50px;
+  padding-right: 10px;
+  box-sizing: content-box;
+  border-right: 2.5px solid black;
+}
+
+.nav-profile {
+  box-sizing: content-box;
+  padding-left: 15px;
+  border-left: 2.5px solid black;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  padding-left: 20px;
+  border-left: 2.5px solid black;
+}
+
+.nav-name {
+  margin: 0 10px;
+}
+
+.nav-title {
+  margin: 0;
+}
+
+/* App Container */
+
+.course-container {
+  margin: 0 10%;
+}
+
+.container-box {
+  height: 75vh;
+  background-color: #ECF3FD;
+}
+
+.course-select-btn {
+  display: flex;
+  text-align: center;
+}
+
+.select-left {
+  background-color: #ECF3FD;
+  margin: 0 10px 0 0;
+  padding: 5px 10%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.not-select-left {
+  background-color:#354052;
+  color: white;
+  margin: 0 10px 0 0;
+  padding: 5px 10%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.not-select-left:hover {
+  cursor: pointer;
 }
