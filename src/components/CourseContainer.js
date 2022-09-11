@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { Container } from 'reactstrap'
+import CourseCard from './CourseCard'
 
-const CourseContainer = () => {
+const CourseContainer = ({courseData}) => {
 
   const [isSelectLeft, setSelectLeft] = useState(true)
 
@@ -24,7 +26,9 @@ const CourseContainer = () => {
         </>
         }
       </div>
-      <div className='container-box'></div>
+      <div className='container-box'>
+        {courseData.map((course) => <CourseCard courseName={course.courseName}/>)}
+      </div>
     </div>
   )
 }
