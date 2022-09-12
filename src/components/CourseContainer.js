@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Container } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { Button, Container } from 'reactstrap'
 import CourseCard from './CourseCard'
 
 const CourseContainer = ({courseData}) => {
@@ -27,7 +28,19 @@ const CourseContainer = ({courseData}) => {
         }
       </div>
       <div className='container-box'>
-        {courseData.map((course) => <CourseCard courseName={course.courseName}/>)}
+        {courseData.map((course) => <CourseCard courseName={course.course_name}/>)}
+        { !isSelectLeft &&
+          <div className='create-course-btn'>
+            <Button
+                    className="login-btn"
+                    color="primary"
+                    size="md"
+                    
+                  >
+                    Create New Course
+            </Button>
+          </div>
+        }
       </div>
     </div>
   )

@@ -7,24 +7,32 @@ const Dummy = () => {
 
   const courseData = [
   {
-    'COURSE_ID' : '1',
-    'courseName' : 'Calculus for Baby',
+    'course_id' : '1',
+    'course_name' : 'High School Mathematics',
   },
   {
-    'COURSE_ID' : '2',
-    'courseName' : 'Theory of Computation',
+    'course_id' : '2',
+    'course_name' : 'Gordey Ramson Ultimate Cooking Course',
   },
   {
-    'COURSE_ID' : '3',
-    'courseName' : 'Basic Baking',
+    'course_id' : '3',
+    'course_name' : 'Basic Black Magic',
   },
   {
-    'COURSE_ID' : '4',
-    'courseName' : 'Calculus II',
+    'course_id' : '4',
+    'course_name' : 'Piano for kids',
   },
   {
-    'COURSE_ID' : '5',
-    'courseName' : 'Advance Black Magic',
+    'course_id' : '5',
+    'course_name' : 'Python for statistics',
+  },
+  {
+    'course_id' : '6',
+    'course_name' : 'Create Animation for beginner',
+  },
+  {
+    'course_id' : '7',
+    'course_name' : 'Advance Guitar Course',
   }
   ]
   
