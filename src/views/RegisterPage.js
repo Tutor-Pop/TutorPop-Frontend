@@ -31,33 +31,33 @@ const RegisterPage = () => {
   const validation = () => {};
 
   return (
-    <Container className="register">
-      <Row className="register-box">
-        <Row>
-          <h1 className="mb-10">Register</h1>
-        </Row>
-        <Row xs={1} md={2}>
-          <Col>
-            <Label for="firstname">
-              Firstname<span className="required-star">*</span>
-            </Label>
-            <Input
-              valid={valid.firstname}
-              invalid={invalid.firstname}
-              id="firstname"
-              type="text"
-              onChange={(e) => setFirstname(e.target.value)}
-            />
-          </Col>
-          <Col>
-            <Label for="lastname">
-              Lastname<span className="required-star">*</span>
-            </Label>
-            <Input id="lastname" type="text" />
-          </Col>
-        </Row>
-        <Row>
-          <Form>
+    <Form>
+      <Container className="register">
+        <Row className="register-box">
+          <Row>
+            <h1 className="mb-10">Register</h1>
+          </Row>
+          <Row xs={1} md={2}>
+            <Col>
+              <Label for="firstname">
+                Firstname<span className="required-star">*</span>
+              </Label>
+              <Input
+                valid={valid.firstname}
+                invalid={invalid.firstname}
+                id="firstname"
+                type="text"
+                onChange={(e) => setFirstname(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Label for="lastname">
+                Lastname<span className="required-star">*</span>
+              </Label>
+              <Input id="lastname" type="text" />
+            </Col>
+          </Row>
+          <Row>
             <FormGroup>
               <Label className="mt-3" for="User">
                 Username<span className="required-star">*</span>
@@ -84,37 +84,37 @@ const RegisterPage = () => {
                 type="password"
               />
             </FormGroup>
-          </Form>
-        </Row>
-        <Row md={2} xs={1}>
-          <Col>
+          </Row>
+          <Row md={2} xs={1}>
+            <Col>
+              <FormGroup>
+                <Label for="Email">
+                  Email<span className="required-star">*</span>
+                </Label>
+                <Input required={true} id="Email" type="email" />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label for="birthyear">Birthyear</Label>
+                <Input id="birthyear" type="number" />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
             <FormGroup>
-              <Label for="Email">
-                Email<span className="required-star">*</span>
-              </Label>
-              <Input required={true} id="Email" type="email" />
+              <Label for="description">Describe yourself</Label>
+              <Input id="description" name="text" type="textarea" />
             </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Label for="birthyear">Birthyear</Label>
-              <Input id="birthyear" type="number" />
-            </FormGroup>
-          </Col>
+          </Row>
+          <Row className="justify-evenly">
+            <Button className="register-btn my-20" color="primary" size="lg">
+              Register
+            </Button>
+          </Row>
         </Row>
-        <Row>
-          <FormGroup>
-            <Label for="description">Describe yourself</Label>
-            <Input id="description" name="text" type="textarea" />
-          </FormGroup>
-        </Row>
-        <Row className="justify-evenly">
-          <Button className="register-btn my-20" color="primary" size="lg">
-            Register
-          </Button>
-        </Row>
-      </Row>
-    </Container>
+      </Container>
+    </Form>
   );
 };
 
