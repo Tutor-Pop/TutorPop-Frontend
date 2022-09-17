@@ -1,46 +1,32 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Container } from 'reactstrap'
-import CourseCard from './CourseCard'
+import React from 'react'
 
-const CourseContainer = ({courseData}) => {
-
-  const [isSelectLeft, setSelectLeft] = useState(true)
-
-  const btnClickHandler = () => {
-    setSelectLeft(!isSelectLeft)
-  }
+const CourseContainer = (props) => {
+  const { leftText, rightText, isSelectLeft, onClick } = props
 
   return (
     <div className='course-container'>
       <div className='course-select-btn'>
-        { isSelectLeft &&
-        <>
-          <h2 className='select-left'>Study</h2>
-          <h2 onClick={btnClickHandler} className='not-select-left'>Teaching</h2>
-        </>
+        { (isSelectLeft === 1) &&
+          <>
+            <h2 className='select-left'>{leftText}</h2>
+            <h2 onClick={onClick} 
+                className='not-select-left'>{rightText}</h2>
+          </>
         }
-        { !isSelectLeft &&
-        <>
-          <h2 onClick={btnClickHandler} className='not-select-left'>Study</h2>
-          <h2 className='select-left'>Teaching</h2>
-        </>
+        { (isSelectLeft === 0) &&
+          <>
+            <h2 onClick={onClick} 
+                className='not-select-left'>{leftText}</h2>
+            <h2 className='select-left'>{rightText}</h2>
+          </>
         }
       </div>
       <div className='container-box'>
-        {courseData.map((course) => <CourseCard courseName={course.course_name}/>)}
-        { !isSelectLeft &&
-          <div className='create-course-btn'>
-            <Button
-                    className="login-btn"
-                    color="primary"
-                    size="md"
-                    
-                  >
-                    Create New Course
-            </Button>
-          </div>
-        }
+        {props.children}
+        {/* <CourseList courseData={courseData} 
+                    isSelectLeft={isSelectLeft}
+                    createCourseOption={createCourseOption}
+        />   */}
       </div>
     </div>
   )
