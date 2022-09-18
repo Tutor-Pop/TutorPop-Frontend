@@ -39,7 +39,11 @@ const Dummy = () => {
   return (
     <div className='dummy'>
       {/* <h1 className='app-title'>My Course</h1> */}
-      <CourseContainer courseData={courseData}/>
+      <CourseContainer 
+        courseData={courseData} 
+        leftText={'Study'} 
+        rightText={'Teaching'}
+      />
     </div>
   )
 }

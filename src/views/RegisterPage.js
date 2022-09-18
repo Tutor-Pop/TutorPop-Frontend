@@ -1,3 +1,4 @@
+import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 import React, { useEffect, useState } from "react";
 import {
   Button,
@@ -9,29 +10,48 @@ import {
   Label,
   Row,
 } from "reactstrap";
+import { getAllAccounts, register } from "../services/account.service";
 
 const RegisterPage = () => {
-  const [firstname, setFirstname] = useState("");
-  const [invalid, setInvalid] = useState({ firstname: false });
-  const [valid, setValid] = useState({ firstname: false });
+  const [firstname, setFirstname] = useState("")
+  const [validation,setValidation] = useState({ submit:false, username: false ,password:false,confirm_password: false})
+  const [allAccounts,setAllAccounts] = useState({})
 
-  useEffect(() => {
-    if (firstname == "abcde") {
-      setInvalid({ firstname: true });
-      setValid({ firstname: false });
-    } else if (firstname == "") {
-      setValid({ firstname: false });
-      setInvalid({ firstname: false });
-    } else {
-      setValid({ firstname: true });
-      setInvalid({ firstname: false });
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    const usernames_list = []
+    allAccounts.data.map(value => usernames_list.push(value.username))
+    console.log(usernames_list)
+
+    let valid_username = !usernames_list.includes(e.target.username.value)
+    let valid_password = e.target.password.value.length >= 8
+    let match_password = e.target.password.value == e.target.confirm_password.value
+    
+    setValidation({
+      ...validation,
+      submit: true,
+      username: valid_username,
+      password: valid_password,
+      confirm_password: match_password 
+    })
+
+    if(valid_username && valid_password && match_password){
+      console.log("VALID!")
     }
-  }, [firstname]);
+    else{
+      console.log("No")
+    }
+  } 
 
-  const validation = () => {};
+  useEffect(()=>{
+    getAllAccounts().then(
+      response => setAllAccounts(response.data)
+      )
+  },[])
 
   return (
-    <Form>
+    <Form onSubmit={(e)=>handleSubmit(e)}>
       <Container className="register">
         <Row className="register-box">
           <Row>
@@ -43,8 +63,8 @@ const RegisterPage = () => {
                 Firstname<span className="required-star">*</span>
               </Label>
               <Input
-                valid={valid.firstname}
-                invalid={invalid.firstname}
+                // valid={validation.submit && validation.firstname}
+                // invalid={validation.submit && !validation.firstname}
                 id="firstname"
                 type="text"
                 onChange={(e) => setFirstname(e.target.value)}
@@ -59,28 +79,37 @@ const RegisterPage = () => {
           </Row>
           <Row>
             <FormGroup>
-              <Label className="mt-3" for="User">
+              <Label className="mt-3" for="username">
                 Username<span className="required-star">*</span>
               </Label>
-              <Input required={true} className="input" id="User" />
+              <Input
+                valid={validation.submit && validation.username}
+                invalid={validation.submit && !validation.username}
+                required={true}
+                className="input"
+                id="username" />
 
-              <Label className="mt-3" for="Password">
+              <Label className="mt-3" for="password">
                 Password<span className="required-star">*</span>
               </Label>
               <Input
+                valid={validation.submit && validation.password}
+                invalid={validation.submit && !validation.password}
                 required={true}
                 className="input"
-                id="Password"
+                id="password"
                 type="password"
               />
 
-              <Label className="mt-3" for="Password">
+              <Label className="mt-3" for="confirm_password">
                 Confirm Password<span className="required-star">*</span>
               </Label>
               <Input
+                valid={validation.submit && validation.confirm_password}
+                invalid={validation.submit && !validation.confirm_password}
                 required={true}
                 className="input"
-                id="Password"
+                id="confirm_password"
                 type="password"
               />
             </FormGroup>
@@ -88,16 +117,16 @@ const RegisterPage = () => {
           <Row md={2} xs={1}>
             <Col>
               <FormGroup>
-                <Label for="Email">
+                <Label for="email">
                   Email<span className="required-star">*</span>
                 </Label>
-                <Input required={true} id="Email" type="email" />
+                <Input required={true} id="email" type="email" />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup>
-                <Label for="birthyear">Birthyear</Label>
-                <Input id="birthyear" type="number" />
+                <Label for="year_of_birth">Birthyear</Label>
+                <Input id="year_of_birth" type="number" />
               </FormGroup>
             </Col>
           </Row>
@@ -108,7 +137,7 @@ const RegisterPage = () => {
             </FormGroup>
           </Row>
           <Row className="justify-evenly">
-            <Button className="register-btn my-20" color="primary" size="lg">
+            <Button className="register-btn my-20" type="submit" color="primary" size="lg">
               Register
             </Button>
           </Row>
