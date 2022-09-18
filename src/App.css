@@ -367,9 +367,14 @@
   background-color: #D9D9D9;
 }
 
-/* dummy page (for testing component) */
+/* My Course Page */
 .my-course {
   padding-top: 100px;
+  margin: 0 10%;
+}
+
+.my-course h1 {
+  margin-top: 5px;
 }
 
 /* CoursePayment */
@@ -409,8 +414,4 @@
   margin-left: 10%;
   margin-top: 2%;
   margin: 0 200px 100px;
-}
-
-.my-course h1 {
-  margin-top: 5px;
 }
