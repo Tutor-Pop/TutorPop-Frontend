@@ -365,3 +365,41 @@
 .dummy {
   padding-top: 100px;
 }
+
+/* CoursePayment */
+.PaymentCard{
+  padding-top: 4%;
+}
+
+.cost{
+  text-align: right;
+}
+
+.paymentcard{
+  /* border: #000000 solid 1px; */
+  margin-top: 40px;
+  padding: 50px;
+  border-radius: 25px;
+  margin-right: 10%;
+  margin-left: 10%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.pay-btn{
+  background-color: #FFAA06 !important;
+  margin-top: 40px;
+  border: none !important;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 3 ๆ0px;
+}
+
+.div-pay-btn{
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-info-text{
+  margin-left: 10%;
+  margin-top: 2%;
+}

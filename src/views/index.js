@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import CounterPage from './CounterPage'
+import CoursePayment from './CoursePayment';
 import Dummy from './Dummy';
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
@@ -17,6 +18,7 @@ const Views = () => {
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/dummy' element={<Dummy/>}/>
         <Route path='/my-course' element={<MyCourse/>}/>
+        <Route path='/course-payment' element={<CoursePayment/>}/>
       </Routes>
     </div>
   )
