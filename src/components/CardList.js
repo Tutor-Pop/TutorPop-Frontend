@@ -2,12 +2,12 @@ import React from 'react'
 import { Button } from 'reactstrap'
 import CourseCard from './CourseCard'
 
-const CardList = ({ courseData, isSelectLeft, createCourseOption }) => {
+const CardList = ({ courseData=[], createCourseOption=false }) => {
   
   return (
     <div className='card-list-box'>
-      {courseData[isSelectLeft].map((course) => <CourseCard courseName={course.course_name}/>)}
-      { !isSelectLeft && createCourseOption &&
+      {courseData.map((course) => <CourseCard courseName={course.course_name}/>)}
+      { createCourseOption &&
         <div>
           <Button
                   className="create-course-btn"

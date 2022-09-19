@@ -4,12 +4,12 @@ import CardList from '../components/CardList'
 
 const MyCourse = () => {
 
-  const [isSelectLeft, setSelectLeft] = useState(1)
+  const [isSelectRight, setSelectRight] = useState(0)
 
-  const onClick = ({ leftText , rightText }) => {
-    if (isSelectLeft)  
-      setSelectLeft(0)
-    else setSelectLeft(1)
+  const onClick = () => {
+    if (isSelectRight)  
+      setSelectRight(0)
+    else setSelectRight(1)
   }
 
   const studyCourse = [{
@@ -78,8 +78,8 @@ const MyCourse = () => {
     }]
 
   const courseData = [
-    teachCourse ,
-    studyCourse
+    studyCourse ,
+    teachCourse 
   ]
 
   return (
@@ -88,14 +88,22 @@ const MyCourse = () => {
       <CourseContainer
         leftText={'Study'} 
         rightText={'Teaching'}
-        isSelectLeft={isSelectLeft}
+        isSelectRight={isSelectRight}
         onClick={onClick}
       > 
-        <CardList 
-          courseData={courseData} 
-          isSelectLeft={isSelectLeft} 
-          createCourseOption={true}
-        />
+        { (isSelectRight === 0) &&
+          <CardList 
+            courseData={courseData[0]} 
+            createCourseOption={false}
+          />
+        }
+        {
+          (isSelectRight === 1) &&
+          <CardList 
+            courseData={courseData[1]} 
+            createCourseOption={true}
+          />
+        }
       </CourseContainer>
     </div>
   )
