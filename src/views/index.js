@@ -7,6 +7,7 @@ import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import MyCourse from './MyCourse';
 import RegisterPage from './RegisterPage'
+import SchoolDetail from './SchoolDetail';
 
 const Views = () => {
   return (
@@ -19,6 +20,7 @@ const Views = () => {
         <Route path='/dummy' element={<Dummy/>}/>
         <Route path='/my-course' element={<MyCourse/>}/>
         <Route path='/course-payment' element={<CoursePayment/>}/>
+        <Route path='/school/:schoolid' element={<SchoolDetail/>}/>
       </Routes>
     </div>
   )

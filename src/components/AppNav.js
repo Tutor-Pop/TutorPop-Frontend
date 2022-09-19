@@ -94,7 +94,7 @@ const AppNav = () => {
             </>
           }
           {!isLogin &&
-            <NavItem className='nav-profile'>
+            <NavItem className='nav-login'>
               <NavLink href="/login"> <h5>Login</h5></NavLink>
             </NavItem>
           }
