@@ -6,6 +6,7 @@ import Dummy from './Dummy';
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import MyCourse from './MyCourse';
+import OurTeachers from './OurTeachers';
 import RegisterPage from './RegisterPage'
 import SchoolDetail from './SchoolDetail';
 
@@ -21,6 +22,7 @@ const Views = () => {
         <Route path='/my-course' element={<MyCourse/>}/>
         <Route path='/course-payment' element={<CoursePayment/>}/>
         <Route path='/school/:schoolid' element={<SchoolDetail/>}/>
+        <Route path='/school/:schoolid/teachers' element={<OurTeachers/>}/>
       </Routes>
     </div>
   )

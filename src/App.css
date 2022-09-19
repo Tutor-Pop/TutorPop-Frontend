@@ -197,8 +197,7 @@
 .nav {
   z-index: 1000;
   position: fixed;
-  background-color: white;
-  border: 1px solid black;
+  background-color: #0078AA;
 }
 
 .nav-logo {
@@ -227,13 +226,14 @@
   height: 50px;
   padding-right: 10px;
   box-sizing: content-box;
-  border-right: 2.5px solid black;
+  border-right: 2.5px solid rgb(255, 255, 255);
+  object-fit: contain;
 }
 
 .nav-login {
   box-sizing: content-box;
   padding-left: 15px;
-  border-left: 2.5px solid black;
+  border-left: 2.5px solid rgb(255, 255, 255);
 }
 
 .navbar-nav {
@@ -245,15 +245,17 @@
   align-items: center;
   box-sizing: content-box;
   padding-left: 20px;
-  border-left: 2.5px solid black;
+  border-left: 2.5px solid rgb(255, 255, 255);
 }
 
 .nav-name {
   margin: 0 10px;
+  color: white;
 }
 
 .nav-title {
   margin: 0;
+  color: white;
 }
 
 /* Course Container */
@@ -265,7 +267,7 @@
 .container-box {
   text-align: center;
   height: 66vh;
-  background-color: #ECF3FD;
+  background-color: #F2EECE;
   padding: 20px 17.5%;
   overflow: hidden;
   overflow-y: scroll;
@@ -277,11 +279,11 @@
 }
 
 .container-box::-webkit-scrollbar-track {
-  background-color: #ECF3FD;
+  background-color: #F2EECE;
 }
 
 .container-box::-webkit-scrollbar-thumb {
-  background-color: #94a7c2;
+  background-color: #ca8020;
   border-radius: 5px;
 }
 
@@ -291,7 +293,7 @@
 }
 
 .select-left {
-  background-color: #ECF3FD;
+  background-color: #F2EECE;
   margin: 0 10px 0 0;
   padding: 5px 10%;
   border-top-left-radius: 10px;
@@ -299,8 +301,7 @@
 }
 
 .not-select-left {
-  background-color:#354052;
-  color: white;
+  background-color: white;
   margin: 0 10px 0 0;
   padding: 5px 10%;
   border-top-left-radius: 10px;
@@ -313,8 +314,9 @@
 
 .create-course-btn {
   margin: 30px auto 0;
-  width: 50%;
-  background-color: #000A65 !important;
+  width: 20%;
+  background-color: #FFAA06 !important;
+  border: none;
 }
 
 /* Card List */
@@ -469,4 +471,56 @@
 
 .our-teacher-item {
   margin-left: 10px;
+}
+
+/* Our Teachers Page */
+
+.our-teachers {
+  padding-top: 75px;
+}
+
+.our-teachers-title {
+  text-align: center;
+  margin: 2.5% 0;
+}
+
+.teacher-container {
+  background-color: #FFF8CB;
+  width: 60%;
+  padding: 3.5% 0;
+  border-radius: 50px;
+  margin-bottom: 75px;
+}
+
+.teacher-container h3 {
+  padding: 0 10%;
+}
+
+.teacher-box {
+  width: 80%;
+  margin: 5% auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.teacher-card {
+  width: 25%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.teacher-card h5 {
+  margin-top: 10px;
+  color: #000000;
+}
+
+.user-profile-big {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0 auto;
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
+  border: black 2px solid;
 }

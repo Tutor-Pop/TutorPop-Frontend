@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import '../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import AppLogo from '../img/logo-color.png'
-import Heart from '../img/heart.png'
-import Bell from '../img/bell.png'
-import Support from '../img/support.png'
-import UserProfile from '../img/user.png'
+import AppLogo from '../img/logo-white-no-name.png'
+import Heart from '../img/heart-white.png'
+import Bell from '../img/bell-white.png'
+import Support from '../img/support-white.png'
+import UserProfile from '../img/user-white.png'
 
 import {
   Collapse,
