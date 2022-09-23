@@ -2,11 +2,21 @@ import React from 'react'
 import { Button } from 'reactstrap'
 import CourseCard from './CourseCard'
 
-const CardList = ({ courseData=[], createCourseOption=false }) => {
+const CardList = ({ courseData=[], 
+                    createCourseOption=false, 
+                    toggleProgressBar=false, 
+                    toggleFavorite=false}) => {
   
   return (
     <div className='card-list-box'>
-      {courseData.map((course) => <CourseCard courseName={course.course_name}/>)}
+      {courseData.map((course) => 
+          <CourseCard 
+            courseName={course.course_name} 
+            toggleProgressBar={toggleProgressBar}
+            toggleFavorite={toggleFavorite} 
+          />
+        )
+      }
       { createCourseOption &&
         <div>
           <Button
@@ -21,5 +31,5 @@ const CardList = ({ courseData=[], createCourseOption=false }) => {
     </div>
   )
 }
-
+  
 export default CardList

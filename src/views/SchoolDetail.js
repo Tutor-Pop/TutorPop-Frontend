@@ -6,6 +6,7 @@ import SchoolBanner from '../img/logo-white.png'
 
 import Favorite from '../img/heart.png'
 import Homepage from './Homepage'
+import FavButton from '../components/FavButton'
 
 const SchoolDetail = () => {
 
@@ -83,13 +84,11 @@ const SchoolDetail = () => {
         <img className='school-banner' src={SchoolBanner} alt='School-Banner'/>
       </div>
       <Container className='school-main'>
-        <Row className='school-title'>
-          <Col><h2>School Name</h2></Col>
-          <Col>
-            <img 
-                className='school-add-favorite' 
-                src={Favorite} alt='add-favorite'/>
-          </Col>
+        <Row>
+          <div className='school-title'>
+            <h2>School Name</h2>
+            <FavButton/>
+          </div>
         </Row>
         <Row className='description-teacher'>
           <Col xs='8' className='school-description'>
@@ -135,6 +134,7 @@ const SchoolDetail = () => {
         <h2>Our Courses</h2>
           <CardList 
             courseData={schoolCourses}
+            toggleFavorite={true}
           />
       </Container>
     </div>

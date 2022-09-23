@@ -350,6 +350,11 @@
   overflow: hidden;
 }
 
+.course-card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
 .course-progress-bar {
   width: 80%;
   height: 7.5px;
@@ -367,6 +372,18 @@
   height: 100%;
   width: 80%;
   background-color: #D9D9D9;
+}
+
+/* Favorite Button */
+
+.favorite-btn {
+  width: 30px;
+  height: 30px;
+}
+
+
+.favorite-btn:hover {
+  cursor: pointer;
 }
 
 /* My Course Page */
@@ -441,6 +458,8 @@
 }
 
 .school-title {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 

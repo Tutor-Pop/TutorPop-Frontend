@@ -95,6 +95,7 @@ const MyCourse = () => {
           <CardList 
             courseData={courseData[0]} 
             createCourseOption={false}
+            toggleProgressBar={true}
           />
         }
         {
@@ -102,6 +103,7 @@ const MyCourse = () => {
           <CardList 
             courseData={courseData[1]} 
             createCourseOption={true}
+            toggleProgressBar={true}
           />
         }
       </CourseContainer>
