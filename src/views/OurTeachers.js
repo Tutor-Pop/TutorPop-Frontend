@@ -9,43 +9,61 @@ const OurTeachers = () => {
     'teachers': [
       {
         'user_id' : '1',
-        'firstname' : 'John',
+        'firstname' : 'Jean',
         'lastname' : 'Doe',
-        'picture_url' : 'https://preview.redd.it/9ihwu3ac1g141.jpg?auto=webp&s=3b84341603c04630e236eebfdb15453bf3deb413',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
       },
       {
         'user_id' : '2',
         'firstname' : 'Jane',
         'lastname' : 'Doe',
-        'picture_url' : 'https://i.pinimg.com/736x/14/1a/11/141a112d04cc0fdde06e58b8bc95ddf6.jpg',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
       },
       {
         'user_id' : '3',
         'firstname' : 'Joe',
         'lastname' : 'Doe',
-        'picture_url' : 'https://us-fbcloud.net/wb/data/1314/1314666-img.uwfmik.6.jpg',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
       },
       {
         'user_id' : '4',
         'firstname' : 'Jean',
         'lastname' : 'Doe',
-        'picture_url' : 'https://us-fbcloud.net/wb/data/1314/1314666-img.uwfmik.6.jpg',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
       },
       {
         'user_id' : '5',
         'firstname' : 'Joey',
         'lastname' : 'Doe',
-        'picture_url' : 'https://us-fbcloud.net/wb/data/1314/1314666-img.uwfmik.6.jpg',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
       },
       {
         'user_id' : '6',
         'firstname' : 'Jack',
         'lastname' : 'Doe',
-        'picture_url' : 'https://us-fbcloud.net/wb/data/1314/1314666-img.uwfmik.6.jpg',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
+      },
+      {
+        'user_id' : '7',
+        'firstname' : 'Jean',
+        'lastname' : 'Doe',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
+      },
+      {
+        'user_id' : '8',
+        'firstname' : 'Joey',
+        'lastname' : 'Doe',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
+      },
+      {
+        'user_id' : '9',
+        'firstname' : 'Jack',
+        'lastname' : 'Doe',
+        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
       },
       
     ]
-  }
+}
 
   const teachersData = schoolTeachers.teachers
 
