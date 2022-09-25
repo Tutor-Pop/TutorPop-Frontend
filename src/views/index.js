@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import CounterPage from './CounterPage'
 import CoursePayment from './CoursePayment';
 import Dummy from './Dummy';
+import FavoritePage from './FavoritePage';
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import MyCourse from './MyCourse';
@@ -23,6 +24,7 @@ const Views = () => {
         <Route path='/course-payment' element={<CoursePayment/>}/>
         <Route path='/school/:schoolid' element={<SchoolDetail/>}/>
         <Route path='/school/:schoolid/teachers' element={<OurTeachers/>}/>
+        <Route path='/favorite' element={<FavoritePage/>}/>
       </Routes>
     </div>
   )

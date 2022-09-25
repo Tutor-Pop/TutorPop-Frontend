@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import CourseContainer from '../components/CourseContainer'
 import CardList from '../components/CardList'
 
@@ -64,23 +64,10 @@ const MyCourse = () => {
       },
     ]
 
-  const school = [
-    {
-      'school_id': '1',
-      'name' : 'We "Buy" The Brain School',
-      'description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
-      'address' : '345 Sesame Street, Bangkok'
-    }
-  ]
-
   const courseData = [
     studyCourse ,
-    school 
+    teachCourse
   ]
-
-  useEffect(() => {
-    console.log(courseData[0], courseData[1])
-  }, [])
 
   return (
     <div className='my-course'>
@@ -103,7 +90,7 @@ const MyCourse = () => {
         {
           (isSelectRight === 1) &&
           <CardList
-            cardType='school' 
+            cardType='course' 
             cardData={courseData[1]} 
             createCourseOption={false}
             toggleProgress={false}
