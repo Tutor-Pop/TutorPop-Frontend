@@ -15,38 +15,74 @@ const SchoolDetail = () => {
   const schoolCourses = [{
     'course_id' : '8',
     'course_name' : 'Calculus I',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '9',
     'course_name' : 'Calculus II',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '10',
     'course_name' : 'Calculus III',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '11',
     'course_name' : 'Linear Algebra',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '12',
     'course_name' : 'AP Calculus',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '13',
     'course_name' : 'Physics I',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '14',
     'course_name' : 'Physics II',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '15',
     'course_name' : 'Basic Probability',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   },
   {
     'course_id' : '16',
     'course_name' : 'Advance Statistics',
+    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+    'course_price' : '2500฿',
+    'school_name' : 'School 1',
+    'school_address' : '123 Street, Bangkok'
   }]
 
   const schoolTeachers = {
@@ -133,7 +169,8 @@ const SchoolDetail = () => {
       <Container className='school-course-list'>
         <h2>Our Courses</h2>
           <CardList 
-            courseData={schoolCourses}
+            cardType='course'
+            cardData={schoolCourses}
             toggleFavorite={true}
           />
       </Container>
