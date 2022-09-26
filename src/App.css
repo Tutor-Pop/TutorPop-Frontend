@@ -582,3 +582,35 @@
 .favorite-page-container {
   margin: 50px auto;
 }
+
+/* School Editing */
+
+.school-editing {
+  font-style: inherit;
+  font-size: 20px;
+}
+
+.school-editing-box {
+  margin: 0 auto;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 75px;
+}
+
+.school-editing-box .form-label {
+  padding: 0;
+}
+
+.school-editing-box h1 {
+  margin-top: 50px;
+}
+
+.edit-save-btn {
+  margin-top: 30px;
+  background-color: #FFAA06 !important;
+  border: none;
+}
+
+.form-control {
+  border: 2px solid black
+}
