@@ -614,3 +614,69 @@
 .form-control {
   border: 2px solid black
 }
+
+/* My Profile */
+
+.my-profile {
+  padding-top: 75px;
+  display: flex;
+}
+
+.my-profile-picture-box {
+  background-color: #F2EECE;
+  width: 35%;
+  height: 100vh;
+}
+
+.my-profile-info {
+  width: 65%;
+  padding: 50px 7.5%;
+}
+
+.info-container .row:nth-of-type(1) {
+  border-top: 1px solid rgb(196, 196, 196);
+}
+
+.info-container .row:nth-of-type(n) {
+  border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+.my-profile-info h5 {
+  font-weight: 300;
+}
+
+.picture-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.picture-container img {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 50%;
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
+  margin: 0 auto;
+}
+
+.change-profile-btn {
+  background-color: #FFAA06 !important;
+  border: none;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.edit-user-info-btn {
+  background-color: #FFAA06 !important;
+  border: none;
+  width: 50%;
+}
+
+.link-change-password {
+  text-align: end;
+}
+
+/* My Profile Edit */
+
+.my-profile-edit {
+  padding-top: 75px;
+}

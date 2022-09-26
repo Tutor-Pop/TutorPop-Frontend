@@ -7,6 +7,8 @@ import FavoritePage from './FavoritePage';
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import MyCourse from './MyCourse';
+import MyProfile from './MyProfile';
+import MyProfileEdit from './MyProfileEdit';
 import OurTeachers from './OurTeachers';
 import RegisterPage from './RegisterPage'
 import SchoolDetail from './SchoolDetail';
@@ -27,6 +29,8 @@ const Views = () => {
         <Route path='/school/:schoolid/teachers' element={<OurTeachers/>}/>
         <Route path='/favorite' element={<FavoritePage/>}/>
         <Route path='/school/:schoolid/edit' element={<SchoolEditing/>}/>
+        <Route path='/my-profile' element={<MyProfile/>}/>
+        <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
       </Routes>
     </div>
   )
