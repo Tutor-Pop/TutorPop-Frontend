@@ -9,6 +9,7 @@ import MyCourse from './MyCourse';
 import OurTeachers from './OurTeachers';
 import RegisterPage from './RegisterPage'
 import SchoolDetail from './SchoolDetail';
+import Test from './Test';
 
 const Views = () => {
   return (
@@ -23,6 +24,7 @@ const Views = () => {
         <Route path='/course-payment' element={<CoursePayment/>}/>
         <Route path='/school/:schoolid' element={<SchoolDetail/>}/>
         <Route path='/school/:schoolid/teachers' element={<OurTeachers/>}/>
+        <Route path='/test' element={<Test/>}/>
       </Routes>
     </div>
   )
