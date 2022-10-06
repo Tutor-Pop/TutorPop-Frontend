@@ -81,6 +81,7 @@
 .link-text:hover {
   background-color: rgba(255,255,255, 0.2);
   transition: background-color 0.5s;
+  color: white;
 }
 
 
@@ -127,7 +128,6 @@
 }
 
 .login-btn{
-  background-color: #000A65 !important;
   width: 100% !important;
   border: none;
 }
@@ -178,7 +178,6 @@
 }
 
 .register-btn{
-  background-color: #000A65 !important;
   width: 96.5% !important;
   border: none;
 }
@@ -196,7 +195,7 @@
 
 .nav {
   z-index: 1000;
-  position: fixed;
+  position: fixed !important;
   background-color: #0078AA;
 }
 
@@ -238,14 +237,19 @@
 
 .navbar-nav {
   align-items: center;
+  flex-direction: row !important;
 }
 
 .dropdown-toggle {
   display: flex;
   align-items: center;
   box-sizing: content-box;
-  padding-left: 20px;
+  padding-left: 20px !important;
   border-left: 2.5px solid rgb(255, 255, 255);
+}
+
+.nav-link {
+  display: flex !important;
 }
 
 .nav-name {
@@ -500,12 +504,13 @@
 }
 
 .school-teacher-list {
+  display: flex;
   height: 100px;
   width: 75%;
   overflow: hidden;
 }
 
-.teacher-item-link {
+.row .teacher-item-link {
   margin: 0 0 15px 10px;
   padding: 0;
   width: 40px;
@@ -659,14 +664,12 @@
 }
 
 .change-profile-btn {
-  background-color: #FFAA06 !important;
   border: none;
   margin: 0 auto;
   width: 100%;
 }
 
 .edit-user-info-btn {
-  background-color: #FFAA06 !important;
   border: none;
   width: 50%;
 }
@@ -680,3 +683,4 @@
 .my-profile-edit {
   padding-top: 75px;
 }
+

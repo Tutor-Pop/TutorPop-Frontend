@@ -20,7 +20,7 @@ const MyProfile = () => {
         <h1 className='m-5'>My Profile</h1>
         <div className='picture-container'>
           <img src={userInfo.picture_url}></img>
-          <Button size='lg' className='change-profile-btn mt-5'>Change Profile Picture</Button>
+          <Button color='primary' size='lg' className='change-profile-btn mt-5'>Change Profile Picture</Button>
         </div>
       </div>
       <div className='my-profile-info'>
@@ -54,7 +54,7 @@ const MyProfile = () => {
         </Container>
         <Row className='mt-5'>
           <Col>
-            <Button size='lg' className='edit-user-info-btn'>Edit Info</Button>
+            <Button color='primary' size='lg' className='edit-user-info-btn'>Edit Info</Button>
           </Col>
           <Col className='link-change-password mt-auto mb-auto'>
             <Link to='/change-password'>Change Password</Link>

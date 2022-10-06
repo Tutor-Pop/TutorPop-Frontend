@@ -143,9 +143,6 @@ const SchoolDetail = () => {
         },
       ]
   }
-
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggle = () => setTooltipOpen(!tooltipOpen);
   
   const teachersData = schoolTeachers.teachers;
 

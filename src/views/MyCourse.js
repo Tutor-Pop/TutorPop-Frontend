@@ -92,8 +92,8 @@ const MyCourse = () => {
           <CardList
             cardType='course' 
             cardData={courseData[1]} 
-            createCourseOption={false}
-            toggleProgress={false}
+            createCourseOption={true}
+            toggleProgress={true}
             toggleFavorite={true}
           />
         }

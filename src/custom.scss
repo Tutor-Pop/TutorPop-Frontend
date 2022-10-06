@@ -1,0 +1,27 @@
+// change the theme
+$theme-colors: (
+  "primary": #FFAA06,
+  "secondary": #FFFFFF,
+);
+
+.btn-primary {
+  color: white !important;
+}
+
+.btn-secondary {
+  color: #FFAA06 !important;
+  border: #FFAA06 2px solid !important;
+}
+
+.btn-primary:hover {
+  color: black !important;
+}
+
+.btn-secondary:hover {
+  background-color: #fff3da !important;
+}
+
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/buttons'
