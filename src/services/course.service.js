@@ -17,15 +17,15 @@ export async function deleteCourse(school_id,course_id){
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}`)
 }
 
-export async function getStudent(school_id,course_id){
+export async function getStudents(school_id,course_id){
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}/students`)
 }
 
-export async function getTeacher(school_id,course_id){
+export async function getTeachers(school_id,course_id){
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}/teachers`)
 }
 
-export async function updateTeacher(school_id,course_id,body){
+export async function updateTeachers(school_id,course_id,body){
     return axios.put(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}/teachers`,body)
 }
 
