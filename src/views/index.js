@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import '../custom.scss'
+import ChangePassword from './ChangePassword';
 import CounterPage from './CounterPage'
 import CoursePayment from './CoursePayment';
 import Dummy from './Dummy';
@@ -32,6 +33,7 @@ const Views = () => {
         <Route path='/school/:schoolid/edit' element={<SchoolEditing/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>
         <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
+        <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
       </Routes>
     </div>
   )

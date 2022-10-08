@@ -54,10 +54,14 @@ const MyProfile = () => {
         </Container>
         <Row className='mt-5'>
           <Col>
-            <Button color='primary' size='lg' className='edit-user-info-btn'>Edit Info</Button>
+            <Link className='link-btn-text' to='/my-profile/edit'>
+              <Button color='primary' size='lg' className='edit-user-info-btn'>
+                  Edit Info
+              </Button>
+            </Link>
           </Col>
           <Col className='link-change-password mt-auto mb-auto'>
-            <Link to='/change-password'>Change Password</Link>
+            <Link to='/my-profile/change-password'>Change Password</Link>
           </Col>
         </Row>
       </div>

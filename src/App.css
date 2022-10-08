@@ -610,12 +610,6 @@
   margin-top: 50px;
 }
 
-.edit-save-btn {
-  margin-top: 30px;
-  background-color: #FFAA06 !important;
-  border: none;
-}
-
 .form-control {
   border: 2px solid black
 }
@@ -684,3 +678,20 @@
   padding-top: 75px;
 }
 
+/* Change Password Page */
+
+.change-password-page {
+  padding-top: 75px;
+}
+
+.edit-save-btn,
+.edit-cancel-btn {
+  width: 100%;
+}
+
+/* General Button Style (Link)*/
+
+.link-btn-text {
+  color: inherit;
+  text-decoration: none;
+}

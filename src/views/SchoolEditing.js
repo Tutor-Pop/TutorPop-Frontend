@@ -1,6 +1,6 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import { Button, Container, Form, Input, Label, Row } from 'reactstrap'
+import { Link, useParams } from 'react-router-dom'
+import { Button, Col, Container, Form, Input, Label, Row } from 'reactstrap'
 
 const SchoolEditing = () => {
 
@@ -10,6 +10,8 @@ const SchoolEditing = () => {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus sem, fermentum ut cursus nec, cursus id sem. Nulla justo enim, lacinia quis sagittis id, vehicula vel ligula. Mauris justo nisl, feugiat eu auctor ut, venenatis vel mi. Phasellus sed arcu semper, lacinia libero eget, feugiat velit. Pellentesque imperdiet in ex et tempus.',
     address: '123 Building A, Bangkok'
   }
+  
+  const { schoolid } = useParams()
 
   const { name, description, address } = school;
 
@@ -50,11 +52,22 @@ const SchoolEditing = () => {
                      required={true} 
               />
             </Row>
-            <Row className='justify-evenly'>
-              <Button className="edit-save-btn my-12" type="submit" color="primary" size="lg">
-                Save
-              </Button>
-            </Row>    
+            <Row className="justify-evenly mt-4">
+              <Col>
+                <Link className='link-btn-text' to={`/school/${schoolid}`}>
+                  <Button className="edit-save-btn" type="submit" color="primary" size="lg">
+                    Save
+                  </Button>
+                </Link>
+              </Col>
+              <Col>
+                <Link className='link-btn-text' to={`/school/${schoolid}`}>
+                  <Button className='edit-cancel-btn' color='secondary' size='lg'>
+                    Cancel
+                  </Button>
+                </Link>
+              </Col>
+            </Row> 
           </Row>
         </Container>
       </Form>
