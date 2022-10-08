@@ -1,26 +1,19 @@
-import axios from "axios";
-import { URL } from "../constants/service.constant";
-const API = "http://localhost:8000/api"
+const axios = require('axios')
+const { BACKEND_URL } = require('../constants/service.constant')
 
-const REGISTER = `${API}/register` 
-
-export async function register(target){
-    return axios.post(URL.Account.Register,{
-            firstname: target.firstname.value,
-            lastname: target.lastname.value,
-            username: target.username.value,
-            password: target.password.value,
-            email: target.email.value,
-            year_of_birth: target.year_of_birth.value,
-            description: target.description.value,
-        }
-    )
+export async function getAccount(account_id){
+    return axios.get(`${BACKEND_URL}/accounts/${account_id}`)
 }
 
-export async function getAllAccounts(offset,limit){
-    return axios.get(`${URL.Account.GetAllAccounts}`)
+export async function updateAccount(account_id,body){
+    return axios.put(`${BACKEND_URL}/accounts/${account_id}`,body)
 }
 
-export async function getAccount(id){
-    return axios.get(`${URL.Account.GetAccount}/${id}`)
+export async function deleteAccount(account_id){
+    return axios.delete(`${BACKEND_URL}/accounts/${account_id}`)
+}
+
+export async function getAllAccounts(is_verified=false,year_of_birth=-1){
+    let queryParams = `is_verified=${is_verified}&year_of_birth=${year_of_birth}`
+    return axios.get(`${BACKEND_URL}/accounts?${queryParams}`)
 }
