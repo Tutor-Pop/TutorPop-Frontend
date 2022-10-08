@@ -689,9 +689,35 @@
   width: 100%;
 }
 
+/* School Register */
+
+.school-register {
+  padding-top: 75px;
+}
+
+.school-register-btn {
+  width: 100%;
+}
+
+.reply-text {
+  font-size: medium;
+  text-align: center;
+  color: rgb(148, 148, 148);
+}
+
 /* General Button Style (Link)*/
 
 .link-btn-text {
   color: inherit;
   text-decoration: none;
+}
+
+.school-payment {
+  padding-top: 75px;
+}
+
+.schoolpay-qr {
+  width: 100px;
+  height: 100px;
+  background-color: #354052;
 }

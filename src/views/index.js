@@ -15,6 +15,8 @@ import OurTeachers from './OurTeachers';
 import RegisterPage from './RegisterPage'
 import SchoolDetail from './SchoolDetail';
 import SchoolEditing from './SchoolEditing';
+import SchoolPayment from './SchoolPayment';
+import SchoolRegister from './SchoolRegister';
 
 const Views = () => {
   return (
@@ -34,6 +36,8 @@ const Views = () => {
         <Route path='/my-profile' element={<MyProfile/>}/>
         <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
         <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
+        <Route path='/school-register' element={<SchoolRegister/>}/>
+        <Route path='/school-payment-temp' element={<SchoolPayment/>}/>
       </Routes>
     </div>
   )
