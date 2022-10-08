@@ -8,3 +8,5 @@ function getRoom(school_id,room_id){
 function updateRoom(school_id,room_id,body){
     return axios.put(`${BACKEND_URL}/api/schools/${school_id}/rooms/${room_id}`,body)
 }
+
+// NOT DONE YET
