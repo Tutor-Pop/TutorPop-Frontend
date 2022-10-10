@@ -13,7 +13,7 @@ export async function deleteAccount(account_id){
     return axios.delete(`${BACKEND_URL}/accounts/${account_id}`)
 }
 
-export async function getAllAccounts(is_verified=false,year_of_birth=-1){
+export async function getAllAccounts(is_verified=0,year_of_birth=-1){
     let queryParams = `is_verified=${is_verified}&year_of_birth=${year_of_birth}`
     return axios.get(`${BACKEND_URL}/accounts?${queryParams}`)
 }

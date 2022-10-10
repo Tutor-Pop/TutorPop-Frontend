@@ -10,7 +10,8 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import { getAllAccounts, register } from "../services/account.service";
+import { getAllAccounts } from "../services/account.service";
+import { register } from "../services/auth.service";
 
 const RegisterPage = () => {
   const [firstname, setFirstname] = useState("")
@@ -21,7 +22,8 @@ const RegisterPage = () => {
     e.preventDefault()
     
     const usernames_list = []
-    allAccounts.data.map(value => usernames_list.push(value.username))
+    console.log(allAccounts)
+    allAccounts.result.map(value => usernames_list.push(value.username))
     console.log(usernames_list)
 
     let valid_username = !usernames_list.includes(e.target.username.value)
@@ -37,7 +39,21 @@ const RegisterPage = () => {
     })
 
     if(valid_username && valid_password && match_password){
-      console.log("VALID!")
+      const registration_body = {
+        firstname: e.target.firstname ? e.target.firstname.value : null,
+        lastname: e.target.lastname ? e.target.lastname.value : null,
+        username: e.target.username ? e.target.username.value : null,
+        password: e.target.password ? e.target.password.value : null,
+        email: e.target.email ? e.target.email.value : null,
+        year_of_birth: e.target.year_of_birth ? e.target.year_of_birth.value : null,
+        description: e.target.description ? e.target.description.value : null,
+        profile_picture: "",
+        is_verified: false,
+        is_deleted: false,
+      }
+      register(registration_body).then((response)=>{
+        alert("Registration Completed!")
+      }).catch((err)=> console.log('ERROR',err))
     }
     else{
       console.log("No")
@@ -46,7 +62,7 @@ const RegisterPage = () => {
 
   useEffect(()=>{
     getAllAccounts().then(
-      response => setAllAccounts(response.data)
+        response => setAllAccounts(response.data)
       )
   },[])
 
