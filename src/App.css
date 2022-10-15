@@ -199,8 +199,8 @@
   background-color: #0078AA;
 }
 
-.nav-logo {
-  width: 60px;
+.navbar-brand {
+  padding: 0 !important;
 }
 
 .nav-items {
@@ -209,6 +209,8 @@
 
 .navbar {
   width: 100%;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 .nav-item {
@@ -216,13 +218,13 @@
 }
 
 .nav-icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .nav-app-icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   padding-right: 10px;
   box-sizing: content-box;
   border-right: 2.5px solid rgb(255, 255, 255);
@@ -240,12 +242,15 @@
   flex-direction: row !important;
 }
 
+
 .dropdown-toggle {
   display: flex;
   align-items: center;
   box-sizing: content-box;
-  padding-left: 20px !important;
+  padding-left: 15px !important;
   border-left: 2.5px solid rgb(255, 255, 255);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .nav-link {
@@ -263,10 +268,6 @@
 }
 
 /* Course Container */
-
-.course-container {
-  /* margin: 0 10%; */
-}
 
 .container-box {
   text-align: center;
@@ -460,7 +461,7 @@
 /* School Detail Page */
 
 .school-detail {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .school-banner-box {
@@ -529,7 +530,7 @@
 /* Our Teachers Page */
 
 .our-teachers {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .our-teachers-title {
@@ -581,7 +582,7 @@
 /* Favorite Page */
 
 .favorite-page {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .favorite-page-container {
@@ -617,7 +618,7 @@
 /* My Profile */
 
 .my-profile {
-  padding-top: 75px;
+  padding-top: 55px;
   display: flex;
 }
 
@@ -675,13 +676,13 @@
 /* My Profile Edit */
 
 .my-profile-edit {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 /* Change Password Page */
 
 .change-password-page {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .edit-save-btn,
@@ -692,7 +693,7 @@
 /* School Register */
 
 .school-register {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .school-register-btn {
@@ -712,8 +713,10 @@
   text-decoration: none;
 }
 
+/* School Payment */
+
 .school-payment {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .schoolpay-qr {
@@ -725,7 +728,7 @@
 /* Course Detail */
 
 .course-detail {
-  padding-top: 75px;
+  padding-top: 55px;
 }
 
 .course-detail-img {
