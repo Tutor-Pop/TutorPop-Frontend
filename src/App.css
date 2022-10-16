@@ -797,3 +797,24 @@
   color: #000000;
 }
 
+.classroom-manage {
+  padding-top: 55px;
+}
+
+.add-classroom-btn {
+  width: 15% !important;
+  padding-left: 10px;
+}
+
+.classroom-table-txt {
+  text-align: center;
+}
+
+.classroom-table-head {
+  border-top: 1px solid rgb(223, 223, 223) !important;
+}
+
+.classroom-edit-btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

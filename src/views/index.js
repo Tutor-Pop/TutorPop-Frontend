@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import '../custom.scss'
 import ChangePassword from './ChangePassword';
+import ClassroomManage from './ClassroomManage';
 import CounterPage from './CounterPage'
 import CourseDetail from './CourseDetail';
 import CoursePayment from './CoursePayment';
@@ -40,6 +41,7 @@ const Views = () => {
         <Route path='/school-register' element={<SchoolRegister/>}/>
         <Route path='/school-payment-temp' element={<SchoolPayment/>}/>
         <Route path='/course/:courseid' element={<CourseDetail/>}/>
+        <Route path='/:schoolid/classroom-manage' element={<ClassroomManage/>}/>
       </Routes>
     </div>
   )
