@@ -818,3 +818,110 @@
   cursor: pointer;
   opacity: 0.5;
 }
+
+/* MySchool */
+
+.schoolcards{
+  display: flex;
+}
+
+.imgschool{
+  justify-content: center;
+  width: 300px;
+  height: 220px;
+}
+
+.imgschool img{
+  width: 200px;
+  justify-self: center;
+  justify-content: center;
+}
+
+.schoolcard{
+  margin-top: 10%;
+  justify-content: center;
+  justify-items: center;
+  width: 200px;
+}
+
+.SchoolBox{
+  margin-top: 3%;
+}
+
+.schooladdcards{
+  display: flex;
+}
+
+.imgaddschool img{
+  width: 100px;
+  justify-self: center;
+  justify-content: center;
+}
+
+.imgaddschool{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.myschool-img{
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.MySchoolTitle{
+  padding-top: 75px;
+  text-align: center;
+}
+
+/* SchoolEditing */
+
+.imgschooledit{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgschooledit img{
+  width: 80px;
+}
+
+.textbox-schoolman{
+  height: 60px;
+  width: 200px;
+  display: flex;
+}
+
+.textbox-schoolman h3 {
+  margin-left: 12px;
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+.textbox-myschool{
+  height: 50px;
+}
+
+.textbox-myschool h4 {
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+/* TeacherManager */
+
+.teacher-man-title{
+  padding-top: 75px;
+  margin-left: 3%;
+}
+

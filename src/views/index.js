@@ -19,6 +19,9 @@ import SchoolDetail from './SchoolDetail';
 import SchoolEditing from './SchoolEditing';
 import SchoolPayment from './SchoolPayment';
 import SchoolRegister from './SchoolRegister';
+import MySchool from './MySchool';
+import SchoolManagement from './SchoolManagement';
+import TeacherManagement from './TeacherManagement';
 
 const Views = () => {
   return (
@@ -42,6 +45,9 @@ const Views = () => {
         <Route path='/school-payment-temp' element={<SchoolPayment/>}/>
         <Route path='/course/:courseid' element={<CourseDetail/>}/>
         <Route path='/:schoolid/classroom-manage' element={<ClassroomManage/>}/>
+        <Route path='/my-school' element={<MySchool/>}/>
+        <Route path='/school-manage/:schoolid' element={<SchoolManagement/>}/>
+        <Route path='/:schoolid/teacher-manage' element={<TeacherManagement/>}/>
       </Routes>
     </div>
   )
