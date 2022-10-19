@@ -300,7 +300,7 @@
 .select-left {
   background-color: #F2EECE;
   margin: 0 10px 0 0;
-  padding: 5px 10%;
+  padding: 5px 5%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -308,7 +308,7 @@
 .not-select-left {
   background-color: white;
   margin: 0 10px 0 0;
-  padding: 5px 10%;
+  padding: 5px 5%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
