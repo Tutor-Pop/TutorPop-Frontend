@@ -19,16 +19,7 @@ const AddClassroom = ({ schoolid }) => {
       maximum_seat: e.target.maximum_seat.value ? e.target.maximum_seat.value : null,
       description: e.target.description ? e.target.description : null
     }
-    // console.log(schoolid)
-    // console.log(allClassrooms)
-    // createRoom(schoolid, classroom_body)
-    // .then(
-    //   toggle()
-    // ).then(
-    //   getAllRooms(schoolid).then(
-    //     response => setAllClassrooms([...response.data.result])
-    //   )
-    // )
+    
     toggle()
     await createRoom(schoolid, classroom_body)
     const response = await getAllRooms(schoolid)
