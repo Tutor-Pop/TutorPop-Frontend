@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Col, Container, Row, Table } from 'reactstrap';
 import AddClassroom from '../components/AddClassroom';
 import EditClassroom from '../components/EditClassroom';
 import { getAllRooms } from '../services/room.service'
 import { getSchool } from '../services/school.service';
+
+export const AllClassroomsContext = createContext();
 
 const ClassroomManage = () => {
   
@@ -19,7 +21,7 @@ const ClassroomManage = () => {
       response => setAllClassrooms([...response.data.result]) 
     )
     getSchool(schoolid).then(
-      response => setSchool({...response.data.data})
+      response => setSchool({...response.data.result})
     )
   }, [])
 
@@ -37,15 +39,16 @@ const ClassroomManage = () => {
           </h1>
           <h4>{school.name}</h4>
           <Col>
-            <AddClassroom school={school}/>
+            <AllClassroomsContext.Provider value={[ allClassrooms, setAllClassrooms ]}>
+              <AddClassroom allClassrooms={allClassrooms} schoolid={schoolid}/>
+            </AllClassroomsContext.Provider>
           </Col>
         </Row>
         <Table className='classroom-table mt-3'>
           <thead className='classroom-table-txt classroom-table-head'>
             <tr>
-              <th><h5>Room Number</h5></th>
-              <th><h5>Floor</h5></th>
-              <th><h5>Building</h5></th>
+              <th><h5>Room Name</h5></th>
+              <th><h5>Description</h5></th>
               <th><h5>Maximum Students</h5></th>
               <th><h5>Editing</h5></th>
             </tr>
@@ -56,8 +59,7 @@ const ClassroomManage = () => {
                 (room) => (
                 <tr className='classroom-table-txt' key={room.room_id}>
                   <td><h5>{room.room_name}</h5></td>
-                  <td></td>
-                  <td></td>
+                  <td><h5>{room.description}</h5></td>
                   <td><h5>{room.maximum_seat}</h5></td>
                   <td>
                     <EditClassroom room={room}/>

@@ -5,6 +5,10 @@ export function getRoom(school_id,room_id){
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}/rooms/${room_id}`)
 }
 
+export function createRoom(school_id, body) {
+    return axios.post(`${BACKEND_URL}/api/schools/${school_id}/rooms`, body)
+}
+
 export function updateRoom(school_id,body){
     return axios.put(`${BACKEND_URL}/api/schools/${school_id}/rooms`,body)
 }
