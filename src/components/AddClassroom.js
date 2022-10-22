@@ -17,7 +17,7 @@ const AddClassroom = ({ schoolid }) => {
     const classroom_body = {
       room_name: e.target.room_name.value ? e.target.room_name.value : null,
       maximum_seat: e.target.maximum_seat.value ? e.target.maximum_seat.value : null,
-      description: e.target.description ? e.target.description : null
+      description: e.target.description.value ? e.target.description.value : null
     }
     
     toggle()
@@ -57,7 +57,7 @@ const AddClassroom = ({ schoolid }) => {
                     </Col>
                   </Row>
                   <Row>
-                    <Label for='floor'>description (ex. floor number, building)</Label>
+                    <Label for='description'>Description (ex. floor number, building)</Label>
                     <Col>
                       <Input
                         id='description'

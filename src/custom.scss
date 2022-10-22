@@ -2,9 +2,14 @@
 $theme-colors: (
   "primary": #FFAA06,
   "secondary": #FFFFFF,
+  "danger" : #e24545,
 );
 
 .btn-primary {
+  color: white !important;
+}
+
+.btn-danger {
   color: white !important;
 }
 
@@ -20,6 +25,11 @@ $theme-colors: (
 
 .btn-secondary:hover {
   background-color: #fff3da !important;
+}
+
+.btn-danger:hover {
+  background-color: #af2626 !important;
+  border-color: #af2626 !important;
 }
 
 
