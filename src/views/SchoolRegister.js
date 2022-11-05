@@ -1,11 +1,44 @@
+import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 
 const SchoolRegister = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let formData = new FormData(e.target)
+    // console.log(e.target['school-verify-doc'])
+    formData.append("account_id",8)
+    formData.append("school_id",1)
+    formData.append("document",e.target['school-verify-doc'])
+    formData.append("payment_pic",e.target['school-verify-doc'])
+    // formData.append("account_id",<input value="5"></input>)
+    // formData.append("school_id",'1')
+    // formData.append("document",'asdf')
+    // formData.append("payment_pic",'asdf')
+    for(const i of formData.keys()){
+      console.log(i)
+    }
+    for(const i of formData.values()){
+      console.log(i)
+    }
+    console.log('Sending',formData)
+    axios.post('http://localhost:8000/api/requests', formData, {
+      headers: {
+        'content-type': 'multipart/form-data',
+        'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1OTk1NDE5LCJpYXQiOjE2NjU5OTUxMTksImp0aSI6IjgwN2MxZThlMDBkMzRhZDE5OTEyODJkYjQxMGNhZmE1IiwidXNlcl9pZCI6M30.YCCUAJ4wRqdxwvkDowQ-s-aLWD1Yjh0KKmRApnkiUIs"
+      }
+    }).then((response)=>{
+      console.log(response.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+
   return (
     <div className='school-register'>
-      <Form>
+      <Form onSubmit={(e) => handleSubmit(e)}>
         <Container className='register'>
           <Row className='register-box'>
             <Row>
@@ -61,11 +94,11 @@ const SchoolRegister = () => {
             </Row>
             <Row className="justify-evenly mt-5">
               <Col>
-                <Link className='link-btn-text' to={`/search`}>
+                {/* <Link className='link-btn-text' to={`/search`}> */}
                   <Button className="school-register-btn" type="submit" color="primary" size="lg">
                     Register School
                   </Button>
-                </Link>
+                {/* </Link> */}
               </Col>
               <Col>
                 <Link className='link-btn-text' to={`/search`}>

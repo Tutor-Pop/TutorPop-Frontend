@@ -1,25 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'reactstrap'
+import { startLoading, stopLoading } from '../redux/loading.reducer'
+import { getAccount } from '../services/account.service'
 
 const MyProfile = () => {
-  
-  const userInfo = {
-    username: 'Username8',
-    firstname: 'Doodee',
-    lastname: 'Goodsurname',
-    email: 'Lorem@ipsum.go.th',
-    year_of_birth: '2001',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia hendrerit fringilla. Ut ac ligula viverra ex tempus porta. Nam nec ante a nunc bibendum auctor. Integer malesuada enim nisl, sed vehicula nisl aliquet eget. Praesent non quam nec ante ultrices bibendum. Nam hendrerit sodales libero sit amet gravida.',
-    picture_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXZ5GsZzyJ6Jjqi3aqJl_s4uCu1bW_Cf6nfi7TudP0gFjIEOy3XroUucaADK7Ctljx2uQ&usqp=CAU'
-  }
+
+  const DEFAULT_PROFILE_PICTURE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXZ5GsZzyJ6Jjqi3aqJl_s4uCu1bW_Cf6nfi7TudP0gFjIEOy3XroUucaADK7Ctljx2uQ&usqp=CAU"
+  const dispatch = useDispatch()
+
+  const [userInfo,setuserInfo] = useState({
+    username: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    year_of_birth: '',
+    description: '',
+    profile_picture: ''
+  })
+
+  useEffect(()=>{
+    dispatch(startLoading())
+    getAccount(localStorage.getItem('account_id')).then(response => {
+      dispatch(stopLoading())
+      setuserInfo({
+        username: response.data.result.username,
+        firstname: response.data.result.firstname,
+        lastname: response.data.result.lastname,
+        email: response.data.result.email,
+        year_of_birth: response.data.result.year_of_birth,
+        description: response.data.result.description,
+        profile_picture: response.data.result.profile_picture,
+      })
+    })
+  },[])
 
   return (
     <div className='my-profile'>
       <div className='my-profile-picture-box'>
         <h1 className='m-5'>My Profile</h1>
         <div className='picture-container'>
-          <img src={userInfo.picture_url}></img>
+          <img src={userInfo.profile_picture == "" ? DEFAULT_PROFILE_PICTURE : userInfo.profile_picture}></img>
           <Button color='primary' size='lg' className='change-profile-btn mt-5'>Change Profile Picture</Button>
         </div>
       </div>

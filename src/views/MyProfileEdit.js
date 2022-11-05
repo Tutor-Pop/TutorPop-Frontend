@@ -1,25 +1,56 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import { getAccount, updateAccount } from '../services/account.service'
 
 const MyProfileEdit = () => {
 
-  const profileData = {
-    "account_id" : "1",
-    "username" : "account01",
-    "firstname" : "Pla",
-    "lastname" : "Pud",
-    "email" : "plapud_jj@gmail.com",
-    "year_of_birth" : "2002",
-    "description" : "Currently teaching at JJLab Tutoring School. 5 Years of Experiences",
-    "is_verified" : "yes",
-    "picture_url" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXZ5GsZzyJ6Jjqi3aqJl_s4uCu1bW_Cf6nfi7TudP0gFjIEOy3XroUucaADK7Ctljx2uQ&usqp=CAU",
-    "user_status" : "active"
+  const nevigate = useNavigate()
+
+  const [profileData,setprofileData] = useState({
+    username : "",
+    firstname : "",
+    lastname : "",
+    email : "",
+    year_of_birth : "",
+    description : "",
+  })
+
+  useEffect(()=>{
+    getAccount(localStorage.getItem('account_id')).then(response => {
+      setprofileData({
+        username: response.data.result.username,
+        firstname: response.data.result.firstname,
+        lastname: response.data.result.lastname,
+        email: response.data.result.email,
+        year_of_birth: response.data.result.year_of_birth,
+        description: response.data.result.description,
+      })
+    })
+  },[])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const body = {
+      username : e.target.username.value,
+      firstname : e.target.firstname.value,
+      lastname : e.target.lastname.value,
+      email : e.target.email.value,
+      year_of_birth : e.target.year_of_birth.value,
+      description : e.target.description.value,
+    }
+
+    updateAccount(localStorage.getItem('account_id'),body).then(response => {
+      console.log(response.data)
+      nevigate('/my-profile')
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   return (
     <div className='my-profile-edit'>
-      <Form>
+      <Form onSubmit={e => handleSubmit(e)}>
       <Container className="register">
         <Row className="register-box">
           <Row>
@@ -97,11 +128,9 @@ const MyProfileEdit = () => {
           </Row>
           <Row className="justify-evenly mt-4">
             <Col>
-              <Link className='link-btn-text' to='/my-profile'>
                 <Button className="edit-save-btn" type="submit" color="primary" size="lg">
                   Save
                 </Button>
-              </Link>
             </Col>
             <Col>
               <Link className='link-btn-text' to='/my-profile'>
