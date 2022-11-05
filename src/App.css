@@ -15,6 +15,17 @@
   width: 50px;
 }
 
+/* Loading Spinner */
+
+.loading-spinner {
+  z-index: 10000;
+  position: fixed !important;
+  width: 10rem !important;
+  height: 10rem !important;
+  border-width: 1rem !important;
+  margin: 18% 44%;
+}
+
 /* Homepage CSS */
 
 .homepage {
