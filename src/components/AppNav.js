@@ -24,11 +24,11 @@ import {
   Dropdown,
   NavbarText,
 } from 'reactstrap';
+import { logout } from '../services/auth.service';
 
-const AppNav = () => {
+const AppNav = ({isLogin=false}) => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const [dropdownDelay, setDropdownDelay] = useState(false)
-  const [isLogin, setIsLogin] = useState(true);
 
   const toggle = () => {
     if(!dropdownDelay){
@@ -61,42 +61,35 @@ const AppNav = () => {
               <img className='nav-icon' src={Heart} alt='favorite'/>                
             </NavLink>
           </NavItem>
-          {isLogin && 
+          {isLogin ? 
             <>
             <Dropdown isOpen={isOpenDropdown} toggle={toggle}>
               <DropdownToggle nav caret>
                 <img className='nav-icon' src={UserProfile} alt='user'/>                
-                <NavbarText><h5 className='nav-name'>Jaroonpong Suklerd</h5></NavbarText>
+                <NavbarText><h5 className='nav-name'>{localStorage.getItem('username')}</h5></NavbarText>
               </DropdownToggle>
-              {/* <DropdownToggle caret>Dropdown</DropdownToggle> */}
               <DropdownMenu>
-                <DropdownItem>View Profile</DropdownItem>
+                <DropdownItem href='/my-profile'>View Profile</DropdownItem>
                 <DropdownItem>Schedule</DropdownItem>
                 <DropdownItem>My Course</DropdownItem>
                 <DropdownItem>My School</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>Setting</DropdownItem>
-                <DropdownItem>Logout</DropdownItem>
+                <DropdownItem onClick={logout}>Logout</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            {/* <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                <img className='nav-icon' src={UserProfile} alt='user'/>                
-                <NavbarText><h5 className='nav-name'>Jaroonpong Suklerd</h5></NavbarText>
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown> */}
-            </>
-          }
-          {!isLogin &&
+            </> : <>
             <NavItem className='nav-login'>
-              <NavLink href="/login"> <h5>Login</h5></NavLink>
+              <NavLink href="/login"> 
+                <NavbarText><h5 className='nav-title'>Login</h5></NavbarText>
+              </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/register">
+                <NavbarText><h5 className='nav-title'>Register</h5></NavbarText>
+              </NavLink>
+            </NavItem>
+            </>
           }
           
         </Nav>

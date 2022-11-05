@@ -23,7 +23,7 @@ import MySchool from './MySchool';
 import SchoolManagement from './SchoolManagement';
 import TeacherManagement from './TeacherManagement';
 
-const Views = () => {
+const Views = ({isLogin=false}) => {
   return (
     <div className="App">
       <Routes>
@@ -38,16 +38,19 @@ const Views = () => {
         <Route path='/school/:schoolid/teachers' element={<OurTeachers/>}/>
         <Route path='/favorite' element={<FavoritePage/>}/>
         <Route path='/school/:schoolid/edit' element={<SchoolEditing/>}/>
-        <Route path='/my-profile' element={<MyProfile/>}/>
-        <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
-        <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
         <Route path='/school-register' element={<SchoolRegister/>}/>
         <Route path='/school-payment-temp' element={<SchoolPayment/>}/>
         <Route path='/course/:courseid' element={<CourseDetail/>}/>
         <Route path='/:schoolid/classroom-manage' element={<ClassroomManage/>}/>
-        <Route path='/my-school' element={<MySchool/>}/>
         <Route path='/school-manage/:schoolid' element={<SchoolManagement/>}/>
         <Route path='/:schoolid/teacher-manage' element={<TeacherManagement/>}/>
+        { /* Authorization is required after this line */ isLogin && <>
+        <Route path='/my-school' element={<MySchool/>}/>
+        <Route path='/my-profile' element={<MyProfile/>}/>
+        <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
+        <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
+        </>
+        }
       </Routes>
     </div>
   )
