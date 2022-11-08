@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getAccount, updateAccount } from '../services/account.service'
 
 const MyProfileEdit = () => {
 
   const nevigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [profileData,setprofileData] = useState({
     username : "",
@@ -17,6 +20,7 @@ const MyProfileEdit = () => {
   })
 
   useEffect(()=>{
+    dispatch(startLoading())
     getAccount(localStorage.getItem('account_id')).then(response => {
       setprofileData({
         username: response.data.result.username,
@@ -26,6 +30,7 @@ const MyProfileEdit = () => {
         year_of_birth: response.data.result.year_of_birth,
         description: response.data.result.description,
       })
+      dispatch(stopLoading())
     })
   },[])
 
@@ -40,8 +45,9 @@ const MyProfileEdit = () => {
       description : e.target.description.value,
     }
 
+    dispatch(startLoading())
     updateAccount(localStorage.getItem('account_id'),body).then(response => {
-      console.log(response.data)
+      dispatch(stopLoading())
       nevigate('/my-profile')
     }).catch(err => {
       console.log(err)

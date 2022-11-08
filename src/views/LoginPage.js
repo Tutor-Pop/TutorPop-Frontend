@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Logo from "../img/Logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Input, Row, Col, Form, FormGroup, Label, Button } from "reactstrap";
+import { Input, Row, Col, Form, FormGroup, Label, Button, FormFeedback } from "reactstrap";
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from "../services/auth.service";
+import { useDispatch } from "react-redux";
+import { startLoading, stopLoading } from "../redux/loading.reducer";
 
 const LoginPage = () => {
+
+  const dispatch = useDispatch()
 
   const [invalid, setInvalid] = useState({
     username: false,
@@ -18,8 +22,10 @@ const LoginPage = () => {
       username: e.target.username.value,
       password: e.target.password.value,
     };
+    dispatch(startLoading())
     login(body)
       .then((response) => {
+        dispatch(stopLoading())
         localStorage.setItem("account_id", response.data.account_id);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);

@@ -24,6 +24,21 @@
   height: 10rem !important;
   border-width: 1rem !important;
   margin: 18% 44%;
+  
+  /* background-color: #000000 !important; */
+}
+
+/* Background */
+
+.loading-background {
+  position: fixed !important;
+  z-index: 9999;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background-color:#000000 !important;
+  opacity: .75 !important;
 }
 
 /* Homepage CSS */

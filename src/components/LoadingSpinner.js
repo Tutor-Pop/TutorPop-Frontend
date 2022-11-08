@@ -6,12 +6,14 @@ const LoadingSpinner = () => {
     const isLoading = useSelector(state => state.loading.value)
 
     return (
-        <div>
-            {isLoading && <div className="loading-spinner spinner-border text-warning" role="status">
+        <>
+        {isLoading && <div className="loading-background">
+            <div className="loading-spinner spinner-border text-warning" role="status">
                 <span class="sr-only">Loading...</span>
-            </div>}
+            </div>
             
-        </div>
+        </div>}
+        </>
     )
 }
 

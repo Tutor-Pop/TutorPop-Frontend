@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
 
 import {ReactComponent as EditIcon} from '../img/edit.svg'
@@ -6,6 +7,8 @@ import { getAllRooms, updateRoom } from '../services/room.service';
 import { AllClassroomsContext } from '../views/ClassroomManage';
 
 const EditClassroom = ({ room }) => {
+
+  const dispatch = useDispatch()
   const [modal, setModal] = useState(false);
 
   const [allClassrooms, setAllClassrooms] = useContext(AllClassroomsContext)
