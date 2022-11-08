@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
 
 import {ReactComponent as EditIcon} from '../img/edit.svg'
+import { startLoading, stopLoading } from '../redux/loading.reducer';
 import { getAllRooms, updateRoom } from '../services/room.service';
 import { AllClassroomsContext } from '../views/ClassroomManage';
 
 const EditClassroom = ({ room }) => {
 
   const dispatch = useDispatch()
+  
   const [modal, setModal] = useState(false);
 
   const [allClassrooms, setAllClassrooms] = useContext(AllClassroomsContext)
@@ -24,10 +26,13 @@ const EditClassroom = ({ room }) => {
       description: e.target.description.value ? e.target.description.value : null
     }
 
+    
     toggle()
     // console.log(room.school_id_id, room.room_id)
+    dispatch(startLoading())
     await updateRoom(room.school_id_id, room.room_id, classroom_body)
     const response = await getAllRooms(room.school_id_id)
+    dispatch(stopLoading())
     setAllClassrooms([...response.data.result])
 
   }

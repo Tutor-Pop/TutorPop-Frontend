@@ -19,11 +19,14 @@ const RemoveClassrooms = ({ schoolid }) => {
     const IdBody = {
       rooms_id : checkedClassrooms
     } 
+    setAllClassrooms(
+      allClassrooms.filter((room) => (
+        !checkedClassrooms.includes(Number(room.room_id)) 
+      ))
+    )
     setCheckedClassrooms([])
     toggle()
     await deleteManyRooms(schoolid, IdBody)
-    const response = await getAllRooms(schoolid)
-    setAllClassrooms(response.data.result)
   }
   return (
     <div>
