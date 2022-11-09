@@ -15,6 +15,7 @@ const LoginPage = () => {
     username: false,
     password: false,
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,6 +24,7 @@ const LoginPage = () => {
       password: e.target.password.value,
     };
     dispatch(startLoading())
+    setInvalid({ ...invalid, username: false, password: false });
     login(body)
       .then((response) => {
         dispatch(stopLoading())
@@ -32,6 +34,7 @@ const LoginPage = () => {
         window.location.reload(false);
       })
       .catch((err) => {
+        dispatch(stopLoading())
         if (err.response.status == 404) {
           setInvalid({ ...invalid, username: true, password: false });
         }
@@ -58,17 +61,27 @@ const LoginPage = () => {
               <FormGroup className="mt-10">
                 <Label for="username">Username</Label>
                 <Input
+                  required
                   className="input"
                   id="username"
+                  invalid={invalid.username}
                 />
+                <FormFeedback>
+                  This account doesn't exists!
+                </FormFeedback>
               </FormGroup>
               <FormGroup>
                 <Label for="password">Password</Label>
                 <Input
+                  required
                   className="input"
                   id="password"
                   type="password"
+                  invalid={invalid.password}
                 />
+                <FormFeedback>
+                  Incorrect password!
+                </FormFeedback>
               </FormGroup>
               <Button
                 className="login-btn"
