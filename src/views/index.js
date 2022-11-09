@@ -33,6 +33,7 @@ import UserManagement from './UserManagement';
 import CourseManagement from './CourseManagement';
 import AdminSchoolManagement from './AdminSchoolManagement';
 import Admin from './Admin';
+import SchoolPayPending from './SchoolPayPending';
 
 
 const Views = ({isLogin=false}) => {
@@ -83,6 +84,7 @@ const Views = ({isLogin=false}) => {
         <Route path='/admin/user_manage' element={<UserManagement/>}/>
         <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
         <Route path='/admin' element={<Admin/>}/>
+        <Route path='/school-manage/pending' element={<SchoolPayPending/>}/>
         </>
         }
       </Routes>

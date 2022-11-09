@@ -1296,3 +1296,8 @@ a.fc-col-header-cell-cushion:hover {
   padding: 20px 50px;
   background-color: #FFAA06;
 }
+
+.school-pay-pending {
+  padding-top: 200px;
+  text-align: center;
+}
