@@ -1,3 +1,38 @@
+
+
+.teacher{
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+/* SearchTeacherBar */
+.searchTeacherBar{
+  display: flex;
+  width: 60%;
+  height: 40px;
+}
+
+#searchTeacher{
+  min-width: 500px;
+  border:solid 4px #FFAA06;
+  border-radius: 30px;
+}
+
+.searchTeacherBar button{
+  transform: translate(-150%);
+  margin: 7px;
+  box-sizing: border-box;
+  border:none !important;
+  place-items: center;
+  align-items: center;
+  display: flex;
+}
+
+.plus-img{
+  width: 20px;
+  height: 20px;
+}
+
 .counter{
   border: 1px solid black;
   width: 200px;
