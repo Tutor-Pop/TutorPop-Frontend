@@ -24,6 +24,7 @@ import SearchPage from './SearchPage';
 import SchoolManagement from './SchoolManagement';
 import TeacherManagement from './TeacherManagement';
 
+
 const Views = ({isLogin=false}) => {
   return (
     <div className="App">
