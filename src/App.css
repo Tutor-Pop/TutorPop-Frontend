@@ -956,3 +956,7 @@ a:active { text-decoration: none; }
   margin-left: 3%;
 }
 
+.dummy {
+  padding-top: 100px;
+  margin: 0 100px
+}
