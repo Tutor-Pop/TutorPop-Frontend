@@ -9,7 +9,7 @@ const TeacherManagement = () => {
             <h1>Teacher Management</h1>
             <h5>school name</h5>
             <h6>Invite Teacher</h6>
-            <SearchTeacherBar />
+            <SearchTeacherBar/>
         </div>
         
         <div className='inviting-teacher'>
