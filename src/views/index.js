@@ -23,6 +23,11 @@ import MySchool from './MySchool';
 import SearchPage from './SearchPage';
 import SchoolManagement from './SchoolManagement';
 import TeacherManagement from './TeacherManagement';
+import TeacherPage from './TeacherPage';
+import OpenSchoolRequest from './OpenSchoolRequest';
+import UserManagement from './UserManagement';
+import CourseManagement from './CourseManagement';
+import AdminSchoolManagement from './AdminSchoolManagement';
 
 
 const Views = ({isLogin=false}) => {
@@ -54,6 +59,11 @@ const Views = ({isLogin=false}) => {
         <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
         </>
         }
+        <Route path='/teachers/:teacherid' element={<TeacherPage/>}/>
+        <Route path='/admin/course_manage' element={<CourseManagement/>}/>
+        <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest/>}/>
+        <Route path='/admin/user_manage' element={<UserManagement/>}/>
+        <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
       </Routes>
     </div>
   )
