@@ -1,19 +1,60 @@
 
-
 .teacher{
   padding-top: 50px;
-  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .teacher .searchTeacherBar{
   width: 60%;
+}
+
+.inviteteacher-btn{
+  display: flex;
+  flex-direction: row;
+  height:60px;
+  margin-top: 50px;
+  justify-content: center;
+  gap: 20%;
+  font-size: 20px;
+  font-weight: 4px;
+}
+.MuiChip-root{
+  min-width: 150px;
+  font-size: 20px !important;
+  min-height: 80px !important;
+}
+.MuiAvatar-root{
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.save-btn{
+  background-color: #FFAA06;
+  color: white;
+  width: 20%;
+  border-radius: 10px;
   
+}
+
+.cancel-btn{
+  border: solid 4px#FFAA06 !important;
+  border-radius: 10px;
+  width: 20%;
+  color: #FFAA06;
+}
+
+.chip{
+  height: 50px !important;
 }
 
 /* SearchTeacherBar */
 .searchTeacherBar{
   display: flex;
-  height: 40px;
+  height: 60px;
 }
 
 #searchTeacher{

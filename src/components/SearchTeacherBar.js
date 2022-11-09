@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Input } from 'reactstrap';
+import { Button, Container, Input, Row } from 'reactstrap';
 import { ReactComponent as PlusIcon } from '../img/plus-solid.svg';
 import { getTeacher } from '../services/school.service';
 
@@ -16,7 +16,7 @@ function SearchTeacherBar() {
         </div>
 
         <div className='dataTeacher'>
-            
+          
         </div>
 
     </div>
