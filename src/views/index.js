@@ -22,10 +22,17 @@ import SchoolEditing from './SchoolEditing';
 import SchoolPayment from './SchoolPayment';
 import SchoolRegister from './SchoolRegister';
 import MySchool from './MySchool';
+import SearchPage from './SearchPage';
 import SchoolManagement from './SchoolManagement';
 import TeacherManagement from './TeacherManagement';
 import Support from './Support';
 import CoursePicture from './CoursePicture';
+import TeacherPage from './TeacherPage';
+import OpenSchoolRequest from './OpenSchoolRequest';
+import UserManagement from './UserManagement';
+import CourseManagement from './CourseManagement';
+import AdminSchoolManagement from './AdminSchoolManagement';
+
 
 const Views = ({isLogin=false}) => {
   return (
@@ -47,6 +54,7 @@ const Views = ({isLogin=false}) => {
         <Route path='/course/:courseid' element={<CourseDetail/>}/>
         <Route path='/:schoolid/classroom-manage' element={<ClassroomManage/>}/>
         <Route path='/school-manage/:schoolid' element={<SchoolManagement/>}/>
+        <Route path='/search' element={<SearchPage/>}/>
         <Route path='/:schoolid/teacher-manage' element={<TeacherManagement/>}/>
         <Route path='/create-course/:schoolid' element={<CourseCreation />} />
         <Route path='/support'element={<Support />} />
@@ -68,6 +76,11 @@ const Views = ({isLogin=false}) => {
         <Route path='/school/:schoolid' element={<SchoolDetail />} />
         <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
         <Route path='/course-manage/edit/:courseid'element={<EditingCousre />} />
+        <Route path='/teachers/:teacherid' element={<TeacherPage/>}/>
+        <Route path='/admin/course_manage' element={<CourseManagement/>}/>
+        <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest/>}/>
+        <Route path='/admin/user_manage' element={<UserManagement/>}/>
+        <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
         </>}
       </Routes>
     </div>

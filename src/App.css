@@ -1,4 +1,43 @@
-.counter {
+
+
+.teacher{
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+.teacher .searchTeacherBar{
+  width: 60%;
+  
+}
+
+/* SearchTeacherBar */
+.searchTeacherBar{
+  display: flex;
+  height: 40px;
+}
+
+#searchTeacher{
+  min-width: 500px;
+  border:solid 4px #FFAA06;
+  border-radius: 30px;
+}
+
+.searchTeacherBar button{
+  transform: translate(-150%);
+  margin: 7px;
+  box-sizing: border-box;
+  border:none !important;
+  place-items: center;
+  align-items: center;
+  display: flex;
+}
+
+.plus-img{
+  width: 20px;
+  height: 20px;
+}
+
+.counter{
   border: 1px solid black;
   width: 200px;
   border-radius: 5px;
@@ -877,7 +916,9 @@
   margin-top: 10%;
   justify-content: center;
   justify-items: center;
+  align-items: center;
   width: 200px;
+  height: 250px;
 }
 
 .SchoolBox{
@@ -896,6 +937,8 @@
 
 .imgaddschool{
   display: flex;
+  width: 200px;
+  height: 250px; 
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -1085,3 +1128,50 @@ a:active { text-decoration: none; }
 
 
 
+.dummy {
+  padding-top: 100px;
+  margin: 0 100px
+}
+.courseslidebar{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #ABD9FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-card-mini{
+  border: 1px solid;
+  box-shadow: 2.5px 5px rgba(0, 0, 0, 0.35);
+  background-color: white;
+  width: 150px;
+  height: 250px;
+}
+
+.course-img{
+  width: 150px;
+}
+
+.col-course-card-mini{
+  justify-content: center;
+  display: flex;
+}
+
+.search-bar Input{
+  width: 400px;
+  border-radius: 20px;
+}
+
+.search-bar Button{
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+}
+
+.ban-btn{
+  height: 40px;
+}

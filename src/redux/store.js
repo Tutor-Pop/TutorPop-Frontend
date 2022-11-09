@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import confirmationReducer from './confirmation.reducer'
 import loadingReducer from './loading.reducer'
 
 const store = configureStore({
   reducer: {
-    loading: loadingReducer
+    loading: loadingReducer,
+    confirmation: confirmationReducer,
   },
 })
 

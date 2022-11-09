@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap'
+import { startLoading, stopLoading } from '../redux/loading.reducer';
 import { createRoom, getAllRooms } from '../services/room.service';
 import { AllClassroomsContext } from '../views/ClassroomManage';
 
 const AddClassroom = ({ schoolid }) => {
+
+  const dispatch = useDispatch();
 
   const [modal, setModal] = useState(false);
   
@@ -21,8 +25,10 @@ const AddClassroom = ({ schoolid }) => {
     }
     
     toggle()
+    dispatch(startLoading())
     await createRoom(schoolid, classroom_body)
     const response = await getAllRooms(schoolid)
+    dispatch(stopLoading())
     setAllClassrooms([...response.data.result])
       // window.location.reload()
   }
