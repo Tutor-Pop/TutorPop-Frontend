@@ -1,4 +1,4 @@
-.counter{
+.counter {
   border: 1px solid black;
   width: 200px;
   border-radius: 5px;
@@ -6,11 +6,11 @@
   padding: 10px;
 }
 
-.counter h1{
+.counter h1 {
   font-size: 50px;
 }
 
-.counter button{
+.counter button {
   font-size: 36px;
   width: 50px;
 }
@@ -78,7 +78,7 @@
 }
 
 .sub-text {
-  margin: 30px 0 0; 
+  margin: 30px 0 0;
 }
 
 .sub-text h2 {
@@ -105,7 +105,7 @@
 }
 
 .link-text:hover {
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   transition: background-color 0.5s;
   color: white;
 }
@@ -113,7 +113,7 @@
 
 /* Login */
 
-.login{
+.login {
   background: url('./img/bg-homepage.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -125,7 +125,7 @@
   font-size: 23px;
 }
 
-.cardlogin{
+.cardlogin {
   width: 70%;
   /* height: 40%; */
   border-radius: 29px;
@@ -138,29 +138,31 @@
   display: flex;
 }
 
-#logo{
+#logo {
   margin-top: 50px;
 
 }
 
-.login-form{
+.login-form {
   margin-right: 80px;
   font-size: 20px !important;
 }
 
-.login-form .input{
+.login-form .input {
   padding: 10px;
   font-size: 20px !important;
 }
 
-.login-btn{
+.login-btn {
+  background-color: #000A65 !important;
   width: 100% !important;
   border: none;
 }
 
-.createacc{
+.createacc {
   font-size: 16px !important;
 }
+
 .stat-item {
   font-size: 30px;
   margin-right: 60px;
@@ -181,9 +183,11 @@
   .main-container {
     text-align: center;
   }
+
   .app-stat {
     justify-content: space-between;
   }
+
   .stat-item {
     margin-right: 0;
     text-align: center;
@@ -191,29 +195,30 @@
 }
 
 /* Register */
-.register-box{
+.register-box {
   margin: 0 auto;
- justify-content: center;
- padding-left: 25%;
- padding-right: 25%;
- padding-top: 3%;
+  justify-content: center;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 3%;
 }
 
 .register-box h1 {
   margin-top: 50px;
 }
 
-.register-btn{
+.register-btn {
+  background-color: #000A65 !important;
   width: 96.5% !important;
   border: none;
 }
 
-.register{
+.register {
   font-style: inherit;
   font-size: 20px;
 }
 
-.required-star{
+.required-star {
   color: red;
 }
 
@@ -446,15 +451,15 @@
 }
 
 /* CoursePayment */
-.PaymentCard{
+.PaymentCard {
   padding-top: 4%;
 }
 
-.cost{
+.cost {
   text-align: right;
 }
 
-.paymentcard{
+.paymentcard {
   /* border: #000000 solid 1px; */
   margin-top: 40px;
   padding: 50px;
@@ -464,7 +469,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.pay-btn{
+.pay-btn {
   background-color: #FFAA06 !important;
   margin-top: 40px;
   border: none !important;
@@ -473,12 +478,12 @@
   margin-bottom: 3px;
 }
 
-.div-pay-btn{
+.div-pay-btn {
   justify-content: center;
   align-items: center;
 }
 
-.payment-info-text{
+.payment-info-text {
   margin-left: 10%;
   margin-top: 2%;
   margin: 0 200px 100px;
@@ -502,7 +507,7 @@
   margin: 0 auto;
 }
 
-.school-main{
+.school-main {
   margin: 2.5% auto;
 }
 
@@ -955,4 +960,128 @@ a:active { text-decoration: none; }
   padding-top: 75px;
   margin-left: 3%;
 }
+
+/* course creation ของไอตอง */
+.CourseCreation {
+  padding-top: 110px;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.CourseCreation .Element{
+  padding-top: 10px;
+}
+
+.CourseCreation .FontText {
+  font-size: 24px;
+}
+
+.Prob {
+  color: red;
+  font-size: 20px;
+}
+
+.Pair_Button {
+  width: 300px;
+}
+
+.CourseCreation .temp {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Support ของไอตอง */
+.Support {
+  padding-top: 110px;
+  padding-left: 300px;
+}
+
+.Support .box {
+  margin-top: 18px;
+  background-color: #EFB13A;
+  width: 560px;
+  height: 80px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.Support .frame {
+  margin-top: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  height: 300px;
+  width: 600px;
+  padding-left: 20px;
+  padding-top: 30px;
+}
+
+.Support .header {
+  font-size: 30px;
+}
+
+.Support h1 {
+  font-size: 50px;
+}
+
+.Support .bot-text {
+  margin-top: 20px;
+  font-size: 26px;
+}
+
+.Support .env {
+  height: 65px;
+  width: 65px;
+  background-color: #000000;
+  border-radius: 50%;
+  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.Support .email {
+  color: #ffffff;
+}
+
+.Support .fa-env {
+  height: 40px;
+  color: #ffffff;
+}
+
+.Support .font {
+  font-weight: bold;
+}
+
+/* Course picture ของไอตอง */
+
+.CoursePic .Header {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.CoursePic {
+  padding-top: 110px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CoursePic .text {
+  margin-top: -10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.CoursePic .temp {
+  margin-top: 500px;
+}
+
+
+
+
+
 

@@ -5,9 +5,11 @@ import ChangePassword from './ChangePassword';
 import ClassroomManage from './ClassroomManage';
 import CounterPage from './CounterPage'
 import CourseDetail from './CourseDetail';
+import CourseCreation from './CourseCreation';
 import CoursePayment from './CoursePayment';
 import Dummy from './Dummy';
 import FavoritePage from './FavoritePage';
+import EditingCousre from './EditingCourse';
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import MyCourse from './MyCourse';
@@ -22,6 +24,8 @@ import SchoolRegister from './SchoolRegister';
 import MySchool from './MySchool';
 import SchoolManagement from './SchoolManagement';
 import TeacherManagement from './TeacherManagement';
+import Support from './Support';
+import CoursePicture from './CoursePicture';
 
 const Views = ({isLogin=false}) => {
   return (
@@ -44,13 +48,27 @@ const Views = ({isLogin=false}) => {
         <Route path='/:schoolid/classroom-manage' element={<ClassroomManage/>}/>
         <Route path='/school-manage/:schoolid' element={<SchoolManagement/>}/>
         <Route path='/:schoolid/teacher-manage' element={<TeacherManagement/>}/>
+        <Route path='/create-course/:schoolid' element={<CourseCreation />} />
+        <Route path='/support'element={<Support />} />
+        <Route path='/course-manage/student-manage/course-picture' element={<CoursePicture/>} />
         { /* Authorization is required after this line */ isLogin && <>
         <Route path='/my-school' element={<MySchool/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>
         <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
         <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
-        </>
-        }
+        <Route path='/school-register' element={<SchoolRegister/>}/>
+        <Route path='/school-payment-temp' element={<SchoolPayment/>}/>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/counter' element={<CounterPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/dummy' element={<Dummy />} />
+        <Route path='/my-course' element={<MyCourse />} />
+        <Route path='/course-payment' element={<CoursePayment />} />
+        <Route path='/school/:schoolid' element={<SchoolDetail />} />
+        <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
+        <Route path='/course-manage/edit/:courseid'element={<EditingCousre />} />
+        </>}
       </Routes>
     </div>
   )
