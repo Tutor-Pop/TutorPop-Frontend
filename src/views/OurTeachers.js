@@ -1,71 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { Container } from 'reactstrap'
 import SchoolBanner from '../img/logo-white.png'
+import { getSchool, getTeacher } from '../services/school.service'
 
 const OurTeachers = () => {
+  
+  const { schoolid } = useParams();
+  const [teachers,setTeachers] = useState([]);
+  const [school,setSchool] = useState({});
 
-  const schoolTeachers = {
-    'teachers': [
-      {
-        'user_id' : '1',
-        'firstname' : 'Jean',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
-      },
-      {
-        'user_id' : '2',
-        'firstname' : 'Jane',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
-      },
-      {
-        'user_id' : '3',
-        'firstname' : 'Joe',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
-      },
-      {
-        'user_id' : '4',
-        'firstname' : 'Jean',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
-      },
-      {
-        'user_id' : '5',
-        'firstname' : 'Joey',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
-      },
-      {
-        'user_id' : '6',
-        'firstname' : 'Jack',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
-      },
-      {
-        'user_id' : '7',
-        'firstname' : 'Jean',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
-      },
-      {
-        'user_id' : '8',
-        'firstname' : 'Joey',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
-      },
-      {
-        'user_id' : '9',
-        'firstname' : 'Jack',
-        'lastname' : 'Doe',
-        'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
-      },
-      
-    ]
-}
+  useEffect(()=>{
+    getTeacher(schoolid).then(
+      response => setTeachers([...response.data.teachers])
+    )
+    getSchool(schoolid).then(
+      response => setSchool({...response.data.result})
+    )
+  },[])
 
-  const teachersData = schoolTeachers.teachers
+  console.log(teachers);
 
   return (
     <div className='our-teachers'>
@@ -74,9 +28,9 @@ const OurTeachers = () => {
       </div>
       <h1 className='our-teachers-title'>Our Teachers</h1>
       <Container className='teacher-container'>
-        <h3>School Name</h3>
+        <h3>{school.name}</h3>
         <div className='teacher-box'>
-          { teachersData.map((teacher) => (
+          { teachers.map((teacher) => (
               <div className='teacher-card'>
                 <Link to={`/teacher/${teacher.user_id}`}>
                   <img 

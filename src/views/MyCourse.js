@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CourseContainer from '../components/CourseContainer'
 import CardList from '../components/CardList'
+import { getStudyCourses, getTeachingCourses } from '../services/course.service'
 
 const MyCourse = () => {
 
@@ -19,7 +20,8 @@ const MyCourse = () => {
         'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
         'course_price' : '2500฿',
         'school_name' : 'School 1',
-        'school_address' : '123 Street, Bangkok'
+        'school_address' : '123 Street, Bangkok',
+        'course_progress' : '0.5'
       },
       {
         'course_id' : '2',
@@ -27,7 +29,8 @@ const MyCourse = () => {
         'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
         'course_price' : '5000฿',
         'school_name' : 'School 2',
-        'school_address' : '123 Street, Bangkok'
+        'school_address' : '123 Street, Bangkok',
+        'course_progress' : '0.2'
       },
       {
         'course_id' : '3',
@@ -35,7 +38,8 @@ const MyCourse = () => {
         'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
         'course_price' : '3000฿',
         'school_name' : 'School 3',
-        'school_address' : '123 Street, Bangkok'
+        'school_address' : '123 Street, Bangkok',
+        'course_progress' : '0.35'
       },
       {
         'course_id' : '4',
@@ -43,7 +47,8 @@ const MyCourse = () => {
         'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
         'course_price' : '5500฿',
         'school_name' : 'School 4',
-        'school_address' : '123 Street, Bangkok'
+        'school_address' : '123 Street, Bangkok',
+        'course_progress' : '0.35'
       },
       {
         'course_id' : '4',
@@ -51,7 +56,8 @@ const MyCourse = () => {
         'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
         'course_price' : '12500฿',
         'school_name' : 'School 5',
-        'school_address' : '123 Street, Bangkok'
+        'school_address' : '123 Street, Bangkok',
+        'course_progress' : '0.76'
       },
     ]
   const teachCourse = [
@@ -60,14 +66,24 @@ const MyCourse = () => {
         'course_name' : 'Calculus I',
         'course_price' : '4000฿',
         'school_name' : 'School 8',
-        'school_address' : '123 Street, Bangkok'
+        'school_address' : '123 Street, Bangkok',
+        'course_progress' : '0.45'
       },
     ]
 
-  const courseData = [
-    studyCourse ,
-    teachCourse
-  ]
+  // const [studyCourse, setStudyCourse] = useState([]);
+  // const [teachCourse, setTeachCourse] = useState([]);
+
+  // useEffect(() => {
+  //   getStudyCourses(localStorage.getItem('account_id')).then((response) => {
+  //       setStudyCourse(response.data.courses)
+  //       return getTeachingCourses(localStorage.getItem('account_id'))
+  //     })
+  //     .then((response) => (
+  //       setTeachCourse(response.data.courses)
+  //       )
+  //     )
+  // }, [])
 
   return (
     <div className='my-course'>
@@ -81,7 +97,7 @@ const MyCourse = () => {
         { (isSelectRight === 0) &&
           <CardList 
             cardType='course'
-            cardData={courseData[0]} 
+            cardData={studyCourse} 
             createCourseOption={false}
             toggleProgress={true}
             toggleFavorite={true}
@@ -91,7 +107,7 @@ const MyCourse = () => {
           (isSelectRight === 1) &&
           <CardList
             cardType='course' 
-            cardData={courseData[1]} 
+            cardData={teachCourse} 
             createCourseOption={true}
             toggleProgress={true}
             toggleFavorite={true}

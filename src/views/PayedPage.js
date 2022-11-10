@@ -16,9 +16,11 @@ const PayedPage = () => {
         </Row>
         <Row>
         <Col className="div-pay-btn">
-            <Button color='primary' className="pay-btn" size="lg">
+          <Link to='/search'  className="pay-btn">
+            <Button color='primary' size="lg">
             CONTINUE TO WEBSITE
             </Button>
+          </Link>
         </Col>
         </Row>
     </Container>
