@@ -38,6 +38,9 @@ import SchoolPayPending from './SchoolPayPending';
 import MyReservation from './MyReservation';
 import Verify from './Verify';
 import SchoolRegisterPending from './SchoolRegisterPending';
+import LogoEdit from './LogoEdit';
+import CreatCourse from './CreateCourse';
+import Notification from './Notification';
 
 
 const Views = ({isLogin=false}) => {
@@ -67,6 +70,9 @@ const Views = ({isLogin=false}) => {
         <Route path='/course-manage/student-manage/course-picture' element={<CoursePicture/>} />
         <Route path='/course/:courseid/payed' element={<PayedPage/>}/>
         <Route path='/school/pending' element={<SchoolRegisterPending/>}/>
+        <Route path='/:schoolid/logo-editing' element={<LogoEdit/>} />
+        <Route path='/create-course' element={<CreatCourse/>} />
+        <Route path='/notification' element={<Notification/>} />
         { /* Authorization is required after this line */ isLogin && <>
         <Route path='/my-school' element={<MySchool/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>

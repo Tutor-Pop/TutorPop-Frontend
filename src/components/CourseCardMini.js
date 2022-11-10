@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row } from 'reactstrap'
 
-const CourseCardMini = () => {
+const CourseCardMini = ({course}) => {
+
   return (
     <div className='course-card-mini border'>
         <Container>
@@ -9,9 +10,9 @@ const CourseCardMini = () => {
                 <img src='https://cdn-icons-png.flaticon.com/512/3253/3253220.png' alt='Course-Img'/>
             </Row>
             <Row>
-                <p>peach wongsu</p>
-                <p>@guru school</p>
-                <p>200 THB</p>
+                <p className='my-1'>{course.course_name}</p>
+                <p className='my-1'>@guru school</p>
+                <p className='my-1'>{course.course_price}</p>
             </Row>
         </Container>
     </div>
