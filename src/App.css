@@ -507,6 +507,8 @@
   margin-top: 40px;
   border: none !important;
   width: 30%;
+  justify-content: center;
+  display: flex;
 }
 
 .div-pay-btn{
