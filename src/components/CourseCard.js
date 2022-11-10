@@ -29,7 +29,7 @@ const CourseCard = (
       ) => {
   return (
     <div className='course-card'>
-      <img className='course-img' src={require('../img/logo-white-no-name.png')}/>
+      <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/>
       { ( cardType === 'course' ) &&
       <>
       <div className='course-text-left'>
@@ -42,8 +42,15 @@ const CourseCard = (
         }
         { toggleProgress &&
         <div className='course-progress-bar'>
-          <div className='course-progress-fill'></div>
-          <div className='course-progress-blank'></div>
+          <div className='course-progress-fill' 
+               style={{
+                  width: (Number(courseDetail.course_progress)*100) + '%'
+               }}></div>
+          <div className='course-progress-blank'
+               style={{
+                  width: ((1 - Number(courseDetail.course_progress))*100) + '%'
+               }}
+          ></div>
         </div>
         }
         <p>{courseDetail.school_name} <em>{courseDetail.school_address}</em></p> 
