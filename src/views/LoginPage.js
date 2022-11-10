@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { login } from "../services/auth.service";
 import { useDispatch } from "react-redux";
 import { startLoading, stopLoading } from "../redux/loading.reducer";
+import { emitError } from "../functions/toastify.function";
 
 const LoginPage = () => {
 
@@ -37,6 +38,9 @@ const LoginPage = () => {
         dispatch(stopLoading())
         if (err.response.status == 404) {
           setInvalid({ ...invalid, username: true, password: false });
+        }
+        else if(err.response.status == 0){
+          emitError("Connection timeout! Please check your internet connection")
         }
         else {
           setInvalid({ ...invalid, username: false, password: true });
