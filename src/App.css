@@ -1065,3 +1065,29 @@ a:active { text-decoration: none; }
 .ch-box img{
   width: 20%;
 }
+.veri-all-cont{
+  display:flex;
+}
+ 
+.email-box{
+  justify-content: 'center';
+}
+.email-box img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30vh;
+  margin-bottom: 1vh;
+  width: 200px;
+}
+.verify-text{
+        justify-content: 'center';
+        display: flex;
+       
+}
+.verify-col{
+  text-align: center;
+}
+.resent-style{
+  text-decoration:underline;
+}

@@ -36,6 +36,7 @@ import PayedPage from './PayedPage';
 import Admin from './Admin';
 import SchoolPayPending from './SchoolPayPending';
 import MyReservation from './MyReservation';
+import Verify from './Verify';
 
 
 const Views = ({isLogin=false}) => {
@@ -89,6 +90,8 @@ const Views = ({isLogin=false}) => {
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/school-manage/pending' element={<SchoolPayPending/>}/>
         <Route path='/my-reservation' element={<MyReservation/>}/>
+        <Route path='/email/:userid' element={<Verify/>}/>
+        
         </>
         }
       </Routes>
