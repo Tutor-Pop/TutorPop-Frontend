@@ -40,3 +40,7 @@ export async function getTeachingCourses(account_id) {
 export async function getStudyCourses(account_id) {
     return axios.get(`${BACKEND_URL}/api/accounts/${account_id}/courses`)
 }
+
+export async function getAllCourses(school_id) {
+    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses`)
+}
