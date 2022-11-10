@@ -1,16 +1,14 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "react-select";
 import { Button, Col, FormGroup, Input, Label, Row } from "reactstrap"
 
 const CourseCreation = () => {
     const [duplicate, setduplicate] = useState([0])
-    // const [dropdownOpen, setDropdownOpen] = useState(false);
-    // const toggle = () => setDropdownOpen(prevState => !prevState);
     return (
         <div className="CourseCreation">
             <h1>Create new course</h1>
@@ -232,7 +230,7 @@ const CourseCreation = () => {
                 </div>
             </div>
 
-            {duplicate.map((v, i) => <div key={i} className="Element">
+            {duplicate.map((v, i) => <div key={i} className={duplicate[i] ? "d-none" : "Element"}>
                 <div className="FontText"> Teacher Schedule</div>
                 <Row>
                     <Col>
@@ -274,9 +272,13 @@ const CourseCreation = () => {
                     </Col>
                     <Col>
                         <div className="AddOne">
-                            <Button onClick={() => setduplicate([...duplicate, 0])} color="primary" className="w-1/2">
-                                <FontAwesomeIcon icon={faPlus}/>
-                            </Button>
+                            {i === duplicate.length - 1 ?
+                                <Button onClick={() => setduplicate([...duplicate, 0])} className="w-1/2 plus" color="success">
+                                    <FontAwesomeIcon icon={faPlus} />
+                                </Button> :
+                                <Button onClick={() => setduplicate([...duplicate.slice(0, i), 1, ...duplicate.slice(i + 1)])} className="w-1/2 negative" color="danger">
+                                    <FontAwesomeIcon icon={faMinus} />
+                                </Button>}
                         </div>
                     </Col>
                 </Row>
