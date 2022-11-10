@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Col, Container, Row, Tooltip } from 'reactstrap'
 import CardList from '../components/CardList'
@@ -7,10 +7,20 @@ import SchoolBanner from '../img/logo-white.png'
 import Favorite from '../img/heart.png'
 import Homepage from './Homepage'
 import FavButton from '../components/FavButton'
+import { getTeacher } from '../services/school.service'
 
 const SchoolDetail = () => {
 
   const { schoolid } = useParams()
+  const [teachers,setTeachers] = useState([]);
+
+  
+  useEffect(()=>{
+    getTeacher(schoolid).then(
+      response => setTeachers([...response.data.teachers])
+    )
+
+  },[])
 
   const schoolCourses = [{
     'course_id' : '8',
@@ -85,66 +95,7 @@ const SchoolDetail = () => {
     'school_address' : '123 Street, Bangkok'
   }]
 
-  const schoolTeachers = {
-      'teachers': [
-        {
-          'user_id' : '1',
-          'firstname' : 'Jean',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
-        },
-        {
-          'user_id' : '2',
-          'firstname' : 'Jane',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
-        },
-        {
-          'user_id' : '3',
-          'firstname' : 'Joe',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
-        },
-        {
-          'user_id' : '4',
-          'firstname' : 'Jean',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
-        },
-        {
-          'user_id' : '5',
-          'firstname' : 'Joey',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
-        },
-        {
-          'user_id' : '6',
-          'firstname' : 'Jack',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
-        },
-        {
-          'user_id' : '7',
-          'firstname' : 'Jean',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy41Se0MDkOHC8ZiMqFoqbDpm9MkcW6Hlia_ClnEwhf9pJqF09gBByQllTVjKUV7YdJo&usqp=CAU',
-        },
-        {
-          'user_id' : '8',
-          'firstname' : 'Joey',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVl9oeHxsqdBZ-0lJKKSM0NEIcac0bJtN7GA&usqp=CAU',
-        },
-        {
-          'user_id' : '9',
-          'firstname' : 'Jack',
-          'lastname' : 'Doe',
-          'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU',
-        },
-      ]
-  }
-  
-  const teachersData = schoolTeachers.teachers;
+
 
   return (
     <div className='school-detail'>
@@ -168,7 +119,7 @@ const SchoolDetail = () => {
           <Col xs='4'>
             <h4>Our Teachers</h4>
             <Row className='school-teacher-list'> 
-            { teachersData.map((teacher) => (
+            { teachers.map((teacher) => (
                   <Link className='teacher-item-link 'to={`/teachers/${teacher.user_id}`}>
                     <img 
                       className='user-profile-icon'
