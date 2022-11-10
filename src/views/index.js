@@ -37,6 +37,7 @@ import Admin from './Admin';
 import SchoolPayPending from './SchoolPayPending';
 import MyReservation from './MyReservation';
 import Verify from './Verify';
+import SchoolRegisterPending from './SchoolRegisterPending';
 
 
 const Views = ({isLogin=false}) => {
@@ -64,6 +65,8 @@ const Views = ({isLogin=false}) => {
         <Route path='/create-course/:schoolid' element={<CourseCreation />} />
         <Route path='/support'element={<Support />} />
         <Route path='/course-manage/student-manage/course-picture' element={<CoursePicture/>} />
+        <Route path='/course/:courseid/payed' element={<PayedPage/>}/>
+        <Route path='/school/pending' element={<SchoolRegisterPending/>}/>
         { /* Authorization is required after this line */ isLogin && <>
         <Route path='/my-school' element={<MySchool/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>
@@ -86,7 +89,6 @@ const Views = ({isLogin=false}) => {
         <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest/>}/>
         <Route path='/admin/user_manage' element={<UserManagement/>}/>
         <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
-        <Route path='/course/:courseid/payed' element={<PayedPage/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/school-manage/pending' element={<SchoolPayPending/>}/>
         <Route path='/my-reservation' element={<MyReservation/>}/>
