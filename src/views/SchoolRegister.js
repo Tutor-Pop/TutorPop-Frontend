@@ -1,9 +1,13 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Select from 'react-select'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
-
+import { Address } from '../constants/location.constant'
 const SchoolRegister = () => {
+
+  const [provinceSelect, setProvinceSelect] = useState('กระบี่');
+  const [districtSelect, setDistrictSelect] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -35,6 +39,26 @@ const SchoolRegister = () => {
       console.log(err)
     })
   }
+
+  const onChangeProvince = (e) => {
+    setProvinceSelect(e.target.value)
+  }
+
+  const onChangeDistrict = (e) => {
+    setDistrictSelect(e.target.value)
+  }
+
+  // useEffect(() => {
+  //   console.log(
+  //     Address['กระบี่']
+  //     .filter((value) => (value.district === 'คลองท่อม'))[0].subdistrict
+  //     .map((v) => (v))
+  //   )
+  // }, [])
+
+  useEffect(() => {
+
+  }, [provinceSelect])
 
   return (
     <div className='school-register'>
@@ -69,15 +93,105 @@ const SchoolRegister = () => {
               </FormGroup>
             </Row>
             <Row>
+              <h5 className='my-3'>School Address</h5>
               <FormGroup>
-                <Label for='school-address'>
-                  School Address<span className="required-star">*</span>
-                </Label>
-                <Input 
-                  id='school-address' 
-                  type='textarea'
-                  required={true} 
-                />
+                <Row>
+                  <Col>
+                  <Label for='school-province'>
+                    Province<span className="required-star">*</span>
+                  </Label>
+                  <Select 
+                    id='school-address' 
+                    required={true}
+                    onChange={onChangeProvince} 
+                    options={
+                      Object.keys(Address).map((province) => (
+                        {value: province, label: province}
+                      ))
+                    }  
+                  />                  
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                  <Label for='school-district'>
+                    District<span className="required-star">*</span>
+                  </Label>
+                  <Select 
+                    id='school-district'
+                    required={true}
+                    defaultValue={''} 
+                    onChange={onChangeDistrict}
+                    options={
+                      Address[provinceSelect].map((el) => (
+                        {value: el.district, label: el.district}
+                      ))
+                    }
+                  />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                  <Label for='school-subdistrict'>
+                    Subdistrict<span className="required-star">*</span>
+                  </Label>
+                  <Select
+                    id='school-subdistrict' 
+                    type='select'
+                    required={true} 
+                    defaultValue={''}
+                    options={[{value: 1, label: 1}]
+                      // Address[provinceSelect]
+                      // .filter((value) => (value.district === districtSelect))[0].subdistrict
+                      // .map((subdist) => ({value: subdist, label: subdist}))
+                    }  
+                  />
+                    { 
+                    }
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for='school-road'>
+                      Road
+                    </Label>
+                    <Input 
+                      id='school-road' 
+                      type='text' 
+                    />
+                  </Col>
+                  <Col>
+                    <Label for='school-village'>
+                      Village
+                    </Label>
+                    <Input 
+                      id='school-village' 
+                      type='text'
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for='school-plotnumber'>
+                      Plot Number<span className="required-star">*</span>
+                    </Label>
+                    <Input 
+                      id='school-plotnumber' 
+                      type='text'
+                      required={true} 
+                    />
+                  </Col>
+                  <Col>
+                    <Label for='school-postalcode'>
+                      Postal Code<span className="required-star">*</span>
+                    </Label>
+                    <Input 
+                      id='school-postalcode' 
+                      type='number'
+                      required={true} 
+                    />
+                  </Col>
+                </Row>
               </FormGroup>
             </Row>
             <Row>
