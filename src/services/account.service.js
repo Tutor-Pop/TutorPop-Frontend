@@ -17,3 +17,8 @@ export async function getAllAccounts(is_verified=0,year_of_birth=-1){
     let queryParams = `is_verified=${is_verified}&year_of_birth=${year_of_birth}`
     return axios.get(`${BACKEND_URL}/api/accounts?${queryParams}`)
 }
+
+export async function chagenPassword(body){
+    let account_id = localStorage.getItem('account_id')
+    return axios.put(`${BACKEND_URL}/api/accounts/${account_id}/password`,body)
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import { toast, ToastContainer } from 'react-toastify';
+  import "react-toastify/dist/ReactToastify.css";
 
 const SchoolPayment = () => {
   const schoolData = { 'school_name' : 'Tutoring School 1' }
@@ -18,6 +20,16 @@ const SchoolPayment = () => {
     images.forEach((img) => newImageUrls.push(URL.createObjectURL(img)))
     setImageURLs(newImageUrls)
   }, [images])
+
+  useEffect(() => {
+    toast.error('You haven\’t paid the subscription for this school \nPlease pay to gain the access' , {
+      position: toast.POSITION.TOP_CENTER,
+      theme: "colored",
+      hideProgressBar: true,
+      closeOnClick: false,
+      draggable: false
+    })
+  }, [])
 
   return (
     <div className='school-payment'>
