@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SchoolCard = ({school_id, school_name , logo_url}) => {
+const SchoolCard = ({schoolId, schoolName , logoUrl}) => {
   return (
     <span  className='schoolcard' style={{"display": "block"}}>
-    <Link to={`/school/${school_id}`}>
+    <Link to={`/school/${schoolId}`}>
             <div className='imgschool'>
-                <img src={logo_url} alt='school-logo'/>
+                <img src={logoUrl} alt='school-logo'/>
             </div>
             <div className='text-center textbox-myschool'>
-                <h4>{school_name}</h4>
+                <h4>{schoolName}</h4>
             </div>
     </Link>
   </span>

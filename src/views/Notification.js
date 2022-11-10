@@ -1,64 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import '../App.css'
+import NotificationCard from '../components/NotificationCard'
+import { getNoti } from '../services/noti.service';
 
 const Notification = () => {
+
+    const [notis,setNotis] = useState([]);
+
+    useEffect(()=>{
+        getNoti(localStorage.getItem("account_id")).then(
+            response => setNotis([...response.data.messages])
+        )
+    },[])
+
+    console.log(notis);
+
   return (
     <div className='Noti'>
         <div className='header'>
             Notification
         </div>
         <div className='bot'>
-            <div className='frame'>
-                <div className='pic'>
-                </div>
-                <div className='right'>
-                    <div className='text'>
-                        <div className='text1'>
-                            From Nun Fak Algorithm
-                        </div>
-                        <div className='text2'>
-                            มาช้าจังนะไอเวร
-                        </div>
-                    </div>
-                    <div className='date'>
-                        28 Sep 2014
-                    </div>
-                </div>
-            </div>
-            <div className='frame'>
-                <div className='pic'>
-                </div>
-                <div className='right'>
-                    <div className='text'>
-                        <div className='text1'>
-                            From Nun Fak Algorithm
-                        </div>
-                        <div className='text2'>
-                            มาช้าจังนะไอเวร
-                        </div>
-                    </div>
-                    <div className='date'>
-                        28 Sep 2014
-                    </div>
-                </div>
-            </div>
-            <div className='frame'>
-                <div className='pic'>
-                </div>
-                <div className='right'>
-                    <div className='text'>
-                        <div className='text1'>
-                            From Nun Fak Algorithm
-                        </div>
-                        <div className='text2'>
-                            มาช้าจังนะไอเวร
-                        </div>
-                    </div>
-                    <div className='date'>
-                        28 Sep 2014
-                    </div>
-                </div>
-            </div>
+            {notis.map((noti) =>(
+                <NotificationCard 
+                    messageNoti={noti.message_noti}
+                    title={noti.title}
+                    createTime={noti.create_time}
+                />
+            ))}
         </div>
     </div>
   )
