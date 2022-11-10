@@ -7,13 +7,13 @@ import '../App.css'
  
 const Verify = () => {
   return (
-    <Container classname="veri-all-cont">
+    <Container>
       <Row>
         <Col className="email-box">
         <img src="https://cdn-icons-png.flaticon.com/512/3296/3296464.png" alt="Google"/>
         </Col>
       </Row>
-      <Row classname="verify-text">
+      <Row className="verify-text">
         <Col className="verify-col">
         <h1>Please Verify Your Account</h1>
         <h3>We’ve sent you and confirmation to your email: xxxxxxxxxxxxxxxx@mail.com</h3>
@@ -21,7 +21,7 @@ const Verify = () => {
         <br/>
         <br/>
        
-          <h3 classname = "resent-style">Didn’t recived your confirmation? Click here to resend.</h3>
+        <h3 className="resent-style">Didn’t recived your confirmation? <span className="resent-click">Click here</span> to resend.</h3>
        
         </Col>
       </Row>
