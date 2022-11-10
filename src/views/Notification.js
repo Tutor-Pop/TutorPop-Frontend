@@ -7,14 +7,18 @@ import { getNoti } from '../services/noti.service';
 const Notification = () => {
 
     const [notis,setNotis] = useState([]);
+    const [test,setTest] = useState({});
 
     useEffect(()=>{
         getNoti(localStorage.getItem("account_id")).then(
-            response => setNotis([...response.data.messages])
+            (response) => {
+                setNotis([...response.data.messages])
+                setTest({...response.data})
+            }
         )
     },[])
 
-    console.log(notis);
+    console.log(test.count);
 
   return (
     <div className='Noti'>
