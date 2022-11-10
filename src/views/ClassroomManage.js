@@ -1,9 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { Col, Container, Input, Row, Table } from 'reactstrap';
 import AddClassroom from '../components/AddClassroom';
 import EditClassroom from '../components/EditClassroom';
 import RemoveClassrooms from '../components/RemoveClassrooms';
+import { startLoading, stopLoading } from '../redux/loading.reducer';
 import { getAllRooms } from '../services/room.service'
 import { getSchool } from '../services/school.service';
 
@@ -12,17 +14,22 @@ export const AllClassroomsContext = createContext();
 const ClassroomManage = () => {
   
   const { schoolid } = useParams();
+  const dispatch = useDispatch();
 
   const [allClassrooms, setAllClassrooms] = useState([]);
   const [checkedClassrooms, setCheckedClassrooms] = useState([]);
   const [school, setSchool] = useState({});
 
   useEffect(() => {
-    getAllRooms(schoolid).then(
-      response => setAllClassrooms([...response.data.result]) 
-    )
-    getSchool(schoolid).then(
-      response => setSchool({...response.data.result})
+    dispatch(startLoading())
+    getAllRooms(schoolid).then((response) => {
+        setAllClassrooms([...response.data.result])
+        return getSchool(schoolid)
+      }
+    ).then((response) => {
+        dispatch(stopLoading())
+        setSchool({...response.data.result})
+      }
     )
   }, [])
 
