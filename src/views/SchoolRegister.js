@@ -16,6 +16,8 @@ const SchoolRegister = () => {
   const [districtSelect, setDistrictSelect] = useState('');
   const [subdistrictSelect, setSubDistrictSelect] = useState('')
 
+  const [upload,setupload] = useState(null)
+
   const [disable, setenable] = useState({ district: true, subdistrict: true })
 
   const handleSubmit = (e) => {
@@ -23,7 +25,7 @@ const SchoolRegister = () => {
     let formData = new FormData()
     formData.append('account_id', localStorage.getItem("account_id"));
     formData.append('school_id', 1);
-    formData.append('document', e.target['school-verify-doc'].value);
+    formData.append('document', e.target['school-verify-doc'].files[0]);
 
     dispatch(startLoading())
     createRequest(formData).then(response => {
@@ -53,9 +55,9 @@ const SchoolRegister = () => {
     // })
   }
 
-  useEffect(()=>{
-    console.log("PS",provinceSelect)
-  },[provinceSelect])
+  // useEffect(()=>{
+  //   console.log("PS",provinceSelect)
+  // },[provinceSelect])
 
   const onChangeProvince = (e) => {
     setProvinceSelect(e.value)
@@ -221,6 +223,7 @@ const SchoolRegister = () => {
                   id='school-verify-doc'
                   type='file'
                   required={true}
+                  onChange={e => setupload(e.target.files[0])}
                 />
               </FormGroup>
             </Row>
