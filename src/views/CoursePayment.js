@@ -11,12 +11,11 @@ const CoursePayment = () => {
           <h4>Please pay the fee in 2022 07 09</h4>
         </div>
         <PaymentCard />
-        <PaymentCard />
-        <PaymentCard />
         <div className="div-pay-btn">
-          <Button className="pay-btn" size="lg">
-            PAY NOW
+          <Button color='primary' className="pay-btn" size="lg">
+            Pay Now
           </Button>
+          <Button color='secondary' className='pay-btn' size='lg'>Continue To Website</Button>
         </div>
       </div>
     </div>

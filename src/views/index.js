@@ -34,7 +34,8 @@ import CourseManagement from './CourseManagement';
 import AdminSchoolManagement from './AdminSchoolManagement';
 import Admin from './Admin';
 import SchoolPayPending from './SchoolPayPending';
-
+import StudentManage from './StudentManage';
+import CoursePaymentMethod from './CoursePaymentMethod';
 
 const Views = ({isLogin=false}) => {
   return (
@@ -61,6 +62,9 @@ const Views = ({isLogin=false}) => {
         <Route path='/create-course/:schoolid' element={<CourseCreation />} />
         <Route path='/support'element={<Support />} />
         <Route path='/course-manage/student-manage/course-picture' element={<CoursePicture/>} />
+        <Route path='/course-manage' element={<CourseManagement/>}/>
+        <Route path='/course-manage/student-manage' element={<StudentManage />}/>
+        <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
         { /* Authorization is required after this line */ isLogin && <>
         <Route path='/my-school' element={<MySchool/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>

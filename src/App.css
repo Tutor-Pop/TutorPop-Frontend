@@ -532,7 +532,7 @@
 
 /* CoursePayment */
 .PaymentCard {
-  padding-top: 4%;
+  padding-top: 5%;
 }
 
 .cost {
@@ -541,32 +541,69 @@
 
 .paymentcard {
   /* border: #000000 solid 1px; */
-  margin-top: 40px;
-  padding: 50px;
+  width: 1000px !important;
+  margin-bottom: 30px;
+  padding: 20px;
   border-radius: 25px;
-  margin-right: 10%;
-  margin-left: 10%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.paymentcard h4 {
+  margin-inline: 10px;
+}
+
+.nlink{
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
 .pay-btn {
-  background-color: #FFAA06 !important;
   margin-top: 40px;
-  border: none !important;
-  width: 50%;
-  margin-left: 25%;
+  width: 30%;
   margin-bottom: 3px;
+  margin-inline: 40px;
 }
 
 .div-pay-btn {
+  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .payment-info-text {
   margin-left: 10%;
-  margin-top: 2%;
-  margin: 0 200px 100px;
+  margin: 20px 200px 90px;
+}
+
+/*Payment Methods*/
+.payment-method {
+  width: 1000px !important;
+}
+
+.bank-detail {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bank-account {
+  padding-left: 30px;
+}
+
+.enrolled-btn-row {
+  display: flex ;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.enrolled-btn {
+  width: 400px;
+}
+
+.modal-footer.Qr-footer{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  padding-left: 50px;
 }
 
 /* School Detail Page */
@@ -964,6 +1001,7 @@
 
 .SchoolBox{
   margin-top: 3%;
+  
 }
 
 .schooladdcards{
@@ -1016,10 +1054,12 @@
   height: 60px;
   width: 200px;
   display: flex;
+  align-items: center;
 }
 
 .textbox-schoolman h3 {
   margin-left: 12px;
+  margin-top: 22px;
   color: #000000 !important;
   text-decoration: none !important;
 }
@@ -1164,11 +1204,6 @@ a:active { text-decoration: none; }
   margin-top: 500px;
 }
 
-
-
-
-
-
 .dummy {
   padding-top: 100px;
   margin: 0 100px
@@ -1192,6 +1227,7 @@ a:active { text-decoration: none; }
 
 .course-img{
   width: 150px;
+  margin-left: 50px;
 }
 
 .col-course-card-mini{
@@ -1301,3 +1337,103 @@ a.fc-col-header-cell-cushion:hover {
   padding-top: 200px;
   text-align: center;
 }
+/* Course Management */
+
+.course-manage{
+  padding-top: 70px;
+  text-align: center;
+}
+
+.block-info {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn {
+  width: 300px;
+  margin-top: 200px;
+}
+
+.course-manamge-menu {
+  display: flex;
+  justify-content: center;
+}
+
+/*Student Management*/
+
+.stutdent-manage-title {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.studentCard {
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5px;
+  padding-right:5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px rgb(218, 216, 216);
+  border-top: solid 1px rgb(218, 216, 216);
+}
+
+.student-title {
+  line-height: 50%;
+  margin-left: 10px;
+}
+
+.profile-pic-title {
+  display: flex;
+}
+
+.collapse {
+  visibility: visible;
+}
+
+.accordion-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirm-btn {
+  margin-right: 20px;
+  padding-inline: 25px !important;
+}
+
+.decline-btn {
+  margin-right: 20px;
+  padding-inline: 25px !important;
+}
+
+/*PopupNoti*/
+
+.modal-body.Noti-body {
+  padding: 10px !important;
+}
+
+.modal-footer.Noti-footer {
+  display: flex;
+  justify-content: space-evenly !important;
+}
+
+.noti-body {
+  height: 300px;
+  margin-top: 10px;
+}
+
+label{
+  font-size: 20px;
+  font-weight: 100px;
+}
+
+.select__control{
+  width: 430px;
+  margin-left: 20px;
+}
+

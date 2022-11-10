@@ -1,101 +1,32 @@
-import React from 'react'
-import { Button, Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Row } from 'reactstrap'
-import SearchBar from '../components/SearchBar'
-import DataTable from 'react-data-table-component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-
-const columns = [
-    {
-        name: 'Course: Name (A-Z)',
-        selector: row => row.course,
-        sortable: true,
-    },
-    {
-        name: 'School : Default',
-        selector: row => row.school,
-        sortable: true,
-    },
-    {
-      name: 'Created date: Latest',
-      selector: row => row.date,
-      sortable: true,
-    },
-    {
-      name: 'Last active: Latest',
-      selector: row => row.active,
-      sortable: true,
-    },
-    {
-      name: 'Send feedback',
-      selector: row => row.feedback,
-    },
-];
-
-const data = [
-    {
-        course: 'how to react',
-        school: 'KU',
-        date: '11/9/2565',
-        active: '11/10/2565',
-        feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-      course: 'how to unity',
-      school: 'CU',
-      date: '10/8/2565',
-      active: '10/19/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-      course: 'math',
-      school: 'GU',
-      date: '9/4/2565',
-      active: '9/30/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-      course: 'Basic Dota 2',
-      school: 'Top Market',
-      date: '10/12/2565',
-      active: '10/18/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-      course: 'Valorant 101',
-      school: 'Caltex',
-      date: '11/19/2565',
-      active: '11/23/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-]
+import React, { useState } from "react"
+import { Button, Col, Container, Row } from 'reactstrap'
+import CoursePicturebtn from "../components/CoursePictureBtn";
+import CourseEditBtn from "../components/CourseEditBtn";
+import StudentManageBtn from "../components/StudentManageBtn";
+import NotificationBtn from "../components/NotificationBtn";
+import SendNoti from "../components/SendNoti";
 
 
 const CourseManagement = () => {
-  return (
-    <Container fluid className='full-scr-con'>
-      <Row className='pt-28'>
-        <Col>
-          <h1 className='pl-10'>Course Management</h1>
-        </Col>
-        <Col className='justify-center flex'>
-          <SearchBar/>
-        </Col>
-      </Row>
-      <Row>
-        <Col className='justify-end flex mr-20 pt-12'>
-          <Button color='danger' className='ban-btn'><p><FontAwesomeIcon icon={faBan}/> ban course </p></Button>
-        </Col>
-      </Row>
-      <Row className='pl-10'>
-        <DataTable
-            columns={columns}
-            data={data}
-            selectableRows
-        />
-      </Row>
-    </Container>
-  )
+    const [isOpen, setisOpen] = useState(false)
+    return (
+        <div className="course-manage">
+            <div className="course-manage-title"> 
+                <h1>Course Management</h1>
+                <h4>course name</h4>
+            </div>
+            <Container className='SchoolBox'>
+                <Row className="course-manamge-menu" md={3} xs={2} xl={4} xxl={5}>
+                    <Col className='border'><CoursePicturebtn /></Col>
+                    <Col className='border'><CourseEditBtn /></Col>
+                    <Col className='border'><StudentManageBtn /></Col>
+                    <Col  onClick={() => setisOpen(true)} className='border'><NotificationBtn /></Col>
+                </Row>
+            </Container>
+            <Button color="primary" className="delete-btn" size="lg">Delete Course</Button>   
+            <SendNoti toggle={() => setisOpen(false)} isOpen={isOpen}/>
+        </div>
+    )
 }
 
-export default CourseManagement
+export default CourseManagement;
