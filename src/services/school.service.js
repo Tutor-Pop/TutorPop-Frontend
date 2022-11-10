@@ -32,3 +32,7 @@ export async function updateTeacher(school_id,body){
 export async function deleteTeacher(school_id){
     return axios.delete(`${BACKEND_URL}/api/schools/${school_id}/teachers`)
 }
+
+export async function getAllTeachingSchool(user_id) {
+    return axios.get(`${BACKEND_URL}/api/accounts/${user_id}/schools`)
+}
