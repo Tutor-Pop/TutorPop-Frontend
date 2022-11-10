@@ -32,6 +32,7 @@ import OpenSchoolRequest from './OpenSchoolRequest';
 import UserManagement from './UserManagement';
 import CourseManagement from './CourseManagement';
 import AdminSchoolManagement from './AdminSchoolManagement';
+import PayedPage from './PayedPage';
 import Admin from './Admin';
 import SchoolPayPending from './SchoolPayPending';
 import MyReservation from './MyReservation';
@@ -84,6 +85,7 @@ const Views = ({isLogin=false}) => {
         <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest/>}/>
         <Route path='/admin/user_manage' element={<UserManagement/>}/>
         <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
+        <Route path='/course/:courseid/payed' element={<PayedPage/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/school-manage/pending' element={<SchoolPayPending/>}/>
         <Route path='/my-reservation' element={<MyReservation/>}/>
