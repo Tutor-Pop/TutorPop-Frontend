@@ -70,9 +70,10 @@ const AppNav = ({isLogin=false}) => {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem href='/my-profile'>View Profile</DropdownItem>
-                <DropdownItem>Schedule</DropdownItem>
-                <DropdownItem>My Course</DropdownItem>
-                <DropdownItem>My School</DropdownItem>
+                <DropdownItem href='/schedule'>Schedule</DropdownItem>
+                <DropdownItem href='/my-course'>My Course</DropdownItem>
+                <DropdownItem href='/my-school'>My School</DropdownItem>
+                <DropdownItem href='/my-reservation'>My Reservation</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>Setting</DropdownItem>
                 <DropdownItem onClick={logout}>Logout</DropdownItem>
