@@ -16,7 +16,7 @@ const LoginPage = () => {
     username: false,
     password: false,
   });
-
+  const navigate=useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -33,6 +33,7 @@ const LoginPage = () => {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);
         window.location.reload(false);
+        navigate("/course/:courseid")
       })
       .catch((err) => {
         dispatch(stopLoading())
