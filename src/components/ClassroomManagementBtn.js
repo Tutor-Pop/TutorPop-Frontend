@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ClassroomManagementBtn = () => {
+const ClassroomManagementBtn = ({school}) => {
   return (
     <span style={{"display": "block"}}>
-    <Link to='/:schoolid/classroom-manage'>
+    <Link to={`/${school.school_id}/classroom-manage`}>
         <div className='textbox-schoolman text-left'>
             <h3>Classroom Management</h3>
         </div>

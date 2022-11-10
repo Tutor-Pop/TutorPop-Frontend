@@ -64,7 +64,7 @@ const LogoEdit = () => {
                     </Col>
                     <Col>
                         <Button type="submit" color="primary" size="lg" className="Pair_Button">
-                            Creat course
+                            Create course
                         </Button>
                     </Col>
                     <Col>

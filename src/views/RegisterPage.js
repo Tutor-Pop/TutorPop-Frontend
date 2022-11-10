@@ -1,5 +1,6 @@
 import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Col,
@@ -17,7 +18,7 @@ const RegisterPage = () => {
   const [firstname, setFirstname] = useState("")
   const [validation,setValidation] = useState({ submit:false, username: false ,password:false,confirm_password: false})
   const [allAccounts,setAllAccounts] = useState({})
-
+  const navigate=useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
     
@@ -52,7 +53,8 @@ const RegisterPage = () => {
         is_deleted: false,
       }
       register(registration_body).then((response)=>{
-        alert("Registration Completed!")
+        // alert("Registration Completed!")
+        navigate("/email/:userid")
       }).catch((err)=> console.log('ERROR',err))
     }
     else{
