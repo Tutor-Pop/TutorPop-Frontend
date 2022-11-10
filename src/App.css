@@ -1005,6 +1005,52 @@ a:active { text-decoration: none; }
   margin: 0 100px
 }
 
+/* course creation ของไอตอง */
+.CourseCreation {
+  padding-top: 110px;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.CourseCreation .Element{
+  padding-top: 10px;
+}
+
+.CourseCreation .FontText {
+  font-size: 24px;
+}
+
+.Prob {
+  color: red;
+  font-size: 20px;
+}
+
+.Pair_Button {
+  width: 300px;
+}
+
+.CourseCreation .temp {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Support ของไอตอง */
+.Support {
+  padding-top: 110px;
+  padding-left: 300px;
+}
+
+.Support .box {
+  margin-top: 18px;
+  background-color: #EFB13A;
+  width: 560px;
+  height: 80px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
 .teacher-courses-box {
   padding-top: 30px;
   padding-bottom: 0px;
@@ -1031,6 +1077,193 @@ a:active { text-decoration: none; }
 .courseslidebar::-webkit-scrollbar-thumb {
   background-color: #0069c0;
   border-radius: 5px;
+}
+
+/* Logo Edit ของไอตอง */
+.LogoEdit .top{
+  padding-top: 110px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.LogoEdit .text {
+  font-size: 28px;
+}
+
+.LogoEdit .header {
+  font-weight: bold;
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.LogoEdit .logo {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.LogoEdit .payment {
+  height: 600px;
+}
+
+.LogoEdit .banner {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.LogoEdit .bot {
+  margin-top: 100px;
+}
+
+.LogoEdit .temp {
+  display: flex;
+  justify-content: center;
+}
+
+.LogoEdit .payment {
+  margin-top: 40px;
+  border-style: dotted;
+  border-width: 1px;
+  border-color: #000000;
+  height: 500px;
+  width: 800px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.LogoEdit .plus {
+  height: 50px;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.LogoEdit .payment .text {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.LogoEdit .upload {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+/* CreatCourse ของไอตอง */
+
+.CreatCourse {
+  padding-left: 250px;
+  padding-top: 110px;
+}
+
+.CreatCourse .header {
+  font-size: 45px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  margin-left: -50px;
+}
+
+.CreatCourse .text {
+  font-size: 30px;
+}
+
+.CreatCourse .frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-left: 60px;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.CreatCourse .pic {
+  width: 140px;
+  height: 140px;
+  background-color: #0078AA;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.CreatCourse .bot {
+  margin-top: 20px;
+  width: 1400px;
+}
+
+.CreatCourse .text1 {
+  font-size: 20px;
+}
+
+/* Notification ของไอตอง */
+
+.Noti {
+  padding-top: 120px;
+  padding-left: 200px;
+}
+
+.Noti .header {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.Noti .pic {
+  width: 180px;
+  height: 180px;
+  background-color: #000A65;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.Noti .bot {
+  margin-top: 40px;
+  padding-left: 50px;
+}
+
+.Noti .frame {
+  height: 180px;
+  width: 1400px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.Noti .right {
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+.Noti .text1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.Noti .text {
+  height: 115px;
+}
+
+.Noti .date {
+  color: #828282;
+}
+
+
+
+.dummy {
+  padding-top: 100px;
+  margin: 0 100px
+}
+.courseslidebar{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #ABD9FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .course-card-mini{
