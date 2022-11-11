@@ -1,9 +1,10 @@
-import React from 'react'
 import { Button, Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Row } from 'reactstrap'
 import SearchBar from '../components/SearchBar'
 import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBan, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import SendNoti from "../components/SendNoti";
+import React, { useState } from "react"
 
 const columns = [
     {
@@ -32,46 +33,45 @@ const columns = [
     },
 ];
 
-const data = [
+const CourseManagementAdmin = () => {
+  const [isOpen, setisOpen] = useState(false)
+  const data = [
     {
         course: 'how to react',
         school: 'KU',
         date: '11/9/2565',
         active: '11/10/2565',
-        feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
+        feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
     },
     {
       course: 'how to unity',
       school: 'CU',
       date: '10/8/2565',
       active: '10/19/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
+      feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
     },
     {
       course: 'math',
       school: 'GU',
       date: '9/4/2565',
       active: '9/30/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
+      feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
     },
     {
       course: 'Basic Dota 2',
       school: 'Top Market',
       date: '10/12/2565',
       active: '10/18/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
+      feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
     },
     {
       course: 'Valorant 101',
       school: 'Caltex',
       date: '11/19/2565',
       active: '11/23/2565',
-      feedback: <Button><FontAwesomeIcon icon={faPaperPlane}/></Button>
+      feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
     },
-]
-
-
-const CourseManagementAdmin = () => {
+  ]
   return (
     <Container fluid className='full-scr-con'>
       <Row className='pt-28'>
@@ -93,6 +93,7 @@ const CourseManagementAdmin = () => {
             data={data}
             selectableRows
         />
+      <SendNoti toggle={() => setisOpen(false)} isOpen={isOpen} label="Feedback"/>
       </Row>
     </Container>
   )
