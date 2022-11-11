@@ -1037,6 +1037,11 @@
   text-align: center;
 }
 
+.school-manage-menu {
+  display: flex;
+  justify-content: center;
+}
+
 /* SchoolEditing */
 
 .imgschooledit{

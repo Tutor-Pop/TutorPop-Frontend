@@ -78,7 +78,7 @@ const Views = ({isLogin=false}) => {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/dummy' element={<Dummy />} />
         <Route path='/my-course' element={<MyCourse />} />
-        <Route path='/course-payment' element={<CoursePayment />} />
+        <Route path='/course-payment' element={<CoursePayment />}/>
         <Route path='/school/:schoolid' element={<SchoolDetail />} />
         <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
         <Route path='/course-manage/edit/:courseid'element={<EditingCousre />} />

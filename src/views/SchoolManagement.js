@@ -14,11 +14,12 @@ const SchoolManagement = () => {
       </div>
       <div className='schoolcards'>
         <Container className='SchoolBox'>
-            <Row md={3} xs={2} xl={4} xxl={5}>
+            <Row className="school-manage-menu" md={3} xs={2} xl={4} xxl={5}>
+              <Col className='border'><LogoBannerBtn/></Col>
               <Col className='border'><SchoolEditing/></Col>
               <Col className='border'><SchoolManagementBtn/></Col>
               <Col className='border'><ClassroomManagementBtn/></Col>
-              <Col className='border'><LogoBannerBtn/></Col>
+              
             </Row>
         </Container>
       </div>

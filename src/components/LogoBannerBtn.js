@@ -6,7 +6,7 @@ const LogoBannerBtn = () => {
     <span style={{"display": "block"}}>
     <Link to='/:schoolid/logo-editing'>
         <div className='textbox-schoolman text-left'>
-            <h3>School Editing</h3>
+            <h3>School Picture</h3>
         </div>
         <div className='imgschooledit'>
             <img src={require("../img/banner.png")}/>

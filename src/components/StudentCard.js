@@ -5,7 +5,7 @@ function StudentCard() {
   return (
     <div className='studentCard'>
       <div className='profile-pic-title'>
-        <img className='user-profile-icon' src='./img/classroom.png'/>
+        <img className='user-profile-icon' src={require("../img/user_icon.jpg")}/>
         <div className='student-title'>
           <h6>Kanonแคนนอน</h6>
           <h7>kanon@dukdui.com</h7>

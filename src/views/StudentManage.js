@@ -24,7 +24,7 @@ function StudentManage() {
       </div>
       <Accordion open={open} toggle={toggle}>
         <AccordionItem>
-          <AccordionHeader targetId="1">Waiting for Confirmation (10)</AccordionHeader>
+          <AccordionHeader targetId="1">Waiting for Confirmation (2)</AccordionHeader>
           <AccordionBody accordionId="1">
             <StudentCard/>
             <StudentCard/>
