@@ -6,7 +6,7 @@ import '../App.css'
 
 const LogoEdit = () => {
   return (
-    <div className='LogoEdit'>
+    <div className='logo-edit'>
         <div className='top'>
             <Row>
                 <Col>
@@ -48,6 +48,7 @@ const LogoEdit = () => {
                                 Browse and chose the files you want to upload from your computer
                             </div>
                             <div className='button'>
+                                <input required type="file" id="school-verify-doc" name="school-verify-doc" className='Hidden'/>
                                 <Button className="w-1/2 plus" color='primary'>
                                     <FontAwesomeIcon icon={faPlus}/>
                                 </Button>

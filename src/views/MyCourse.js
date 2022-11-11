@@ -106,7 +106,8 @@ const MyCourse = () => {
         {
           (isSelectRight === 1) &&
           <CardList
-            cardType='course' 
+            cardType='course'
+            isEditable={true} 
             cardData={teachCourse} 
             createCourseOption={true}
             toggleProgress={true}
