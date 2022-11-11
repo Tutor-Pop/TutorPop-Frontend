@@ -533,9 +533,14 @@
 .pay-btn{
   margin-top: 40px;
   border: none !important;
-  width: 30%;
+  width: 400px;
   justify-content: center;
   display: flex;
+}
+
+.pay-now-btn.btn {
+  width: 350px;
+  margin-top: 35px;
 }
 
 .div-pay-btn{

@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
+import LinkButton from "../components/LinkButton";
 import PaymentCard from "../components/PaymentCard";
 
 const CoursePayment = () => {
@@ -12,10 +12,9 @@ const CoursePayment = () => {
           <h4>Please pay the fee in 2022 07 09</h4>
         </div>
         <PaymentCard />
-        <div className="div-pay-btn">
-          <Button color='primary' className="pay-btn" size="lg">
-            Pay Now
-          </Button>
+
+        <div className="div-pay-btn mx-auto">
+          <LinkButton color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now"/>
           <Button color='secondary' className='pay-btn' size='lg'>Continue To Website</Button>
         </div>
       </div>
