@@ -96,7 +96,7 @@ const Views = ({ isLogin = false }) => {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/my-course' element={<MyCourse />} />
-          <Route path='/course-payment/:courseid' element={<CoursePayment />}/>
+          <Route path='/course-payment/:courseid' element={<CoursePayment />} />
           <Route path='/school/:schoolid' element={<SchoolDetail />} />
           <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
           <Route path='/course-manage/:coursesid' element={<CourseManagement />}/>
