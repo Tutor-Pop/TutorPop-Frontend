@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Container } from 'reactstrap'
 import PaymentCard from '../components/PaymentCard'
 import QRcodepopup from '../components/QRcodepopup'
+import Upload from '../components/Upload'
 
 const CoursePaymentMethod = () => {
   const [isOpen, setisOpen] = useState(false)
@@ -21,6 +22,7 @@ const CoursePaymentMethod = () => {
             </div>
             <div>
                 <h4>Upload Payment Receipt</h4>
+                <Upload/>
             </div>
         </Container>
         <div className='enrolled-btn-row'>

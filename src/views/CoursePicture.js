@@ -1,14 +1,16 @@
 import React from 'react'
 import { Button, Col, Row } from 'reactstrap'
 import '../App.css'
+import Upload from '../components/Upload'
 
 
 const CoursePicture = () => {
   return (
-    <div className='CoursePic'>
+    <div className='course-pic'>
       <div className='Header'>Course Picture</div>
       <br></br>
       <div className='text'>Nun tutor (fak algorithm)</div>
+      <Upload/>
       <div className="temp">
         <Row>
             <Col>

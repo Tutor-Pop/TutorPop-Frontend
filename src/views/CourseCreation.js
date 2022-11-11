@@ -1,23 +1,69 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
-
-
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import Select from "react-select";
-import { Button, Col, FormGroup, Input, Label, Row } from "reactstrap"
+import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap"
+import Upload from "../components/Upload";
+import { startLoading, stopLoading } from "../redux/loading.reducer";
+import { getAllRooms } from "../services/room.service";
+import { getSchool, getTeacher } from "../services/school.service";
 
 const CourseCreation = () => {
+
+    const dispatch = useDispatch()
+
+    const [schoolName, setSchoolName] = useState('') 
     const [duplicate, setduplicate] = useState([0])
+    const [allClassrooms, setAllClassrooms] = useState([])
+    const [isNumberEmpty, setIsNumberEmpty] = useState(true)
+    const [numberStudents, setNumberStudents] = useState(0)
+    const [allTeachers, setAllTeachers] = useState([])
+
+    const { schoolid } = useParams()
+    
+    useEffect(() => {
+        dispatch(startLoading())
+        getSchool(schoolid)
+        .then( (response) => {
+            setSchoolName(response.data.result.name)
+            return getAllRooms(schoolid)
+        })
+        .then( (response) => {
+            setAllClassrooms(response.data.result)
+            return getTeacher(schoolid)
+        })
+        .then( (response) => {
+            dispatch(stopLoading())
+            setAllTeachers(response.data.teachers)
+        })
+    }, [])
+
+    const handleOnChange = (e) => {
+        console.log(e.target.value)
+        if (e.target.value === '' || e.target.value === NaN || e.target.value == 0) {
+            setIsNumberEmpty(true)
+            setNumberStudents(0)
+            return
+        } 
+        setIsNumberEmpty(false)
+        setNumberStudents(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(e.target)
+    }
+
     return (
-        <div className="CourseCreation">
+        <div className="course-creation">
             <h1>Create new course</h1>
             <div className="Element">
-                <div className="FontText">Academy name</div>
-                <div className="Bar">
-                    <input type="text" class="form-control" id="course_name_bar" />
-                </div>
+                <div className="FontText">School : {schoolName}</div>
             </div>
+            <Form onSubmit={handleSubmit}>
             <div className="Element">
                 <div className="FontText">Course name</div>
                 <div className="Bar">
@@ -28,16 +74,14 @@ const CourseCreation = () => {
                 <div className="FontText">Category</div>
                 <div className="Bar">
                     <Select
-                        options={[{ value: 'ocean', label: 'Ocean', isFixed: true },
-                        { value: 'blue', label: 'Blue', isDisabled: true },
-                        { value: 'purple', label: 'Purple' },
-                        { value: 'red', label: 'Red', isFixed: true },
-                        { value: 'orange', label: 'Orange' },
-                        { value: 'yellow', label: 'Yellow' },
-                        { value: 'green', label: 'Green' },
-                        { value: 'forest', label: 'Forest' },
-                        { value: 'slate', label: 'Slate' },
-                        { value: 'silver', label: 'Silver' },]}
+                        options={[
+                            { value: 'GENERAL', label: 'General' },
+                            { value: 'MATH', label: 'Math' },
+                            { value: 'SCIENCE', label: 'Science' },
+                        { value: 'LANGUAGE', label: 'Language' },
+                        { value: 'MUSIC', label: 'Music' },
+                        { value: 'COOK', label: 'Cooking' },
+                        { value: 'FINANCE', label: 'Finance' },]}
                     />
                 </div>
             </div>
@@ -47,22 +91,17 @@ const CourseCreation = () => {
                     <textarea class="form-control" rows="6"></textarea>
                 </div>
             </div>
-            <div className="Element">
-                <div class="teacher">
-                    <div class="FontText">Add teacher</div>
+            <div className="Element frame">
+                <div className="course-create-teacher">
+                    <div className="FontText">Add teacher</div>
                     <Select
                         isMulti
                         name="colors"
-                        options={[{ value: 'ocean', label: 'Ocean', isFixed: true },
-                        { value: 'blue', label: 'Blue', isDisabled: true },
-                        { value: 'purple', label: 'Purple' },
-                        { value: 'red', label: 'Red', isFixed: true },
-                        { value: 'orange', label: 'Orange' },
-                        { value: 'yellow', label: 'Yellow' },
-                        { value: 'green', label: 'Green' },
-                        { value: 'forest', label: 'Forest' },
-                        { value: 'slate', label: 'Slate' },
-                        { value: 'silver', label: 'Silver' },]}
+                        options={
+                            allTeachers.map((teacher) => (
+                                {value: teacher.account_id, label: (teacher.firstname + ' ' + teacher.lastname)}
+                            ))
+                        }
                         className="basic-multi-select"
                         classNamePrefix="select"
                     />
@@ -83,7 +122,7 @@ const CourseCreation = () => {
                                             name="date"
                                             placeholder="date placeholder"
                                             type="date"
-                                        />
+                                            />
                                     </FormGroup>
                                 </div>
                             </Col>
@@ -95,7 +134,7 @@ const CourseCreation = () => {
                                             name="time"
                                             placeholder="date placeholder"
                                             type="time"
-                                        />
+                                            />
                                     </FormGroup>
                                 </div>
                             </Col>
@@ -114,7 +153,7 @@ const CourseCreation = () => {
                                             name="date"
                                             placeholder="date placeholder"
                                             type="date"
-                                        />
+                                            />
                                     </FormGroup>
                                 </div>
                             </Col>
@@ -126,7 +165,7 @@ const CourseCreation = () => {
                                             name="time"
                                             placeholder="date placeholder"
                                             type="time"
-                                        />
+                                            />
                                     </FormGroup>
                                 </div>
                             </Col>
@@ -180,7 +219,7 @@ const CourseCreation = () => {
                                             name="date"
                                             placeholder="date placeholder"
                                             type="date"
-                                        />
+                                            />
                                     </FormGroup>
                                 </div>
                             </Col>
@@ -192,7 +231,7 @@ const CourseCreation = () => {
                                             name="time"
                                             placeholder="date placeholder"
                                             type="time"
-                                        />
+                                            />
                                     </FormGroup>
                                 </div>
                             </Col>
@@ -203,29 +242,28 @@ const CourseCreation = () => {
             <div className="Element">
                 <div className="FontText">Course period (number of hours)</div>
                 <div className="Bar">
-                    <input type="text" class="form-control" id="course_name_bar" />
+                    <input min='0' type="Number" class="form-control" id="course_name_bar" />
                 </div>
             </div>
             <div className="Element">
                 <div className="FontText">Number of student</div>
                 <div className="Bar">
-                    <input type="text" class="form-control" id="course_name_bar" />
+                    <input onChange={handleOnChange} min='0' type="Number" class="form-control" id="course_name_bar" />
                 </div>
             </div>
             <div className="Element">
                 <div className="FontText">Classroom</div>
                 <div className="Bar">
                     <Select
-                        options={[{ value: 'ocean', label: 'Ocean', isFixed: true },
-                        { value: 'blue', label: 'Blue', isDisabled: true },
-                        { value: 'purple', label: 'Purple' },
-                        { value: 'red', label: 'Red', isFixed: true },
-                        { value: 'orange', label: 'Orange' },
-                        { value: 'yellow', label: 'Yellow' },
-                        { value: 'green', label: 'Green' },
-                        { value: 'forest', label: 'Forest' },
-                        { value: 'slate', label: 'Slate' },
-                        { value: 'silver', label: 'Silver' },]}
+                        isDisabled={isNumberEmpty}
+                        placeholder="Select Classroom"
+                        options={
+                            allClassrooms
+                            .filter((room) => (Number(room.maximum_seat) >= Number(numberStudents)))
+                            .map((room) => (
+                                { value : room.room_name, label: (room.room_name + ' (Max Students : '+ room.maximum_seat + ')') }
+                            ))
+                        }
                     />
                 </div>
             </div>
@@ -236,13 +274,13 @@ const CourseCreation = () => {
                     <Col>
                         <div className="Bar">
                             <Select placeholder="Day..."
-                                options={[{ value: 'Sun', label: 'Sun' },
-                                { value: 'Mon', label: 'Mon' },
-                                { value: 'Tue', label: 'Tue' },
-                                { value: 'Wed', label: 'Wed' },
-                                { value: 'Thu', label: 'Thur' },
-                                { value: 'Fri', label: 'Fri' },
-                                { value: 'Sat', label: 'Sat' }]}
+                                options={[{ value: 'SUN', label: 'Sunday' },
+                                { value: 'MON', label: 'Monday' },
+                                { value: 'TUE', label: 'Tuesday' },
+                                { value: 'WED', label: 'Wednesday' },
+                                { value: 'THU', label: 'Thursday' },
+                                { value: 'FRI', label: 'Friday' },
+                                { value: 'SAT', label: 'Saturday' }]}
                             />
                         </div>
                     </Col>
@@ -251,10 +289,10 @@ const CourseCreation = () => {
                             <FormGroup>
                                 <Input
                                     id="exampleDate"
-                                    name="date"
+                                    name="time"
                                     placeholder="date placeholder"
-                                    type="date"
-                                />
+                                    type="time"
+                                    />
                             </FormGroup>
                         </div>
                     </Col>
@@ -263,10 +301,10 @@ const CourseCreation = () => {
                             <FormGroup>
                                 <Input
                                     id="exampleDate"
-                                    name="date"
+                                    name="time"
                                     placeholder="date placeholder"
-                                    type="date"
-                                />
+                                    type="time"
+                                    />
                             </FormGroup>
                         </div>
                     </Col>
@@ -298,9 +336,7 @@ const CourseCreation = () => {
             </div>
             <div className="Element">
                 <div className="FontText">QR code payment</div>
-                <div class="Prob">
-                    **ทำช่อง payment**
-                </div>
+                <Upload/>
             </div>
             <div className="temp">
                 <Row>
@@ -320,6 +356,7 @@ const CourseCreation = () => {
                     </Col>
                 </Row>
             </div>
+            </Form>
         </div>
     )
     // http://localhost:3000/create-course/:schoolid
