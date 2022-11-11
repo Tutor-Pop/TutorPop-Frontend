@@ -4,10 +4,11 @@ import { useParams } from 'react-router-dom'
 import { Col, Container, Row } from 'reactstrap'
 import ClassroomManagementBtn from '../components/ClassroomManagementBtn'
 import LogoBannerBtn from '../components/LogoBannerBtn'
-import SchoolManagementBtn from '../components/TeacherManagementBtn'
+import SchoolEditingBtn from '../components/SchoolEditingBtn'
+import TeacherManagementBtn from '../components/TeacherManagementBtn'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getSchool } from '../services/school.service'
-import SchoolEditing from './SchoolEditing'
+
 
 const SchoolManagement = () => {
 
@@ -32,10 +33,10 @@ const SchoolManagement = () => {
       <div className='schoolcards'>
         <Container className='SchoolBox'>
             <Row className="school-manage-menu" md={3} xs={2} xl={4} xxl={5}>
-              <Col className='border'><LogoBannerBtn/></Col>
-              <Col className='border'><SchoolEditing/></Col>
-              <Col className='border'><SchoolManagementBtn/></Col>
-              <Col className='border'><ClassroomManagementBtn/></Col>
+              <Col className='border'><LogoBannerBtn school={school}/></Col>
+              <Col className='border'><SchoolEditingBtn school={school}/></Col>
+              <Col className='border'><TeacherManagementBtn school={school}/></Col>
+              <Col className='border'><ClassroomManagementBtn school={school}/></Col>
               
             </Row>
         </Container>
