@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, CardImg, Col, Row } from 'reactstrap'
 import FavButton from './FavButton'
 
 const CourseCard = (
         {
+          isEditable=false,
           cardType='course',
           courseDetail={
             course_id: '0', 
@@ -29,9 +31,10 @@ const CourseCard = (
       ) => {
   return (
     <div className='course-card'>
+      {/* <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/> */}
+      { ( cardType === 'course' ) && (isEditable === false) &&
+      <Link className='course-card-link' to={`/course/${courseDetail.course_id}`}>
       <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/>
-      { ( cardType === 'course' ) &&
-      <>
       <div className='course-text-left'>
         <div className='course-card-title'>
           <h4>{courseDetail.course_name}</h4>
@@ -44,11 +47,11 @@ const CourseCard = (
         <div className='course-progress-bar'>
           <div className='course-progress-fill' 
                style={{
-                  width: (Number(courseDetail.course_progress)*100) + '%'
-               }}></div>
+                 width: (Number(courseDetail.course_progress)*100) + '%'
+                }}></div>
           <div className='course-progress-blank'
                style={{
-                  width: ((1 - Number(courseDetail.course_progress))*100) + '%'
+                 width: ((1 - Number(courseDetail.course_progress))*100) + '%'
                }}
           ></div>
         </div>
@@ -61,10 +64,45 @@ const CourseCard = (
       }
         <h4>{courseDetail.course_price}</h4>
       </div>
-      </>
+      </Link>
+    }
+    { ( cardType === 'course' ) && ( isEditable === true ) &&
+      <Link className='course-card-link' to={`/course-manage/${courseDetail.course_id}`}>
+      <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/>
+      <div className='course-text-left'>
+        <div className='course-card-title'>
+          <h4>{courseDetail.course_name}</h4>
+        </div>
+        {
+          !toggleProgress &&
+          <p className='card-description'>{courseDetail.course_description}</p>
+        }
+        { toggleProgress &&
+        <div className='course-progress-bar'>
+          <div className='course-progress-fill' 
+               style={{
+                 width: (Number(courseDetail.course_progress)*100) + '%'
+                }}></div>
+          <div className='course-progress-blank'
+               style={{
+                 width: ((1 - Number(courseDetail.course_progress))*100) + '%'
+               }}
+          ></div>
+        </div>
+        }
+        <p>{courseDetail.school_name} <em>{courseDetail.school_address}</em></p> 
+      </div>
+      <div className='course-text-right'>
+        { toggleFavorite &&  
+        <FavButton/>
+      }
+        <h4>{courseDetail.course_price}</h4>
+      </div>
+      </Link>
     }
     { (cardType === 'school') &&
-      <>
+      <Link to={`/school/${schoolDetail.school_id}`}>
+      <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/>
       <div className='course-text-left'>
         <div className='course-card-title'>
           <h4>{schoolDetail.name}</h4>
@@ -79,9 +117,8 @@ const CourseCard = (
         { toggleFavorite &&  
         <FavButton/>
       }
-        <h4>{schoolDetail.course_price}</h4>
       </div>
-      </>
+      </Link>
     }
     </div>
   )
