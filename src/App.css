@@ -1309,11 +1309,15 @@ a:active {
 
 .logo-edit .Hidden {
   margin-top: 10px;
-  opacity: 0;
+  opacity: 50%;
   position: absolute;
   width: 100px;
   height: 50px;
   cursor: pointer;
+}
+
+.logo-edit .Hidden:active {
+  opacity: 100%;
 }
 
 .logo-edit .payment .text {

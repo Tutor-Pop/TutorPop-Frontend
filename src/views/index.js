@@ -66,7 +66,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/school-manage/:schoolid' element={<SchoolManagement />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/:schoolid/teacher-manage' element={<TeacherManagement />} />
-        <Route path='/create-course/:schoolid' element={<CourseCreation />} />
+        <Route path='/create-course/:school_id' element={<CourseCreation />} />
         <Route path='/support' element={<Support />} />
         <Route path='/course-manage/:schoolid/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
