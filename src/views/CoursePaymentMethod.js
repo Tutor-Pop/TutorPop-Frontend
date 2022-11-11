@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Button, Container } from 'reactstrap'
-import PaymentCardstatic from '../components/PaymentCardstatic'
+import PaymentCard from '../components/PaymentCard'
 import QRcodepopup from '../components/QRcodepopup'
 
 const CoursePaymentMethod = () => {
   const [isOpen, setisOpen] = useState(false)
   return (
     <div className='pt-20'>
-        <PaymentCardstatic/>
+        <PaymentCard/>
         <Container className='payment-method'>
             <h4>Payment Methods</h4>
             <div className='bank-detail'>
