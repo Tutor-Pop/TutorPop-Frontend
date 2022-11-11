@@ -68,7 +68,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/:schoolid/teacher-manage' element={<TeacherManagement />} />
         <Route path='/create-course/:schoolid' element={<CourseCreation />} />
         <Route path='/support' element={<Support />} />
-        <Route path='/course-manage/:schoolid/:courseid/course-picture' element={<CoursePicture />} />
+        <Route path='/course-manage/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
         <Route path='/school/pending' element={<SchoolRegisterPending />} />
         <Route path='/:schoolid/logo-editing' element={<LogoEdit />} />
@@ -77,7 +77,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/email/:userid' element={<Verify />} />
         <Route path='/course/:courseid' element={<CourseDetail />} />
         <Route path='/course-manage/:schoolid/:courseid' element={<CourseManagement/>}/>        
-        <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
+        <Route path='/course-payment/:courseid/payment-method' element={<CoursePaymentMethod/>}/>
         <Route path='/admin' element={<Admin />} /> 
         <Route path='/admin/open-school-request' element={<OpenSchoolRequest />} />
         <Route path='/admin/school-manage' element={<AdminSchoolManagement />} />
