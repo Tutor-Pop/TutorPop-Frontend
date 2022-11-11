@@ -10,8 +10,28 @@
   
 }
 
-.ccmh {
-  
+/* Course Card Mini Horizontal */
+
+.course-card-mini-horizontal {
+  border: 1px solid black;
+  width: 300px;
+  height: 120px;
+  margin-right: 0;
+  background-color: white;
+}
+
+.course-card-mini-horizontal-description {
+  text-align: start;
+  line-height: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search Page */
+
+.search-scroll {
+  overflow-x:scroll;
 }
 
 /* SearchTeacherBar */
