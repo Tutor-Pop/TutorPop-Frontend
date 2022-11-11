@@ -1,4 +1,4 @@
-.teacher {
+.teacherManangement{
   padding-top: 100px;
   margin-left: 100px;
   margin-right: 100px;
@@ -93,50 +93,37 @@
   margin-top: 20px;
 }
 
-.save-btn {
-  border: 2px solid #EFB13A;
-  background-color: #EFB13A;
-  width: 40%;
-  color: #FFFFFF;
-  border-radius: 7px;
+.search-teacher__control {
+  width: 800px;
+  height: 50px;
+  margin-right: 30px;
 }
 
-.save-btn:hover {
-  border: 2px solid rgb(181, 152, 11);
-  background-color: rgb(181, 152, 11);
-  width: 40%;
-  color: #FFFFFF;
-  border-radius: 7px;
+.plus-btn {
+  height: 50px;
+  width: 50px;
 }
 
-.cancel-btn {
-  border: 3px solid #EFB13A;
-  color: #FFAA06;
-  width: 40%;
-  border-radius: 7px;
-  background-color: #FFFFFF;
+.teacherManagement .searchTeacherBar{
+  width: 80%;
 }
 
-.cancel-btn:hover {
-  border: 3px solid #EFB13A;
-  color: #FFAA06;
-  width: 40%;
-  border-radius: 7px;
-  background-color: rgb(246, 246, 230);
+.save-btn{
+  width: 30%;
 }
 
+.cancel-Btn{
+  width: 30%
+}
 
 .MuiChip-root {
   height: 60px !important;
 }
 
-
 .MuiChip-label {
   font-size: 20px;
-
 }
 
-.ccmh {}
 
 /* SearchTeacherBar */
 .searchTeacherBar {
@@ -144,32 +131,8 @@
   height: 60px;
 }
 
-#searchTeacher {
-  width: 100%;
-}
-
-.select__value-container {
-  height: 60px;
-}
-
-.searchTeacherBar button {
-  box-sizing: border-box;
-}
-
-#searchTeacher {
-  min-width: 500px;
-  border: solid 4px #FFAA06;
-  border-radius: 30px;
-}
-
-.searchTeacherBar button {
-  transform: translate(-150%);
-  margin: 7px;
-  box-sizing: border-box;
-  border: none !important;
-  place-items: center;
-  align-items: center;
-  display: flex;
+.select__value-container{
+  width: 80%;
   height: 60px;
   width: 60px;
   justify-content: center;
@@ -188,7 +151,6 @@
   width: 40px;
   height: 40px;
 }
-
 
 .counter {
   border: 1px solid black;

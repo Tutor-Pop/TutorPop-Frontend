@@ -5,6 +5,10 @@ export async function getCourse(course_id){
     return axios.get(`${BACKEND_URL}/api/courses/${course_id}`)
 }
 
+export async function getSingleCourseWithDetail(course_id){
+    return axios.get(`${BACKEND_URL}/api/courses/${course_id}/details`)
+}
+
 export async function createCourse(school_id,body){
     return axios.post(`${BACKEND_URL}/api/schools/${school_id}/courses`,body)
 }
@@ -55,9 +59,6 @@ export async function uploadCoursePicture(course_id, form) {
             'content-type': 'multipart/form-data'
         }
     })
-}
-export async function getsinglecoursewithdetail(course_id) {
-    return axios.get(`${BACKEND_URL}/api/courses/${course_id}/details`)
 }
 
 export async function putCourse(course_id,body) {

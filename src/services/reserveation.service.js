@@ -17,11 +17,13 @@ export async function deleteReservation(reservation_id){
     return axios.delete(`${BACKEND_URL}/api/reservations/${reservation_id}`)
 }
 
-export function uploadPaymentPicture(form) {
+export function uploadPaymentPicture(reservation_id,form) {
     return axios.post(`${BACKEND_URL}/api/reservations/${reservation_id}/payment`, form, {
         headers: {
             'content-type': 'multipart/form-data',
         }
     })
 }
-
+export async function getResevationIdFromAccountCourse(account_id,course_id){
+    return axios.delete(`${BACKEND_URL}/api/reservations/${account_id}/${course_id}/rev_id`)
+}
