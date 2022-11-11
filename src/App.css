@@ -1167,17 +1167,18 @@ a:active {
 }
 
 /* course creation ของไอตอง */
-.CourseCreation {
+
+.course-creation {
   padding-top: 110px;
   padding-left: 300px;
   padding-right: 300px;
 }
 
-.CourseCreation .Element {
+.course-creation .Element {
   padding-top: 10px;
 }
 
-.CourseCreation .FontText {
+.course-creation .FontText {
   font-size: 24px;
 }
 
@@ -1190,9 +1191,13 @@ a:active {
   width: 300px;
 }
 
-.CourseCreation .temp {
+.course-creation .temp {
   margin-top: 50px;
   margin-bottom: 20px;
+}
+
+.course-creation .basic-multi-select {
+  margin-left: -20px;
 }
 
 /* Support ของไอตอง */

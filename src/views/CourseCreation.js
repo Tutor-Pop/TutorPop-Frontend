@@ -58,7 +58,7 @@ const CourseCreation = () => {
     }
 
     return (
-        <div className="CourseCreation">
+        <div className="course-creation">
             <h1>Create new course</h1>
             <div className="Element">
                 <div className="FontText">School : {schoolName}</div>
@@ -91,9 +91,9 @@ const CourseCreation = () => {
                     <textarea class="form-control" rows="6"></textarea>
                 </div>
             </div>
-            <div className="Element">
-                <div class="course-create-teacher">
-                    <div class="FontText">Add teacher</div>
+            <div className="Element frame">
+                <div className="course-create-teacher">
+                    <div className="FontText">Add teacher</div>
                     <Select
                         isMulti
                         name="colors"
@@ -104,7 +104,7 @@ const CourseCreation = () => {
                         }
                         className="basic-multi-select"
                         classNamePrefix="select"
-                        />
+                    />
                 </div>
             </div>
             <div className="Element">
