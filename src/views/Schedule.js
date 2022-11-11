@@ -26,8 +26,8 @@ const events = [
 const Dummy = () => {
 
   return (
-    <div className='dummy'>
-      {/* <h1 className='app-title'>My Course</h1> */}
+    <div className='schedule-page'>
+      {/* <h2 className='app-title'>My Schedule</h2> */}
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="timeGridWeek"

@@ -9,19 +9,19 @@ const Support = () => {
         <h1>Support</h1>
         <div className='frame'>
             <div className='header font'>
-                Any question? Need help?
+                <h3>Any question? Need help?</h3>
             </div>
             
             <div className='bot-text font'>
                 <div className='contact-us'>
-                    Contact us: 
+                    <h5>Contact us:</h5> 
                 </div>
                 <div className='juabjarb font'>
-                    Juabjarb developement
+                    <h5>Juabjarb development</h5>
                 </div>
             </div>
             <div className='box d-flex'>   
-                <div className='env' >
+                <div className='env pr-5' >
                     <FontAwesomeIcon icon={faEnvelope} className='fa-env'/>
                 </div>
                 <div className='email font'>

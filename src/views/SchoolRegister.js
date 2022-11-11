@@ -1,39 +1,78 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Select from 'react-select'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import { Address } from '../constants/location.constant'
+import { startLoading, stopLoading } from '../redux/loading.reducer'
+import { createRequest } from '../services/request.service'
 
 const SchoolRegister = () => {
 
+  const dispatch = useDispatch()
+
+  const [provinceSelect, setProvinceSelect] = useState('');
+  const [districtSelect, setDistrictSelect] = useState('');
+  const [subdistrictSelect, setSubDistrictSelect] = useState('')
+
+  const [upload,setupload] = useState(null)
+
+  const [disable, setenable] = useState({ district: true, subdistrict: true })
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    let formData = new FormData(e.target)
-    // console.log(e.target['school-verify-doc'])
-    formData.append("account_id",8)
-    formData.append("school_id",1)
-    formData.append("document",e.target['school-verify-doc'])
-    formData.append("payment_pic",e.target['school-verify-doc'])
-    // formData.append("account_id",<input value="5"></input>)
-    // formData.append("school_id",'1')
-    // formData.append("document",'asdf')
-    // formData.append("payment_pic",'asdf')
-    for(const i of formData.keys()){
-      console.log(i)
-    }
-    for(const i of formData.values()){
-      console.log(i)
-    }
-    console.log('Sending',formData)
-    axios.post('http://localhost:8000/api/requests', formData, {
-      headers: {
-        'content-type': 'multipart/form-data',
-        'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1OTk1NDE5LCJpYXQiOjE2NjU5OTUxMTksImp0aSI6IjgwN2MxZThlMDBkMzRhZDE5OTEyODJkYjQxMGNhZmE1IiwidXNlcl9pZCI6M30.YCCUAJ4wRqdxwvkDowQ-s-aLWD1Yjh0KKmRApnkiUIs"
-      }
-    }).then((response)=>{
-      console.log(response.data)
-    }).catch((err)=>{
+    let formData = new FormData()
+    formData.append('account_id', localStorage.getItem("account_id"));
+    formData.append('school_id', 1);
+    formData.append('document', e.target['school-verify-doc'].files[0]);
+
+    dispatch(startLoading())
+    createRequest(formData).then(response => {
+      dispatch(stopLoading())
+      console.log(response)
+    }).catch(err => {
       console.log(err)
+      dispatch(stopLoading())
     })
+
+    // for (var pair of formData.entries()) {
+    //   console.log('FD',pair[0]+ ', ' + pair[1]);
+    // }
+    // formData.append("account_id", 8)
+    // formData.append("school_id", 1)
+    // formData.append("document", e.target['school-verify-doc'])
+    // formData.append("payment_pic", e.target['school-verify-doc'])
+    
+    // axios.post('http://localhost:8000/api/requests', formData, {
+    //   headers: {
+    //     'content-type': 'multipart/form-data',
+    //   }
+    // }).then((response) => {
+    //   console.log(response.data)
+    // }).catch((err) => {
+    //   console.log(err)
+    // })
+  }
+
+  // useEffect(()=>{
+  //   console.log("PS",provinceSelect)
+  // },[provinceSelect])
+
+  const onChangeProvince = (e) => {
+    setProvinceSelect(e.value)
+    setenable({ district: false, subdistrict: true })
+    setDistrictSelect('')
+    setSubDistrictSelect('')
+  }
+
+  const onChangeDistrict = (e) => {
+    setDistrictSelect(e.value)
+    setenable({ district: false, subdistrict: false })
+  }
+
+  const onChangeSubdistrict = (e) => {
+    setSubDistrictSelect(e.value)
   }
 
   return (
@@ -49,7 +88,7 @@ const SchoolRegister = () => {
                 <Label for='school-name'>
                   Tutoring School Name<span className='required-star'>*</span>
                 </Label>
-                <Input 
+                <Input
                   id='school-name'
                   type='text'
                   required={true}
@@ -61,7 +100,7 @@ const SchoolRegister = () => {
                 <Label for='school-description'>
                   School Description
                 </Label>
-                <Input 
+                <Input
                   id='school-description'
                   type='textarea'
                   rows='5'
@@ -69,15 +108,110 @@ const SchoolRegister = () => {
               </FormGroup>
             </Row>
             <Row>
+              <h5 className='my-3'>School Address</h5>
               <FormGroup>
-                <Label for='school-address'>
-                  School Address<span className="required-star">*</span>
-                </Label>
-                <Input 
-                  id='school-address' 
-                  type='textarea'
-                  required={true} 
-                />
+                <Row>
+                  <Col>
+                    <Label for='school-province'>
+                      Province<span className="required-star">*</span>
+                    </Label>
+                    <Select
+                      id='school-address'
+                      value={{value: provinceSelect,label:provinceSelect }}
+                      required={true}
+                      onChange={e => onChangeProvince(e)}
+                      options={
+                        Object.keys(Address).map((province) => (
+                          { value: province, label: province }
+                        ))
+                      }
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for='school-district'>
+                      District<span className="required-star">*</span>
+                    </Label>
+                    <Select
+                    value={{value: districtSelect,label:districtSelect }}
+                      isDisabled={disable.district}
+                      id='school-district'
+                      required={true}
+                      defaultValue={''}
+                      onChange={e => onChangeDistrict(e)}
+                      options={disable.district ? [] :
+                        Address[provinceSelect].map((el) => (
+                          { value: el.district, label: el.district }
+                        ))
+                      }
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for='school-subdistrict'>
+                      Subdistrict<span className="required-star">*</span>
+                    </Label>
+                    <Select
+                    value={{value: subdistrictSelect,label:subdistrictSelect }}
+                      onChange={e => onChangeSubdistrict(e)}
+                      isDisabled={disable.subdistrict}
+                      id='school-subdistrict'
+                      type='select'
+                      required={true}
+                      defaultValue={''}
+                      options={disable.subdistrict ? [] : Address[provinceSelect]
+                        .filter((value) => (value.district === districtSelect))[0].subdistrict
+                        .map((subdist) => ({ value: subdist, label: subdist }))
+                      }
+                    />
+                    {
+                    }
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for='school-road'>
+                      Road
+                    </Label>
+                    <Input
+                      id='school-road'
+                      type='text'
+                    />
+                  </Col>
+                  <Col>
+                    <Label for='school-village'>
+                      Village
+                    </Label>
+                    <Input
+                      id='school-village'
+                      type='text'
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Label for='school-plotnumber'>
+                      Plot Number<span className="required-star">*</span>
+                    </Label>
+                    <Input
+                      id='school-plotnumber'
+                      type='text'
+                      required={true}
+                    />
+                  </Col>
+                  <Col>
+                    <Label for='school-postalcode'>
+                      Postal Code<span className="required-star">*</span>
+                    </Label>
+                    <Input
+                      id='school-postalcode'
+                      type='number'
+                      required={true}
+                    />
+                  </Col>
+                </Row>
               </FormGroup>
             </Row>
             <Row>
@@ -85,19 +219,20 @@ const SchoolRegister = () => {
                 <Label for='school-verify-doc'>
                   Upload School Verification Document<span className='required-star'>*</span>
                 </Label>
-                <Input 
+                <Input
                   id='school-verify-doc'
                   type='file'
                   required={true}
+                  onChange={e => setupload(e.target.files[0])}
                 />
               </FormGroup>
             </Row>
             <Row className="justify-evenly mt-5">
               <Col>
                 {/* <Link className='link-btn-text' to={`/search`}> */}
-                  <Button className="school-register-btn" type="submit" color="primary" size="lg">
-                    Register School
-                  </Button>
+                <Button className="school-register-btn" type="submit" color="primary" size="lg">
+                  Register School
+                </Button>
                 {/* </Link> */}
               </Col>
               <Col>
