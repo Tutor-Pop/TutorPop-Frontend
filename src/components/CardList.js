@@ -6,12 +6,15 @@ const CardList = ({ cardType='course',
                     cardData=[], 
                     createCourseOption=false, 
                     toggleProgress=false, 
-                    toggleFavorite=false}) => {
+                    toggleFavorite=false,
+                    isEditable=false
+                  }) => {
   
   return (
     <div className='card-list-box'>
       {cardData.map((card) => 
-          <CourseCard 
+          <CourseCard
+            isEditable={isEditable} 
             cardType={cardType}
             courseDetail={{
               course_id: card.course_id,
