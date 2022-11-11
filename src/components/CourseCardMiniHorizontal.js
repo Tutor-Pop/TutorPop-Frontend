@@ -5,19 +5,31 @@ const PROFILE = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid
 
 const CourseCardMiniHorizontal = () => {
   return (
-    <div className='course-card-mini-horizontal mx-2 d-flex'>
-      <img src={PROFILE} width={118} height={118}></img>
-
-      <div className='course-card-mini-horizontal-description ml-2'>
-        <div className='pt-1'>
-
-          <p className='font-bold'>Course Name</p>
-          <p>Teacher</p>
-          <p>School Name</p>
-          <p>200 THB</p>
+    // mx-2
+    <div className='course-card-mini-horizontal'>
+      <div className='pic'>
+      </div>
+      <div className='description'>
+        <div className='top'>
+          <div className='font-bold'>
+            Course Name
+          </div>
+          <div>
+            Teacher
+          </div>
+          <div>
+            School Name
+          </div>
+          <div>
+            200 THB
+          </div>
+        </div>
+        <div className='bot'>
+          <div className='text'>
+            3 seats available
+          </div>
         </div>
       </div>
-
     </div>
   )
 }

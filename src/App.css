@@ -1,67 +1,106 @@
-
-
-.teacher{
+.teacher {
   padding-top: 50px;
   padding-left: 20px;
 }
 
-.teacher .searchTeacherBar{
+.teacher .searchTeacherBar {
   width: 60%;
-  
+
 }
 
 /* Course Card Mini Horizontal */
 
 .course-card-mini-horizontal {
   border: 1px solid black;
-  width: 300px;
-  height: 120px;
-  margin-right: 0;
+  width: 390px;
+  height: 150px;
   background-color: white;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  display: flex;
 }
 
-.course-card-mini-horizontal-description {
-  text-align: start;
-  line-height: 0.5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.course-card-mini-horizontal .description {
+  height: 149px;
+  width: 250px;
+  padding-left: 20px;
 }
+
+.course-card-mini-horizontal .pic {
+  width: 140px;
+  height: 149px;
+  background-color:#6b6b6b;
+}
+
+.course-card-mini-horizontal .top {
+  height: 100px;
+  width: 240px;
+  text-align: start;
+  margin-top: 10px;
+}
+
+.course-card-mini-horizontal .bot {
+  padding-top: 8px;
+  height: 39px;
+  background-color: #3120ca;
+  text-align: start;
+  margin-left: -20px;
+}
+
+.course-card-mini-horizontal .text {
+  margin-left: 20px;
+  color: #ffffff;
+}
+
 
 /* Search Page */
 
-.search-scroll {
-  overflow-x:scroll;
+.search-page .search-scroll {
+  overflow-x: scroll;
+  display: flex;
+  margin-left: -200px;
+  margin-bottom: 50px;
+  width: 1500px;
+  background-color: #D3EBFF;
+  padding-left: 25px;
+  padding-top: 25px;
+  height: 236px;
+}
+
+.search-page h3 {
+  text-align: start;
+  margin-left: -100px;
+  margin-top: 20px;
 }
 
 /* SearchTeacherBar */
-.searchTeacherBar{
+.searchTeacherBar {
   display: flex;
   height: 40px;
 }
 
-#searchTeacher{
+#searchTeacher {
   min-width: 500px;
-  border:solid 4px #FFAA06;
+  border: solid 4px #FFAA06;
   border-radius: 30px;
 }
 
-.searchTeacherBar button{
+.searchTeacherBar button {
   transform: translate(-150%);
   margin: 7px;
   box-sizing: border-box;
-  border:none !important;
+  border: none !important;
   place-items: center;
   align-items: center;
   display: flex;
 }
 
-.plus-img{
+.plus-img {
   width: 20px;
   height: 20px;
 }
 
-.counter{
+.counter {
   border: 1px solid black;
   width: 200px;
   border-radius: 5px;
@@ -69,11 +108,11 @@
   padding: 10px;
 }
 
-.counter h1{
+.counter h1 {
   font-size: 50px;
 }
 
-.counter button{
+.counter button {
   font-size: 36px;
   width: 50px;
 }
@@ -87,7 +126,7 @@
   height: 10rem !important;
   border-width: 1rem !important;
   margin: 18% 44%;
-  
+
   /* background-color: #000000 !important; */
 }
 
@@ -100,7 +139,7 @@
   right: 0 !important;
   bottom: 0 !important;
   left: 0 !important;
-  background-color:#000000 !important;
+  background-color: #000000 !important;
   opacity: .75 !important;
 }
 
@@ -141,7 +180,7 @@
 }
 
 .sub-text {
-  margin: 30px 0 0; 
+  margin: 30px 0 0;
 }
 
 .sub-text h2 {
@@ -168,7 +207,7 @@
 }
 
 .link-text:hover {
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   transition: background-color 0.5s;
   color: white;
 }
@@ -176,7 +215,7 @@
 
 /* Login */
 
-.login{
+.login {
   background: url('./img/bg-homepage.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -188,7 +227,7 @@
   font-size: 23px;
 }
 
-.cardlogin{
+.cardlogin {
   width: 70%;
   /* height: 40%; */
   border-radius: 29px;
@@ -201,29 +240,30 @@
   display: flex;
 }
 
-#logo{
+#logo {
   margin-top: 50px;
 
 }
 
-.login-form{
+.login-form {
   margin-right: 80px;
   font-size: 20px !important;
 }
 
-.login-form .input{
+.login-form .input {
   padding: 10px;
   font-size: 20px !important;
 }
 
-.login-btn{
+.login-btn {
   width: 100% !important;
   border: none;
 }
 
-.createacc{
+.createacc {
   font-size: 16px !important;
 }
+
 .stat-item {
   font-size: 30px;
   margin-right: 60px;
@@ -244,9 +284,11 @@
   .main-container {
     text-align: center;
   }
+
   .app-stat {
     justify-content: space-between;
   }
+
   .stat-item {
     margin-right: 0;
     text-align: center;
@@ -254,29 +296,29 @@
 }
 
 /* Register */
-.register-box{
+.register-box {
   margin: 0 auto;
- justify-content: center;
- padding-left: 25%;
- padding-right: 25%;
- padding-top: 3%;
+  justify-content: center;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 3%;
 }
 
 .register-box h1 {
   margin-top: 50px;
 }
 
-.register-btn{
+.register-btn {
   width: 96.5% !important;
   border: none;
 }
 
-.register{
+.register {
   font-style: inherit;
   font-size: 20px;
 }
 
-.required-star{
+.required-star {
   color: red;
 }
 
@@ -463,7 +505,7 @@
   margin-left: auto;
 }
 
-.course-card-title h4{
+.course-card-title h4 {
   margin: 0;
 }
 
@@ -512,15 +554,16 @@
 .PaymentCard {
   padding-top: 5%;
 }
-.PaymentCard{
+
+.PaymentCard {
   padding-top: 4%;
 }
 
-.cost{
+.cost {
   text-align: right;
 }
 
-.paymentcard{
+.paymentcard {
   /* border: #000000 solid 1px; */
   width: 1000px !important;
   margin-bottom: 30px;
@@ -533,7 +576,7 @@
   margin-inline: 10px;
 }
 
-.nlink{
+.nlink {
   color: #000000 !important;
   text-decoration: none !important;
 }
@@ -550,7 +593,7 @@
   justify-content: center;
 }
 
-.pay-btn{
+.pay-btn {
   margin-top: 40px;
   border: none !important;
   width: 30%;
@@ -558,7 +601,7 @@
   display: flex;
 }
 
-.div-pay-btn{
+.div-pay-btn {
   width: 50%;
   justify-content: center;
   justify-items: center;
@@ -567,7 +610,7 @@
 }
 
 
-.payment-info-text{
+.payment-info-text {
   margin-left: 10%;
   margin: 20px 200px 90px;
 }
@@ -588,7 +631,7 @@
 }
 
 .enrolled-btn-row {
-  display: flex ;
+  display: flex;
   justify-content: center;
   margin-top: 50px;
 }
@@ -597,10 +640,10 @@
   width: 400px;
 }
 
-.modal-footer.Qr-footer{
+.modal-footer.Qr-footer {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  align-items: flex-start;
   padding-left: 50px;
 }
 
@@ -622,7 +665,7 @@
   margin: 0 auto;
 }
 
-.school-main{
+.school-main {
   margin: 2.5% auto;
 }
 
@@ -893,7 +936,7 @@
   height: 100%;
 }
 
-.course-detail-text > * {
+.course-detail-text>* {
   height: 100%;
 }
 
@@ -917,7 +960,7 @@
   background-color: #FFF6BF;
 }
 
-.duration-list > * {
+.duration-list>* {
   margin: 0;
 }
 
@@ -972,23 +1015,23 @@
 
 /* MySchool */
 
-.schoolcards{
+.schoolcards {
   display: flex;
 }
 
-.imgschool{
+.imgschool {
   justify-content: center;
   width: 300px;
   height: 220px;
 }
 
-.imgschool img{
+.imgschool img {
   width: 200px;
   justify-self: center;
   justify-content: center;
 }
 
-.schoolcard{
+.schoolcard {
   margin-top: 10%;
   justify-content: center;
   justify-items: center;
@@ -997,32 +1040,32 @@
   height: 250px;
 }
 
-.SchoolBox{
+.SchoolBox {
   margin-top: 3%;
-  
+
 }
 
-.schooladdcards{
+.schooladdcards {
   display: flex;
 }
 
-.imgaddschool img{
+.imgaddschool img {
   width: 100px;
   justify-self: center;
   justify-content: center;
 }
 
-.imgaddschool{
+.imgaddschool {
   display: flex;
   width: 200px;
-  height: 250px; 
+  height: 250px;
   justify-content: center;
   justify-items: center;
   align-items: center;
   align-content: center;
 }
 
-.myschool-img{
+.myschool-img {
   display: flex;
   justify-self: center;
   justify-content: center;
@@ -1030,7 +1073,7 @@
   align-content: center;
 }
 
-.MySchoolTitle{
+.MySchoolTitle {
   padding-top: 75px;
   text-align: center;
 }
@@ -1042,18 +1085,18 @@
 
 /* SchoolEditing */
 
-.imgschooledit{
+.imgschooledit {
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.imgschooledit img{
+.imgschooledit img {
   width: 80px;
 }
 
-.textbox-schoolman{
+.textbox-schoolman {
   height: 60px;
   width: 200px;
   display: flex;
@@ -1067,7 +1110,7 @@
   text-decoration: none !important;
 }
 
-.textbox-myschool{
+.textbox-myschool {
   height: 50px;
 }
 
@@ -1076,14 +1119,25 @@
   text-decoration: none !important;
 }
 
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
 
 /* TeacherManager */
 
-.teacher-man-title{
+.teacher-man-title {
   padding-top: 75px;
   margin-left: 3%;
 }
@@ -1095,7 +1149,7 @@ a:active { text-decoration: none; }
   padding-right: 300px;
 }
 
-.CourseCreation .Element{
+.CourseCreation .Element {
   padding-top: 10px;
 }
 
@@ -1139,7 +1193,8 @@ a:active { text-decoration: none; }
   padding-bottom: 0px;
   background-color: #ABD9FF;
 }
-.courseslidebar{
+
+.courseslidebar {
   padding-bottom: 70px;
   display: flex;
   justify-content: center;
@@ -1163,7 +1218,7 @@ a:active { text-decoration: none; }
 }
 
 /* Logo Edit ของไอตอง */
-.LogoEdit .top{
+.LogoEdit .top {
   padding-top: 110px;
   padding-left: 50px;
   padding-right: 50px;
@@ -1251,7 +1306,7 @@ a:active { text-decoration: none; }
 .CreatCourse .frame {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   margin-left: 60px;
   justify-content: center;
   justify-items: center;
@@ -1330,16 +1385,14 @@ a:active { text-decoration: none; }
   color: #828282;
 }
 
-.dummy {
-
-}
+.dummy {}
 
 .schedule-page {
   padding-top: 100px;
   margin: 0 100px
 }
 
-.courseslidebar{
+.courseslidebar {
   padding-top: 100px;
   padding-bottom: 100px;
   background-color: #ABD9FF;
@@ -1348,7 +1401,7 @@ a:active { text-decoration: none; }
   align-items: center;
 }
 
-.course-card-mini{
+.course-card-mini {
   border: 1px solid;
   box-shadow: 2.5px 5px rgba(0, 0, 0, 0.35);
   background-color: white;
@@ -1356,28 +1409,28 @@ a:active { text-decoration: none; }
   height: 250px;
 }
 
-.course-img{
+.course-img {
   width: 150px;
   margin-left: 50px;
 }
 
-.col-course-card-mini{
+.col-course-card-mini {
   /* margin: auto; */
   justify-content: center;
   display: flex;
 }
 
-.search-bar Input{
+.search-bar Input {
   width: 400px;
   border-radius: 20px;
 }
 
-.input-search{
+.input-search {
   border-radius: 20px;
   width: 400px;
 }
 
-.search-bar Button{
+.search-bar Button {
   width: 38px;
   height: 38px;
   text-align: center;
@@ -1386,53 +1439,58 @@ a:active { text-decoration: none; }
   display: flex;
 }
 
-.ban-btn{
+.ban-btn {
   height: 40px;
 }
 
-.ch-box{
+.ch-box {
   padding-top: 15%;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.txt-payed{
+.txt-payed {
   padding-top: 3%;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 
-.ch-box img{
+.ch-box img {
   width: 20%;
 }
-.veri-all-cont{
-  display:flex;
+
+.veri-all-cont {
+  display: flex;
 }
- 
-.email-box{
+
+.email-box {
   justify-content: 'center';
 }
-.email-box img{
+
+.email-box img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top:30vh;
+  margin-top: 30vh;
   margin-bottom: 1vh;
   width: 200px;
 }
-.verify-text{
-        justify-content: 'center';
-        display: flex;
-       
+
+.verify-text {
+  justify-content: 'center';
+  display: flex;
+
 }
-.verify-col{
+
+.verify-col {
   text-align: center;
 }
+
 /* Course Management */
 
-.course-manage{
+.course-manage {
   padding-top: 70px;
   text-align: center;
 }
@@ -1468,7 +1526,7 @@ a:active { text-decoration: none; }
   display: flex;
   justify-content: space-around;
   padding-left: 5px;
-  padding-right:5px;
+  padding-right: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: solid 1px rgb(218, 216, 216);
@@ -1520,23 +1578,24 @@ a:active { text-decoration: none; }
   margin-top: 10px;
 }
 
-label{
+label {
   font-size: 20px;
   font-weight: 100px;
 }
 
-.select__control{
+.select__control {
   width: 430px;
   margin-left: 20px;
 }
 
-.resent-style{
+.resent-style {
 
   color: grey;
   font-weight: lighter;
 }
-.resent-click{
-  text-decoration:underline;
+
+.resent-click {
+  text-decoration: underline;
   color: rgb(116, 116, 244);
 
 }

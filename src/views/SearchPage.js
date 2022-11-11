@@ -24,7 +24,7 @@ const SearchPage = () => {
     }
 
     return (
-        <div className='pt-20 mx-20'>
+        <div className='pt-20 mx-20 search-page'>
             <div className='mx-auto w-1/4 my-3'>
                 <SearchBar />
             </div>
@@ -39,12 +39,25 @@ const SearchPage = () => {
                         {/* Course */}
                         <h3>Education</h3>
                         <div className='search-scroll'>
-                        <CourseCardMiniHorizontal />
-                        <CourseCardMiniHorizontal />
-                        <CourseCardMiniHorizontal />
-                        <CourseCardMiniHorizontal />
-                    
-
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                        </div>
+                        <h3>Music</h3>
+                        <div className='search-scroll'>
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                        </div>
+                    </> : <>
+                        {/* School */}
+                        <h3>Education</h3>
+                        <div className='search-scroll'>
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
+                            <CourseCardMiniHorizontal />
                         </div>
                         <h3>Music</h3>
                         <div className='search-scroll'>
@@ -52,9 +65,6 @@ const SearchPage = () => {
                         <CourseCardMiniHorizontal />
                         <CourseCardMiniHorizontal />
                         </div>
-                    </> : <>
-                        {/* School */}
-                        <h2>SKDJ</h2>
                     </>
                 }
             </CourseContainer>
