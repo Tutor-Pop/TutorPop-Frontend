@@ -50,7 +50,7 @@ const TeacherManagement = () => {
 
 
     return (
-        <div className='teacher'>
+        <div className='teacherManangement'>
             <div className='teacher-man-title'>
                 <h1>Teacher Management</h1>
                 <h3 className='mb-10 border-b-2 border-zinc-400 text-right' w>{schoolName}</h3>
