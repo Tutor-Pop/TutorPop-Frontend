@@ -5,6 +5,7 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import SearchBar from '../components/SearchBar'
 import CourseContainer from '../components/CourseContainer'
 import CourseCardMiniHorizontal from '../components/CourseCardMiniHorizontal'
+import SchoolCardMiniHorizontal from '../components/SchoolCardMiniHorizontal'
 
 const SearchPage = () => {
 
@@ -52,19 +53,14 @@ const SearchPage = () => {
                         </div>
                     </> : <>
                         {/* School */}
-                        <h3>Education</h3>
-                        <div className='search-scroll'>
-                            <CourseCardMiniHorizontal />
-                            <CourseCardMiniHorizontal />
-                            <CourseCardMiniHorizontal />
-                            <CourseCardMiniHorizontal />
-                        </div>
-                        <h3>Music</h3>
-                        <div className='search-scroll'>
-                        <CourseCardMiniHorizontal />
-                        <CourseCardMiniHorizontal />
-                        <CourseCardMiniHorizontal />
-                        </div>
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
+                            <SchoolCardMiniHorizontal />
                     </>
                 }
             </CourseContainer>
