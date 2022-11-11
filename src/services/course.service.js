@@ -13,18 +13,6 @@ export async function updateCourse(school_id, course_id, body) {
     return axios.put(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}`, body)
 }
 
-export async function deleteCourse(school_id, course_id) {
-    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}`)
-}
-
-export async function getStudents(school_id, course_id) {
-    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}/students`)
-}
-
-export async function getTeachers(school_id, course_id) {
-    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}/teachers`)
-}
-
 export async function deleteCourse(course_id){
     return axios.get(`${BACKEND_URL}/api/courses/${course_id}`)
 }
