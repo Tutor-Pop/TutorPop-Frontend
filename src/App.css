@@ -87,6 +87,12 @@
   margin-top: 20px;
 }
 
+.search-page h3 {
+  text-align: start;
+  margin-left: -100px;
+  margin-top: 20px;
+}
+
 .save-btn {
   border: 2px solid #EFB13A;
   background-color: #EFB13A;
@@ -1242,6 +1248,18 @@ a:active {
   text-decoration: none;
 }
 
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 
 .teacher-man-title {
   padding-top: 75px;
@@ -1829,4 +1847,9 @@ a.fc-col-header-cell-cushion:hover {
 
 ::-webkit-file-upload-button {
   cursor: pointer;
+}
+
+.resent-click {
+  text-decoration: underline;
+  color: rgb(116, 116, 244);
 }
