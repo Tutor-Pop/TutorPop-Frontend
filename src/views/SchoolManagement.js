@@ -25,20 +25,21 @@ const SchoolManagement = () => {
 
   return (
     <div>
-<div className='MySchoolTitle'>
-            <h1>School Management</h1>
+      <div className='MySchoolTitle'>
+            <h1>SchoolManagement</h1>
             <h5>{school.name}</h5>
-        </div>
-        <div className='schoolcards'>
+      </div>
+      <div className='schoolcards'>
         <Container className='SchoolBox'>
-            <Row md={3} xs={2} xl={4} xxl={5}>
-              <Col className='border'><SchoolEditingBtn school={school}/></Col>
-              <Col className='border'><SchoolManagementBtn school={school}/></Col>
-              <Col className='border'><ClassroomManagementBtn school={school}/></Col>
-              <Col className='border'><LogoBannerBtn school={school}/></Col>
+            <Row className="school-manage-menu" md={3} xs={2} xl={4} xxl={5}>
+              <Col className='border'><LogoBannerBtn/></Col>
+              <Col className='border'><SchoolEditing/></Col>
+              <Col className='border'><SchoolManagementBtn/></Col>
+              <Col className='border'><ClassroomManagementBtn/></Col>
+              
             </Row>
         </Container>
-        </div>
+      </div>
     </div>
   )
 }

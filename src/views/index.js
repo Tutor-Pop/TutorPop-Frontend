@@ -35,6 +35,9 @@ import AdminSchoolManagement from './AdminSchoolManagement';
 import PayedPage from './PayedPage';
 import Admin from './Admin';
 import SchoolPayPending from './SchoolPayPending';
+import StudentManage from './StudentManage';
+import CoursePaymentMethod from './CoursePaymentMethod';
+import CourseManagementAdmin from './CourseManagementAdmin';
 import MyReservation from './MyReservation';
 import Verify from './Verify';
 import SchoolRegisterPending from './SchoolRegisterPending';
@@ -53,7 +56,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/my-course' element={<MyCourse />} />
-        <Route path='/course-payment' element={<CoursePayment />} />
+        <Route path='/course-payment' element={<CoursePayment />}/>
         <Route path='/school/:schoolid' element={<SchoolDetail />} />
         <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
         <Route path='/favorite' element={<FavoritePage />} />
@@ -98,6 +101,7 @@ const Views = ({ isLogin = false }) => {
           <Route path='/admin' element={<Admin />} />
           <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />
+          <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
         </>
         }
       </Routes>
