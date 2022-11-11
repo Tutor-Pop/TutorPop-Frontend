@@ -1006,11 +1006,6 @@ a:active { text-decoration: none; }
   margin-left: 3%;
 }
 
-.dummy {
-  padding-top: 100px;
-  margin: 0 100px
-}
-
 /* course creation ของไอตอง */
 .CourseCreation {
   padding-top: 110px;
@@ -1255,10 +1250,11 @@ a:active { text-decoration: none; }
 
 
 
-.dummy {
+.schedule-page {
   padding-top: 100px;
   margin: 0 100px
 }
+
 .courseslidebar{
   padding-top: 100px;
   padding-bottom: 100px;

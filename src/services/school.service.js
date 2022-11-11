@@ -38,5 +38,7 @@ export async function getAllTeachingSchool(user_id) {
 }
 
 export async function getAllSchoolDetail(school_id){
-    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/details`)
+    const result = await axios.get(`${BACKEND_URL}/api/schools/${school_id}/details`)
+    console.log(result.data)
+    return result
 }

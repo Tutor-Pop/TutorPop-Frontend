@@ -12,15 +12,15 @@ import { getAllSchoolDetail } from '../services/school.service'
 const SchoolDetail = () => {
 
   const { schoolid } = useParams();
-  const [alldetail,setAlldetail] = useState({});
+  const [alldetail, setAlldetail] = useState({});
   
   useEffect(()=>{
     getAllSchoolDetail(schoolid).then(
-      response => setAlldetail({...response.data})
+      response => setAlldetail(response.data)
     )
   },[])
 
-  console.log(alldetail.name);
+  // console.log(alldetail);
 
   return (
     <div className='school-detail'>
@@ -60,17 +60,20 @@ const SchoolDetail = () => {
         <Row className='school-address'>
             <h4>School Address</h4>
             <Row className='school-address-box'>
-              <Col xs='2' className='school-map'></Col>
+              {/* <Col xs='2' className='school-map'></Col> */}
               <Col xs='10'>
                 <p>
                   {`${alldetail.addr_description} ${alldetail.sub_district} ${alldetail.district} ${alldetail.province} ${alldetail.postal_code}`}
+                </p>
+                {/* <p>
+                  
                 </p>
                 <p>
                   open in google map
                 </p>
                 <p>
                   Tel. xxx-xxx-xxxx
-                </p>
+                </p> */}
               </Col>
             </Row>
         </Row>
@@ -80,7 +83,7 @@ const SchoolDetail = () => {
         <h2>Our Courses</h2>
           {<CardList 
             cardType='course'
-            // cardData={}
+            cardData={alldetail.all_courses.courses}
             toggleFavorite={true}
           />}
       </Container>

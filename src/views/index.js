@@ -7,7 +7,7 @@ import CounterPage from './CounterPage'
 import CourseDetail from './CourseDetail';
 import CourseCreation from './CourseCreation';
 import CoursePayment from './CoursePayment';
-import Dummy from './Dummy';
+import Schedule from './Schedule';
 import FavoritePage from './FavoritePage';
 import EditingCousre from './EditingCourse';
 import Homepage from './Homepage'
@@ -51,7 +51,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/counter' element={<CounterPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='/dummy' element={<Dummy />} />
+        <Route path='/schedule' element={<Schedule />} />
         <Route path='/my-course' element={<MyCourse />} />
         <Route path='/course-payment' element={<CoursePayment />} />
         <Route path='/school/:schoolid' element={<SchoolDetail />} />
@@ -85,7 +85,6 @@ const Views = ({ isLogin = false }) => {
           <Route path='/counter' element={<CounterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
-          <Route path='/dummy' element={<Dummy />} />
           <Route path='/my-course' element={<MyCourse />} />
           <Route path='/course-payment' element={<CoursePayment />} />
           <Route path='/school/:schoolid' element={<SchoolDetail />} />
