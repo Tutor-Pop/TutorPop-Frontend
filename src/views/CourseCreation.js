@@ -6,9 +6,10 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Select from "react-select";
 import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap"
+import Upload from "../components/Upload";
 import { startLoading, stopLoading } from "../redux/loading.reducer";
 import { getAllRooms } from "../services/room.service";
-import { getSchool } from "../services/school.service";
+import { getSchool, getTeacher } from "../services/school.service";
 
 const CourseCreation = () => {
 
@@ -19,6 +20,7 @@ const CourseCreation = () => {
     const [allClassrooms, setAllClassrooms] = useState([])
     const [isNumberEmpty, setIsNumberEmpty] = useState(true)
     const [numberStudents, setNumberStudents] = useState(0)
+    const [allTeachers, setAllTeachers] = useState([])
 
     const { schoolid } = useParams()
     
@@ -30,8 +32,12 @@ const CourseCreation = () => {
             return getAllRooms(schoolid)
         })
         .then( (response) => {
-            dispatch(stopLoading())
             setAllClassrooms(response.data.result)
+            return getTeacher(schoolid)
+        })
+        .then( (response) => {
+            dispatch(stopLoading())
+            setAllTeachers(response.data.teachers)
         })
     }, [])
 
@@ -81,21 +87,16 @@ const CourseCreation = () => {
                 </div>
             </div>
             <div className="Element">
-                <div class="teacher">
+                <div class="course-create-teacher">
                     <div class="FontText">Add teacher</div>
                     <Select
                         isMulti
                         name="colors"
-                        options={[{ value: 'ocean', label: 'Ocean', isFixed: true },
-                        { value: 'blue', label: 'Blue', isDisabled: true },
-                        { value: 'purple', label: 'Purple' },
-                        { value: 'red', label: 'Red', isFixed: true },
-                        { value: 'orange', label: 'Orange' },
-                        { value: 'yellow', label: 'Yellow' },
-                        { value: 'green', label: 'Green' },
-                        { value: 'forest', label: 'Forest' },
-                        { value: 'slate', label: 'Slate' },
-                        { value: 'silver', label: 'Silver' },]}
+                        options={
+                            allTeachers.map((teacher) => (
+                                {value: teacher.account_id, label: (teacher.firstname + ' ' + teacher.lastname)}
+                            ))
+                        }
                         className="basic-multi-select"
                         classNamePrefix="select"
                         />
@@ -283,9 +284,9 @@ const CourseCreation = () => {
                             <FormGroup>
                                 <Input
                                     id="exampleDate"
-                                    name="date"
+                                    name="time"
                                     placeholder="date placeholder"
-                                    type="date"
+                                    type="time"
                                     />
                             </FormGroup>
                         </div>
@@ -295,9 +296,9 @@ const CourseCreation = () => {
                             <FormGroup>
                                 <Input
                                     id="exampleDate"
-                                    name="date"
+                                    name="time"
                                     placeholder="date placeholder"
-                                    type="date"
+                                    type="time"
                                     />
                             </FormGroup>
                         </div>
@@ -330,9 +331,7 @@ const CourseCreation = () => {
             </div>
             <div className="Element">
                 <div className="FontText">QR code payment</div>
-                <div class="Prob">
-                    **ทำช่อง payment**
-                </div>
+                <Upload/>
             </div>
             <div className="temp">
                 <Row>
