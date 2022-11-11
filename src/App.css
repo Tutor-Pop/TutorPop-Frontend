@@ -19,6 +19,78 @@
 
 .teacher .searchTeacherBar {
   width: 60%;
+
+}
+
+/* Course Card Mini Horizontal */
+
+.course-card-mini-horizontal {
+  border: 1px solid black;
+  width: 390px;
+  height: 150px;
+  background-color: white;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.course-card-mini-horizontal .description {
+  height: 149px;
+  width: 250px;
+  padding-left: 20px;
+}
+
+.course-card-mini-horizontal .pic {
+  width: 140px;
+  height: 149px;
+  background-color:#6b6b6b;
+}
+
+.course-card-mini-horizontal .top {
+  height: 100px;
+  width: 240px;
+  text-align: start;
+  margin-top: 10px;
+}
+
+.course-card-mini-horizontal .bot {
+  padding-top: 8px;
+  height: 39px;
+  background-color: #3120ca;
+  text-align: start;
+  margin-left: -20px;
+}
+
+.course-card-mini-horizontal .text {
+  margin-left: 20px;
+  color: #ffffff;
+}
+
+
+/* Search Page */
+
+.search-page .search-scroll {
+  overflow-x: scroll;
+  display: flex;
+  margin-left: -200px;
+  margin-bottom: 50px;
+  width: 1500px;
+  background-color: #D3EBFF;
+  padding-left: 25px;
+  padding-top: 25px;
+  height: 236px;
+}
+
+.search-page h3 {
+  text-align: start;
+  margin-left: -100px;
+  margin-top: 20px;
+}
+
+.search-page h3 {
+  text-align: start;
+  margin-left: -100px;
+  margin-top: 20px;
 }
 
 .save-btn {
@@ -104,6 +176,11 @@
   background-color: #EFB13A;
   margin-left: 7px;
   margin-right: 7px;
+}
+
+.plus-img {
+  width: 20px;
+  height: 20px;
 }
 
 
@@ -633,6 +710,7 @@
   display: flex;
 }
 
+
 .payment-info-text {
   margin-left: 10%;
   margin: 20px 200px 90px;
@@ -1063,8 +1141,6 @@
   height: 250px;
 }
 
-
-
 .SchoolBox {
   margin-top: 3%;
 
@@ -1145,6 +1221,30 @@
 }
 
 a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
   text-decoration: none;
 }
 
@@ -1353,6 +1453,10 @@ a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 60px;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 30px;
   /* background-color: #0069c0; */
   /* width: 200px;
   height: 200px; */
@@ -1664,7 +1768,6 @@ label {
 .resent-click {
   text-decoration: underline;
   color: rgb(116, 116, 244);
-
 }
 
 
@@ -1748,4 +1851,9 @@ a.fc-col-header-cell-cushion:hover {
 
 ::-webkit-file-upload-button {
   cursor: pointer;
+}
+
+.resent-click {
+  text-decoration: underline;
+  color: rgb(116, 116, 244);
 }

@@ -141,6 +141,7 @@ const CourseCreation = () => {
                     <div className="Bar">
                         <FormGroup>
                             <Input
+                                required
                                 id="course-name"
                                 name="course_name_bar"
                                 type="text"
@@ -152,6 +153,7 @@ const CourseCreation = () => {
                     <div className="FontText">Category</div>
                     <div className="Bar">
                         <Select
+                        required
                             onChange={e => setcourseType(e.value)}
                             options={[
                                 { value: 'GENERAL', label: 'General' },
@@ -174,6 +176,7 @@ const CourseCreation = () => {
                     <div className="course-create-teacher">
                         <div className="FontText">Add teacher</div>
                         <Select
+                        required
                             onChange={e => setTeacher(e)}
                             isMulti
                             name="colors"
@@ -198,6 +201,7 @@ const CourseCreation = () => {
                                     <div className='Bar'>
                                         <FormGroup>
                                             <Input
+                                            required
                                                 id="reserve-open-date"
                                                 name="date"
                                                 placeholder="date placeholder"
@@ -210,6 +214,7 @@ const CourseCreation = () => {
                                     <div className='Bar'>
                                         <FormGroup>
                                             <Input
+                                            required
                                                 id="reserve-open-time"
                                                 name="time"
                                                 placeholder="date placeholder"
@@ -229,6 +234,7 @@ const CourseCreation = () => {
                                     <div className='Bar'>
                                         <FormGroup>
                                             <Input
+                                            required
                                                 id="reserve-close-date"
                                                 name="date"
                                                 placeholder="date placeholder"
@@ -241,6 +247,7 @@ const CourseCreation = () => {
                                     <div className='Bar'>
                                         <FormGroup>
                                             <Input
+                                            required
                                                 id="reserve-close-time"
                                                 name="time"
                                                 placeholder="date placeholder"
@@ -264,6 +271,7 @@ const CourseCreation = () => {
                                     <div className='Bar'>
                                         <FormGroup>
                                             <Input
+                                            required
                                                 id="course-start-date"
                                                 name="date"
                                                 placeholder="date placeholder"
@@ -295,6 +303,7 @@ const CourseCreation = () => {
                                     <div className='Bar'>
                                         <FormGroup>
                                             <Input
+                                            required
                                                 id="course-end-date"
                                                 name="date"
                                                 placeholder="date placeholder"
@@ -324,6 +333,7 @@ const CourseCreation = () => {
                         <div className="FontText">Course period (number of hours)</div>
                         <div className="Bar">
                             <Input
+                            required
                                 id="course-period"
                                 name="course_name_bar"
                                 type="text"
