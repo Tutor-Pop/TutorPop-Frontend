@@ -77,6 +77,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/notification' element={<Notification />} />
         <Route path='/email/:userid' element={<Verify />} />
         <Route path='/course/:courseid' element={<CourseDetail />} />
+        
         { /* Authorization is required after this line */ isLogin && <>
           <Route path='/my-school' element={<MySchool />} />
           <Route path='/my-profile' element={<MyProfile />} />
@@ -102,6 +103,7 @@ const Views = ({ isLogin = false }) => {
           <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />
           <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
+          
         </>
         }
       </Routes>
