@@ -52,13 +52,18 @@ const CourseCreation = () => {
         setNumberStudents(e.target.value)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(e.target)
+    }
+
     return (
         <div className="CourseCreation">
             <h1>Create new course</h1>
             <div className="Element">
                 <div className="FontText">School : {schoolName}</div>
             </div>
-            <Form>
+            <Form onSubmit={handleSubmit}>
             <div className="Element">
                 <div className="FontText">Course name</div>
                 <div className="Bar">
