@@ -60,12 +60,12 @@ const SchoolDetail = () => {
         <Row className='school-address'>
             <h4>School Address</h4>
             <Row className='school-address-box'>
-              {/* <Col xs='2' className='school-map'></Col> */}
+              <Col xs='2' className='school-map'></Col>
               <Col xs='10'>
                 <p>
                   {`${alldetail.addr_description} ${alldetail.sub_district} ${alldetail.district} ${alldetail.province} ${alldetail.postal_code}`}
                 </p>
-                {/* <p>
+                <p>
                   
                 </p>
                 <p>
@@ -73,7 +73,7 @@ const SchoolDetail = () => {
                 </p>
                 <p>
                   Tel. xxx-xxx-xxxx
-                </p> */}
+                </p>
               </Col>
             </Row>
         </Row>
