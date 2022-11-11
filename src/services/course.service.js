@@ -1,8 +1,8 @@
 const axios = require('axios')
 const { BACKEND_URL } = require('../constants/service.constant')
 
-export async function getCourse(school_id,course_id){
-    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses/${course_id}`)
+export async function getCourse(course_id){
+    return axios.get(`${BACKEND_URL}/api/courses/${course_id}`)
 }
 
 export async function createCourse(school_id,body){
@@ -43,4 +43,12 @@ export async function getStudyCourses(account_id) {
 
 export async function getAllCourses(school_id) {
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}/courses`)
+}
+
+export async function uploadCoursePicture(course_id, form) {
+    return axios.put(`${BACKEND_URL}/api/courses/${course_id}/upload_poster`, form, {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    })
 }
