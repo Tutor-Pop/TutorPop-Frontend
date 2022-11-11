@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CourseContainer from '../components/CourseContainer'
 import CardList from '../components/CardList'
 import { getStudyCourses, getTeachingCourses } from '../services/course.service'
-
+//teaching กับปุ่มหัวใจ  กับปุ่ม create new course
 const MyCourse = () => {
 
   const [isSelectRight, setSelectRight] = useState(0)

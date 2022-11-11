@@ -8,7 +8,7 @@ import SchoolAddCard from '../components/SchoolAddCard'
 import SchoolCard from '../components/SchoolCard'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getSchoolOwner } from '../services/personal.service'
- 
+//ลอง + ดู
 const MySchool = () => {
  
   const dispatch = useDispatch();
