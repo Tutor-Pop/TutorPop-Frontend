@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom'
 import { Col, Container, Row } from 'reactstrap'
 import ClassroomManagementBtn from '../components/ClassroomManagementBtn'
 import LogoBannerBtn from '../components/LogoBannerBtn'
-import SchoolEditingBtn from '../components/SchoolEditingBtn'
 import SchoolManagementBtn from '../components/TeacherManagementBtn'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getSchool } from '../services/school.service'
+import SchoolEditing from './SchoolEditing'
 
 const SchoolManagement = () => {
 
