@@ -1323,33 +1323,34 @@ a:active {
 
 /* CreatCourse ของไอตอง */
 
-.CreatCourse {
+.creat-course {
   padding-left: 250px;
   padding-top: 110px;
 }
 
-.CreatCourse .header {
+.creat-course .header {
   font-size: 45px;
   margin-bottom: 15px;
   font-weight: bold;
   margin-left: -50px;
 }
 
-.CreatCourse .text {
+.creat-course .text {
   font-size: 30px;
+  margin-bottom: 15px;
 }
 
-.CreatCourse .frame {
+.creat-course .frame {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 60px;
-  justify-content: center;
-  justify-items: center;
-  margin-top: 30px;
+  /* background-color: #0069c0; */
+  /* width: 200px;
+  height: 200px; */
+  text-align: center;
 }
 
-.CreatCourse .pic {
+.creat-course .pic {
   width: 140px;
   height: 140px;
   background-color: #0078AA;
@@ -1357,17 +1358,18 @@ a:active {
   border-radius: 15px;
 }
 
-.CreatCourse .bot {
-  margin-top: 20px;
-  width: 1400px;
+.creat-course .bot {
+  margin-top: -80px;
+  margin-left: -180px;
+  width: 1500px;
 }
 
-.CreatCourse .text1 {
+.creat-course .text1 {
   font-size: 20px;
+  width: 300px;
 }
 
 /* Notification ของไอตอง */
-
 .Noti {
   padding-top: 120px;
   padding-left: 200px;
