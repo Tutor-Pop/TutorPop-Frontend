@@ -8,3 +8,15 @@ export function createRequest(form) {
         }
     })
 }
+
+export function uploadPaymentSlipForRequest(request_id, form) {
+    return axios.put(`${BACKEND_URL}/api/requests/${request_id}/upload_payment`, form, {
+        headers: {
+            'content-type' : 'multipart/form-data'
+        }
+    })
+}
+
+export function getRequestID(school_id) {
+    return axios.get(`${BACKEND_URL}/api/requests/${school_id}/school_id`)
+}

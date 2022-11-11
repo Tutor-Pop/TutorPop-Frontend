@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 import { toast, ToastContainer } from 'react-toastify';
   import "react-toastify/dist/ReactToastify.css";
+import { getRequestID, uploadPaymentSlipForRequest } from '../services/request.service';
+import { getSchool } from '../services/school.service';
+import { useDispatch } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/loading.reducer';
 
 const SchoolPayment = () => {
-  const schoolData = { 'school_name' : 'Tutoring School 1' }
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const { schoolid } = useParams()
 
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
+  const [schoolData, setSchoolData] = useState({})
+  const [requestID, setRequestID] = useState('')
+
 
   const imageOnchangeHandler = (e) => {
     setImages([...e.target.files]);
@@ -31,14 +42,38 @@ const SchoolPayment = () => {
     })
   }, [])
 
+  useEffect(() => {
+    dispatch(startLoading())
+    getSchool(schoolid).then((response) => {
+      setSchoolData(response.data.result)
+      return getRequestID(schoolid)
+    }).then(
+      (response) => {
+        dispatch(stopLoading())
+        setRequestID(response.data.request_id)
+      }
+    ).catch( err => dispatch(stopLoading()))
+  }, [])
+
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    // console.log(e.target['upload-slip'].files[0])
+    let formData = new FormData()
+    formData.append('payment_pic', e.target['upload-slip'].files[0])
+    dispatch(startLoading())   
+    await uploadPaymentSlipForRequest(requestID, formData)
+    dispatch(stopLoading())
+    navigate(`/school/${schoolid}/pending`)
+  }
+
   return (
     <div className='school-payment'>
-      <Form>
+      <Form onSubmit={submitHandler}>
         <Container className='register'>
           <Row className='register-box'>
             <Row className='mb-5'>
               <h1>School Registering Payment</h1>
-              <p>{schoolData.school_name}</p>
+              <p>{schoolData.name}</p>
             </Row>
             <Row className='mb-5'>
               <h4>Payment Methods</h4>
@@ -47,8 +82,8 @@ const SchoolPayment = () => {
               </Col>
               <Col xs={9}>
                 <p>Bank Name</p>
-                <p>Account Number: XXX-XXXXXX-XX</p>
-                <p>(Account's Owner Name)</p>
+                <p>Account Number: 0-00-000-000-0</p>
+                <p>JuabJarb Development</p>
               </Col>
             </Row>
             <Row>
@@ -69,11 +104,9 @@ const SchoolPayment = () => {
             </Row>
             <Row className="justify-evenly mt-5">
               <Col>
-                <Link className='link-btn-text' to={`/search`}>
-                  <Button className="school-register-btn" type="submit" color="primary" size="lg">
-                    Register School
-                  </Button>
-                </Link>
+                <Button className="school-register-btn" type="submit" color="primary" size="lg">
+                  Register School
+                </Button>
               </Col>
               <Col>
                 <Link className='link-btn-text' to={`/search`}>

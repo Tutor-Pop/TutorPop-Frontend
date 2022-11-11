@@ -61,7 +61,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/favorite' element={<FavoritePage />} />
         <Route path='/school/:schoolid/edit' element={<SchoolEditing />} />
         <Route path='/school-register' element={<SchoolRegister />} />
-        <Route path='/school-payment-temp' element={<SchoolPayment />} />
+        <Route path='/school/:schoolid/school-payment' element={<SchoolPayment />} />
         <Route path='/:schoolid/classroom-manage' element={<ClassroomManage />} />
         <Route path='/school-manage/:schoolid' element={<SchoolManagement />} />
         <Route path='/search' element={<SearchPage />} />
@@ -70,7 +70,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/support' element={<Support />} />
         <Route path='/course-manage/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
-        <Route path='/school/pending' element={<SchoolRegisterPending />} />
+        <Route path='/school/:schoolid/pending' element={<SchoolRegisterPending />} />
         <Route path='/:schoolid/logo-editing' element={<LogoEdit />} />
         <Route path='/create-course' element={<CreatCourse />} />
         <Route path='/notification' element={<Notification />} />
