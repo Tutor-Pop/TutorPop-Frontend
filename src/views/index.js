@@ -36,6 +36,7 @@ import Admin from './Admin';
 import SchoolPayPending from './SchoolPayPending';
 import StudentManage from './StudentManage';
 import CoursePaymentMethod from './CoursePaymentMethod';
+import CourseManagementAdmin from './CourseManagementAdmin';
 
 const Views = ({isLogin=false}) => {
   return (
@@ -65,11 +66,18 @@ const Views = ({isLogin=false}) => {
         <Route path='/course-manage' element={<CourseManagement/>}/>
         <Route path='/course-manage/student-manage' element={<StudentManage />}/>
         <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
-        { /* Authorization is required after this line */ isLogin && <>
-        <Route path='/my-school' element={<MySchool/>}/>
+        <Route path='/admin/course_manage' element={<CourseManagementAdmin/>}/>
+        <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest/>}/>
+        <Route path='/admin/user_manage' element={<UserManagement/>}/>
+        <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/school-manage/pending' element={<SchoolPayPending/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>
         <Route path='/my-profile/edit' element={<MyProfileEdit/>}/>
         <Route path='/my-profile/change-password' element={<ChangePassword/>}/>
+        { /* Authorization is required after this line */ isLogin && <>
+        <Route path='/my-school' element={<MySchool/>}/>
+        
         <Route path='/school-register' element={<SchoolRegister/>}/>
         <Route path='/school-payment-temp' element={<SchoolPayment/>}/>
         <Route path='/' element={<Homepage />} />
@@ -83,12 +91,7 @@ const Views = ({isLogin=false}) => {
         <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
         <Route path='/course-manage/edit/:courseid'element={<EditingCousre />} />
         <Route path='/teachers/:teacherid' element={<TeacherPage/>}/>
-        <Route path='/admin/course_manage' element={<CourseManagement/>}/>
-        <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest/>}/>
-        <Route path='/admin/user_manage' element={<UserManagement/>}/>
-        <Route path='/admin/school_manage' element={<AdminSchoolManagement/>}/>
-        <Route path='/admin' element={<Admin/>}/>
-        <Route path='/school-manage/pending' element={<SchoolPayPending/>}/>
+       
         </>
         }
       </Routes>

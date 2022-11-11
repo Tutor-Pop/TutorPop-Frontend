@@ -71,7 +71,7 @@ const data = [
 ]
 
 
-const CourseManagement = () => {
+const CourseManagementAdmin = () => {
   return (
     <Container fluid className='full-scr-con'>
       <Row className='pt-28'>
@@ -98,4 +98,4 @@ const CourseManagement = () => {
   )
 }
 
-export default CourseManagement
+export default CourseManagementAdmin
