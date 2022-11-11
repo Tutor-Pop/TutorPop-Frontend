@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'reactstrap';
 import CardList from '../components/CardList';
 import FavButton from '../components/FavButton';
-
+//ไปหน้าคอร์ส หน้าอาจารย์ แล้วก็หน้า reserve คอร์ส พร้อมเอาหัวใจออก
 const CourseDetail = () => {
 
   const { courseid } = useParams();

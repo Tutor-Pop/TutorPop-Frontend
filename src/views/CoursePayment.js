@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 import LinkButton from "../components/LinkButton";
 import PaymentCard from "../components/PaymentCard";
-
+//กด continue to website
 const CoursePayment = () => {
   return (
     <div>

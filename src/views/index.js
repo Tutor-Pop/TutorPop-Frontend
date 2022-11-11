@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import '../custom.scss'
 import ChangePassword from './ChangePassword';
 import ClassroomManage from './ClassroomManage';
-import CounterPage from './CounterPage'
 import CourseDetail from './CourseDetail';
 import CourseCreation from './CourseCreation';
 import CoursePayment from './CoursePayment';
@@ -28,7 +27,6 @@ import TeacherManagement from './TeacherManagement';
 import Support from './Support';
 import CoursePicture from './CoursePicture';
 import TeacherPage from './TeacherPage';
-import OpenSchoolRequest from './OpenSchoolRequest';
 import UserManagement from './UserManagement';
 import CourseManagement from './CourseManagement';
 import AdminSchoolManagement from './AdminSchoolManagement';
@@ -44,6 +42,7 @@ import SchoolRegisterPending from './SchoolRegisterPending';
 import LogoEdit from './LogoEdit';
 import CreatCourse from './CreateCourse';
 import Notification from './Notification';
+import SchoolOpenRequest from './SchoolOpenRequest';
 
 
 const Views = ({ isLogin = false }) => {
@@ -51,7 +50,6 @@ const Views = ({ isLogin = false }) => {
     <div className="App">
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path='/counter' element={<CounterPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/schedule' element={<Schedule />} />
@@ -79,20 +77,21 @@ const Views = ({ isLogin = false }) => {
         <Route path='/course-manage/:schoolid/:courseid' element={<CourseManagement/>}/>        
         <Route path='/course-payment/:courseid/payment-method' element={<CoursePaymentMethod/>}/>
         <Route path='/admin' element={<Admin />} /> 
-        <Route path='/admin/open-school-request' element={<OpenSchoolRequest />} />
+        <Route path='/admin/school-open-request' element={<SchoolOpenRequest />} />
         <Route path='/admin/school-manage' element={<AdminSchoolManagement />} />
         <Route path='/course-manage/:schoolid/:courseid/student-manage' element={<StudentManage/>}/>
         <Route path='/admin/user-manage' element={<UserManagement />} />
 
         { /* Authorization is required after this line */ isLogin && <>
+        <Route path='/admin/course-manage' element={<CourseManagementAdmin />} />
+        <Route path='/my-profile/change-password' element={<ChangePassword />} />
+        <Route path='/course-manage/:schoolid/:courseid/student-manage' element={<StudentManage/>} />
           <Route path='/my-school' element={<MySchool />} />
           <Route path='/my-profile' element={<MyProfile />} />
           <Route path='/my-profile/edit' element={<MyProfileEdit />} />
-          <Route path='/my-profile/change-password' element={<ChangePassword />} />
           <Route path='/school-register' element={<SchoolRegister />} />
           <Route path='/school-payment-temp' element={<SchoolPayment />} />
           <Route path='/' element={<Homepage />} />
-          <Route path='/counter' element={<CounterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/my-course' element={<MyCourse />} />
@@ -106,7 +105,6 @@ const Views = ({ isLogin = false }) => {
           <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />
           <Route path='/course-payment/:courseid/payment-method' element={<CoursePaymentMethod/>}/>
-          
         </>
         }
       </Routes>

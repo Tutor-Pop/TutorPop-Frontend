@@ -3,7 +3,7 @@ import { Button, Container } from 'reactstrap'
 import PaymentCard from '../components/PaymentCard'
 import QRcodepopup from '../components/QRcodepopup'
 import Upload from '../components/Upload'
-
+//กด enrolled
 const CoursePaymentMethod = () => {
   const [isOpen, setisOpen] = useState(false)
   return (
