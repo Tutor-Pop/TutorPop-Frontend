@@ -6,7 +6,7 @@ const SendNoti = ({...args}) => {
 
   return (
     <Modal {...args} centered>
-        <ModalHeader>New push notification</ModalHeader>
+        <ModalHeader>{args.label}</ModalHeader>
         <ModalBody className='Noti-body'>
             <div className='send-to flex'>
                 <label for='name'>to:</label>

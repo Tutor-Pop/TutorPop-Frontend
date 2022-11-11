@@ -24,7 +24,7 @@ const CourseManagement = () => {
                 </Row>
             </Container>
             <Button color="primary" className="delete-btn" size="lg">Delete Course</Button>   
-            <SendNoti toggle={() => setisOpen(false)} isOpen={isOpen}/>
+            <SendNoti toggle={() => setisOpen(false)} isOpen={isOpen} label="New Push Notification"/>
         </div>
     )
 }

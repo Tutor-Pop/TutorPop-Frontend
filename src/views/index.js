@@ -69,7 +69,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/:schoolid/teacher-manage' element={<TeacherManagement />} />
         <Route path='/create-course/:schoolid' element={<CourseCreation />} />
         <Route path='/support' element={<Support />} />
-        <Route path='/course-manage/student-manage/course-picture' element={<CoursePicture />} />
+        <Route path='/course-manage/:schoolid/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
         <Route path='/school/pending' element={<SchoolRegisterPending />} />
         <Route path='/:schoolid/logo-editing' element={<LogoEdit />} />
@@ -95,11 +95,7 @@ const Views = ({ isLogin = false }) => {
           <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
           <Route path='/course-manage/edit/:courseid' element={<EditingCousre />} />
           <Route path='/teachers/:teacherid' element={<TeacherPage />} />
-          <Route path='/admin/course_manage' element={<CourseManagement />} />
-          <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest />} />
-          <Route path='/admin/user_manage' element={<UserManagement />} />
-          <Route path='/admin/school_manage' element={<AdminSchoolManagement />} />
-          <Route path='/admin' element={<Admin />} />
+          <Route path='/admin/course-manage' element={<CourseManagementAdmin />} />
           <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />
           <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
