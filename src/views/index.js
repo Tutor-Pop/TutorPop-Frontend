@@ -95,10 +95,10 @@ const Views = ({ isLogin = false }) => {
           <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
           <Route path='/course-manage/edit/:courseid' element={<EditingCousre />} />
           <Route path='/teachers/:teacherid' element={<TeacherPage />} />
-          <Route path='/admin/course_manage' element={<CourseManagement />} />
-          <Route path='/admin/open_schoolRequest' element={<OpenSchoolRequest />} />
-          <Route path='/admin/user_manage' element={<UserManagement />} />
-          <Route path='/admin/school_manage' element={<AdminSchoolManagement />} />
+          <Route path='/admin/course-manage' element={<CourseManagementAdmin />} />
+          <Route path='/admin/open-school-request' element={<OpenSchoolRequest />} />
+          <Route path='/admin/user-manage' element={<UserManagement />} />
+          <Route path='/admin/school-manage' element={<AdminSchoolManagement />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />

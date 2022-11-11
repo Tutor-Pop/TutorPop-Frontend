@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const AdminUserManageBtn = () => {
   return (
     <span style={{"display": "block"}}>
-    <Link to='/'>
+    <Link to='/admin/user-manage'>
         <div className='textbox-schoolman text-left'>
             <h3>User Management</h3>
         </div>
