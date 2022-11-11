@@ -46,26 +46,30 @@ const CoursePicture = () => {
     <div className='CoursePic'>
       <div className='Header'>Course Picture</div>
       <br></br>
-      <div className='text'>Nun tutor (fak algorithm)</div>
-      <Upload/>
-      <div className="temp">
-        <Row>
-            <Col>
-            </Col>
-            <Col>
-                <Button type="submit" color="primary" size="lg" className="Pair_Button">
-                    Save
-                </Button>
-            </Col>
-            <Col>
-                <Button type="submit" color="secondary" size="lg" className="Pair_Button">
-                    Cancel
-                </Button>
-            </Col>
-            <Col>
-            </Col>
-        </Row>
-      </div>
+      <div className='text'>{courseName}</div>
+      <Form onSubmit={submitHandler}>
+        <Upload/>
+        <div className="temp">
+          <Row>
+              <Col>
+              </Col>
+              <Col>
+                  <Button type="submit" color="primary" size="lg" className="Pair_Button">
+                      Save
+                  </Button>
+              </Col>
+              <Col>
+                <Link className='link-txt-btn' to={`/course-manage/${courseid}`}>
+                  <Button type="submit" color="secondary" size="lg" className="Pair_Button">
+                      Cancel
+                  </Button>
+                </Link>
+              </Col>
+              <Col>
+              </Col>
+          </Row>
+        </div>
+      </Form>
     </div>
   )
 }
