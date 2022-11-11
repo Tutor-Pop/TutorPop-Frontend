@@ -216,7 +216,7 @@ const SchoolRegister = () => {
             </Row>
             <Row>
               <FormGroup>
-                <Label for='school-verify-doc'>
+                {/* <Label for='school-verify-doc'>
                   Upload School Verification Document<span className='required-star'>*</span>
                 </Label>
                 <Input
@@ -224,7 +224,9 @@ const SchoolRegister = () => {
                   type='file'
                   required={true}
                   onChange={e => setupload(e.target.files[0])}
-                />
+                /> */}
+                <label for="school-verify-doc">Select a file:</label>
+                <input required type="file" id="school-verify-doc" name="school-verify-doc"/>
               </FormGroup>
             </Row>
             <Row className="justify-evenly mt-5">

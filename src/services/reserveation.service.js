@@ -17,7 +17,11 @@ export async function deleteReservation(reservation_id){
     return axios.delete(`${BACKEND_URL}/api/reservations/${reservation_id}`)
 }
 
-export async function uploadPaymentPicture(reservation_id){
-    return axios.put(`${BACKEND_URL}/api/reservations/${reservation_id}/payment`)
+export function uploadPaymentPicture(form) {
+    return axios.post(`${BACKEND_URL}/api/reservations/${reservation_id}/payment`, form, {
+        headers: {
+            'content-type': 'multipart/form-data',
+        }
+    })
 }
 
