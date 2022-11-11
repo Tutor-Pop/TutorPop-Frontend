@@ -79,6 +79,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/course/:courseid' element={<CourseDetail />} />
         <Route path='/course-manage/:schoolid/:courseid' element={<CourseManagement/>}/>
         
+        <Route path='/course-payment/payment-method' element={<CoursePaymentMethod/>}/>
         { /* Authorization is required after this line */ isLogin && <>
           <Route path='/my-school' element={<MySchool />} />
           <Route path='/my-profile' element={<MyProfile />} />
