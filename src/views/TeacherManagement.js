@@ -1,53 +1,82 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchTeacherBar from '../components/SearchTeacherBar'
-import UserShortChip from '../components/UserShortChip'
 import Chip from "@material-ui/core/Chip"
 import Avatar from "@material-ui/core/Avatar"
 import { Col, Container, Row } from 'reactstrap'
+import { Link, useParams } from 'react-router-dom'
+import { getTeacher , getSchool , updateTeacher , deleteTeacher} from '../services/school.service'
+
 
 const TeacherManagement = () => {
-  const id = localStorage.getItem("account_id");
+    const {schoolid} = useParams();
+    const [list, setList] = useState([]);
+    const [schoolName, setSchool] = useState("");
+    const [deletedTeacher , delTeacher] = useState([]);
 
-  const handleDelete = (event) => {
-    console.log('gee');
-  };
+    useEffect(()=>{
+        getTeacher(schoolid).then(
+            response => setList([...response.data.teachers])
+        )
+        getSchool(schoolid).then(
+            res => setSchool(res.data.result.name)
+        )
 
-  return (
-    <div className='teacher'>
-        <div className='teacher-man-title'>
-            <h1>Teacher Management</h1>
-            <h3 className='mb-10 border-b-2 border-zinc-400 text-right' w>school name</h3>
-            <h3 className='invite mb-5'>Invite Teacher</h3>
-            <SearchTeacherBar/>
-        </div>
-        <div className='invite-teacher'>
-          <Container>
-            <Row xs={1} sm={3} md={5} >
-              <Col className='justify-center  pt-8'>
-                <Chip className='chip w-30' color="primary" onDelete={handleDelete} avatar={<Avatar  sx={{ width: 100, height: 100 }} src="/static/images/avatar/1.jpg" />} label="tong" size="medium"/>
-              </Col>
-              <Col className='justify-center  pt-8'>
-                <Chip className='chip w-30'color="primary" onDelete={handleDelete} avatar={<Avatar src="/static/images/avatar/1.jpg" />} label="noooooo" />
-              </Col>
-              <Col className='justify-center  pt-8'>
-                <Chip className='chip w-30' color="primary" onDelete={handleDelete} avatar={<Avatar src="/static/images/avatar/1.jpg" />} label="mowhannnn" />
-              </Col>
-              <Col className='justify-center  pt-8'>
-                <Chip className='chip w-30' color="primary" onDelete={handleDelete} avatar={<Avatar src="/static/images/avatar/1.jpg" />} label="tong" />
-              </Col>
-              <Col className='justify-center  pt-8'>
-                <Chip className='chip w-30' color="primary" onDelete={handleDelete} avatar={<Avatar src="/static/images/avatar/1.jpg" />} label="tong" />
-              </Col>
-            </Row>
-          </Container>
-        </div>
+    },[])
 
-        <div className='inviteteacher-btn'>
-          <button className='save-btn'>Save</button>
-          <button className='cancel-btn'>Cancel</button>
+    useEffect(()=>{
+        console.log('Effectttttlist',list);
+    },[list])
+    
+    function handleDelete(id) {
+        setList(list.filter((item)=>
+            item.account_id != id
+        ));
+        delTeacher([...deletedTeacher,id])
+    };
+
+
+    const handleSave = () => {
+        const result = list.map((teacher) => (
+            teacher.account_id
+        ))
+        const answer = {'teachers' : result}
+        const remove = {'teachers' :deletedTeacher}
+        console.log('answer',answer)
+        console.log('del',remove)
+        updateTeacher(schoolid,answer); 
+        deleteTeacher(schoolid,remove);  
+        delTeacher([]);
+    }
+
+
+    return (
+        <div className='teacher'>
+            <div className='teacher-man-title'>
+                <h1>Teacher Management</h1>
+                <h3 className='mb-10 border-b-2 border-zinc-400 text-right' w>{schoolName}</h3>
+                <h3 className='invite mb-5'>Invite Teacher</h3>
+                <SearchTeacherBar schoolId={schoolid} list={list} setList={setList}/>
+            </div>
+            <div className='invite-teacher'>
+            <Container>
+                <Row xs={1} sm={2} md={3} >
+                    {list.map((item) => (
+                        <Col className='justify-center  pt-8'>
+                            <Chip key={item.account_id} className='chip' color="primary" onDelete={()=>{handleDelete(item.account_id)}}  label={item.username} size="medium"/>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+            </div>
+
+            <div className='inviteteacher-btn'>
+            <button className='save-btn' onClick={handleSave}>Save</button>
+            <Link to="../school-manage/:schoolid">
+                <button className='cancel-btn'>Cancel</button>
+            </Link>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default TeacherManagement
