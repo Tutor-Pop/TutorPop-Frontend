@@ -109,7 +109,7 @@ const SchoolPayment = () => {
                 </Button>
               </Col>
               <Col>
-                <Link className='link-btn-text' to={`/search`}>
+                <Link className='link-btn-text' to={`/my-school`}>
                   <Button className='edit-cancel-btn' color='secondary' size='lg'>
                     Cancel
                   </Button>

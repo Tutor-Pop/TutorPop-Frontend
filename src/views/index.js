@@ -90,7 +90,6 @@ const Views = ({ isLogin = false }) => {
           <Route path='/my-profile' element={<MyProfile />} />
           <Route path='/my-profile/edit' element={<MyProfileEdit />} />
           <Route path='/school-register' element={<SchoolRegister />} />
-          <Route path='/school-payment-temp' element={<SchoolPayment />} />
           <Route path='/' element={<Homepage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
@@ -102,7 +101,7 @@ const Views = ({ isLogin = false }) => {
           <Route path='/course-manage/edit/:courseid' element={<EditingCousre />} />
           <Route path='/teachers/:teacherid' element={<TeacherPage />} />
           <Route path='/admin/course-manage' element={<CourseManagementAdmin />} />
-          <Route path='/school-manage/pending' element={<SchoolPayPending />} />
+          <Route path='/school-manage/:schoolid/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />
           <Route path='/course-payment/:courseid/payment-method' element={<CoursePaymentMethod/>}/>
         </>

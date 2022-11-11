@@ -1857,3 +1857,8 @@ a.fc-col-header-cell-cushion:hover {
   text-decoration: underline;
   color: rgb(116, 116, 244);
 }
+
+/* School Pay Pending */
+.school-pay-pending {
+  padding-top: 200px;
+}
