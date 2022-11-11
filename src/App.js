@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     getAuthorization().then((response) => {
-      console.log(response.data)
       setisLogin(response.data.result)
     });
   }, []);

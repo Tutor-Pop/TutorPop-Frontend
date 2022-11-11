@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   message: "AAA",
   open: false,
-  action: () => { }
+  action: null //() => { }
 }
 
 export const confimationSlice = createSlice({
