@@ -29,8 +29,8 @@ export async function updateTeacher(school_id,body){
     return axios.put(`${BACKEND_URL}/api/schools/${school_id}/teachers`,body)
 }
 
-export async function deleteTeacher(school_id){
-    return axios.delete(`${BACKEND_URL}/api/schools/${school_id}/teachers`)
+export async function deleteTeacher(school_id,body){
+    return axios.delete(`${BACKEND_URL}/api/schools/${school_id}/teachers`,{data: body})
 }
 
 export async function getAllTeachingSchool(user_id) {
@@ -38,7 +38,9 @@ export async function getAllTeachingSchool(user_id) {
 }
 
 export async function getAllSchoolDetail(school_id){
-    const result = await axios.get(`${BACKEND_URL}/api/schools/${school_id}/details`)
-    console.log(result.data)
-    return result
+    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/details`)
 }
+export async function getAllOthers(school_id){
+    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/others`)
+}
+

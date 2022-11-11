@@ -8,3 +8,7 @@ export async function getActiveStats() {
 export async function getPendingRequest() {
   return axios.get(`${BACKEND_URL}/api/stats/pendingreq`)
 }
+
+export async function getActiveStatsMonthly() {
+  return axios.get(`${BACKEND_URL}/api/stats/thismonth`)
+}
