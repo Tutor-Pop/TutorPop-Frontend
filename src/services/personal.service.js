@@ -25,3 +25,7 @@ export async function getSchoolOwner(account_id){
     return axios.get(`${BACKEND_URL}/api/accounts/${account_id}/owners`);
    
 }
+
+export async function getAllReservationsInDetail(account_id){
+    return axios.get(`${BACKEND_URL}/api/accounts/${account_id}/all_reserve`)
+}

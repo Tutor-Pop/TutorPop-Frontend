@@ -73,11 +73,11 @@ function SearchTeacherBar({schoolId,list,setList}) {
                         ))
                     }
                     className="basic-multi-select"
-                    classNamePrefix="select"
+                    classNamePrefix="search-teacher"
                 />
                 
                 <div>
-                 <Button color='primary' className='plus-btn' onClick={handlePlus}>
+                 <Button color='primary' className='plus-btn h-35' onClick={handlePlus}>
                     <FontAwesomeIcon size='xl' icon={faPlus}/>
                 </Button>
                 </div>

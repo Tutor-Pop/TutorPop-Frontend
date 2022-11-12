@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import SearchTeacherBar from '../components/SearchTeacherBar'
 import Chip from "@material-ui/core/Chip"
 import Avatar from "@material-ui/core/Avatar"
-import { Col, Container, Row } from 'reactstrap'
+import { Button, Col, Container, Row } from 'reactstrap'
 import { Link, useParams } from 'react-router-dom'
 import { getTeacher , getSchool , updateTeacher , deleteTeacher} from '../services/school.service'
+import LinkButton from '../components/LinkButton'
 
 
 const TeacherManagement = () => {
@@ -60,7 +61,7 @@ const TeacherManagement = () => {
             <div className='invite-teacher'>
             <Container>
                 <Row xs={1} sm={2} md={3} >
-                    {list.map((item) => (
+                    {list&&list.map((item) => (
                         <Col className='justify-center  pt-8'>
                             <Chip key={item.account_id} className='chip' color="primary" onDelete={()=>{handleDelete(item.account_id)}}  label={item.username} size="medium"/>
                         </Col>
@@ -70,10 +71,8 @@ const TeacherManagement = () => {
             </div>
 
             <div className='inviteteacher-btn'>
-            <button className='save-btn' onClick={handleSave}>Save</button>
-            <Link to="../school-manage/:schoolid">
-                <button className='cancel-btn'>Cancel</button>
-            </Link>
+            <Button  color="primary" className='save-btn' size="lg" onClick={handleSave}>Save</Button>
+            <Button color="secondary" className="cancel-Btn" size="lg" href="/school-manage/:schoolid"> Cancel</Button>
             </div>
         </div>
     )
