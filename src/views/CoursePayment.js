@@ -42,7 +42,7 @@ const CoursePayment = () => {
             <h4>Please pay the fee in 2022 07 09</h4>
           </div>
           <PaymentCard details={details}/>
-
+          </div>
         <div className="div-pay-btn mx-auto">
           <LinkButton color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now"/>
           <LinkButton color='secondary' className='con-to-web-btn' size='lg' to="/search" label="Continue To Website"/>
