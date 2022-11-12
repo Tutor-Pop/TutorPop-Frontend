@@ -6,7 +6,7 @@ const PayedPage = () => {
   return (
     <Container>
         <Row className='ch-box'>
-            <img src='https://media.discordapp.net/attachments/692979848523677761/1039892229088612424/image.png' />
+            <img src='https://cdn-icons-png.flaticon.com/512/3073/3073440.png' />
         </Row>
         <Row className='txt-payed'>
           <h4>
