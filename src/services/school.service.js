@@ -5,8 +5,12 @@ export async function getSchool(school_id){
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}`)
 }
 
-export async function createSchool(body){
-    return axios.post(`${BACKEND_URL}/api/schools`,body)
+export async function createSchool(form){
+    return axios.post(`${BACKEND_URL}/api/schools`, form, {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    })
 }
 
 export async function updateSchool(school_id,body){

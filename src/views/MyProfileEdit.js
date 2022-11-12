@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getAccount, updateAccount } from '../services/account.service'
-
+//เข้าไม่ได้จ้าาาาาา หมุนติ้วๆ
 const MyProfileEdit = () => {
 
   const nevigate = useNavigate()

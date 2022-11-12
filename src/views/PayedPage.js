@@ -6,7 +6,7 @@ const PayedPage = () => {
   return (
     <Container>
         <Row className='ch-box'>
-            <img src='https://media.discordapp.net/attachments/692979848523677761/1039892229088612424/image.png' />
+            <img src='https://media.discordapp.net/attachments/692979848523677761/1040209094247710741/image.png' />
         </Row>
         <Row className='txt-payed'>
           <h4>

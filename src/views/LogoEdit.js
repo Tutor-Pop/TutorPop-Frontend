@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Button, Col, Row } from 'reactstrap'
 import '../App.css'
-
+//แนบไฟร์ไม่ได้
 const LogoEdit = () => {
   return (
     <div className='logo-edit'>

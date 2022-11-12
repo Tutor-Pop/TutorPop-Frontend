@@ -9,11 +9,9 @@ export const loadingSlice = createSlice({
   initialState,
   reducers: {
     startLoading: (state) => {
-      console.log("Start Loading")
         state.value = true
     },
     stopLoading: (state) => {
-        console.log("Stop Loading")
         state.value = false
     }
   },

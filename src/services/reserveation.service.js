@@ -1,8 +1,12 @@
 const axios = require('axios')
 const { BACKEND_URL } = require('../constants/service.constant')
 
-export async function createReservation(){
-    return axios.post(`${BACKEND_URL}/api/reservations`)
+export async function createReservation(formData){
+    return axios.post(`${BACKEND_URL}/api/reservations`,formData,{
+        headers: {
+            'content-type': 'multipart/form-data',
+        }
+    })
 }
 
 export async function getAllReservationInCourse(course_id){

@@ -7,6 +7,7 @@ import PaymentCard from "../components/PaymentCard";
 import { getSingleCourseWithDetail } from "../services/course.service";
 import { getAllReservationInCourse, getResevationIdFromAccountCourse } from "../services/reserveation.service";
 
+//กด continue to website
 const CoursePayment = () => {
     // const accountId = localStorage.getItem('account_Id')
     const accountId = 40;

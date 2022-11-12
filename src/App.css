@@ -23,7 +23,6 @@
 }
 
 /* Course Card Mini Horizontal */
-
 .course-card-mini-horizontal {
   border: 1px solid black;
   width: 390px;
@@ -66,6 +65,53 @@
   color: #ffffff;
 }
 
+/* school card horizontal ของไอตอง */
+.school-card-mini-horizontal {
+  border: 1px solid black;
+  width: 1400px;
+  height: 150px;
+  background-color: white;
+  margin-top: 60px;
+  margin-bottom: -20px;
+  display: flex;
+  margin-left: -150px;
+}
+
+.school-card-mini-horizontal .description {
+  height: 149px;
+  width: 1245px;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.school-card-mini-horizontal .pic {
+  width: 140px;
+  height: 149px;
+  background-color:#6b6b6b;
+}
+
+.school-card-mini-horizontal .top {
+  height: 100px;
+  width: 1225px;
+  text-align: start;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.school-card-mini-horizontal .bot {
+  padding-top: 8px;
+  height: 39px;
+  text-align: start;
+  margin-top: -10px;
+  margin-left: -30px;
+  padding-left: 10px;
+}
+
+.school-card-mini-horizontal .text {
+  margin-left: 20px;
+  color: #787878;
+  font-size: 16px
+}
 
 /* Search Page */
 
@@ -1371,11 +1417,15 @@ a:active {
 
 .logo-edit .Hidden {
   margin-top: 10px;
-  opacity: 0;
+  opacity: 50%;
   position: absolute;
   width: 100px;
   height: 50px;
   cursor: pointer;
+}
+
+.logo-edit .Hidden:active {
+  opacity: 100%;
 }
 
 .logo-edit .payment .text {
@@ -1814,4 +1864,9 @@ a.fc-col-header-cell-cushion:hover {
 .resent-click {
   text-decoration: underline;
   color: rgb(116, 116, 244);
+}
+
+/* School Pay Pending */
+.school-pay-pending {
+  padding-top: 200px;
 }
