@@ -59,9 +59,7 @@ const CourseCard = (
         <p>{courseDetail.school_name} <em>{courseDetail.school_address}</em></p> 
       </div>
       <div className='course-text-right'>
-        { toggleFavorite &&  
-         
-      }
+
         <h4>{courseDetail.course_price}</h4>
       </div>
       </Link>
@@ -93,9 +91,7 @@ const CourseCard = (
         <p>{courseDetail.school_name} <em>{courseDetail.school_address}</em></p> 
       </div>
       <div className='course-text-right'>
-        { toggleFavorite &&  
-         
-      }
+
         <h4>{courseDetail.course_price}</h4>
       </div>
       </Link>
@@ -114,9 +110,7 @@ const CourseCard = (
         <p><em>{schoolDetail.address}</em></p> 
       </div>
       <div className='course-text-right'>
-        { toggleFavorite &&  
-         
-      }
+
       </div>
       </Link>
     }
