@@ -5,82 +5,86 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import SendNoti from "../components/SendNoti";
 import React, { useState } from "react"
+import { useEffect } from 'react';
+import { editRequestStatus, getAllRequest } from '../services/request.service';
+import { useDispatch } from 'react-redux';
+import { openComfirmation } from '../redux/confirmation.reducer';
+import { startLoading, stopLoading } from '../redux/loading.reducer';
 
 // ยัง search ไม่ได้ , send feedback ยังไม่ได้ คลิ๊กดูเชี่ยอะไรไม่ได้เลย ตรงเสิร์จเเว่นขยายติดช่องเสิร์จมากไป
-const columns = [
+
+
+const SchoolOpenRequest = () => {
+  const [isOpen, setisOpen] = useState(false)
+  const [data,setdata] = useState([])
+  const dispatch = useDispatch()
+
+  const [selectRow,setselectRow] = useState([])
+
+  const columns = [
     {
-        name: 'School: Name (A-Z)',
-        selector: row => row.school,
-        sortable: true,
+      name: 'School: Name (A-Z)',
+      selector: row => row.school_name,
+      sortable: true,
     },
     {
-        name: 'School owner: Default',
-        selector: row => row.owner,
-        sortable: true,
+      name: 'School owner: Default',
+      selector: row => row.username,
+      sortable: true,
     },
     {
-        name: 'Document',
-        selector: row => row.document,
+      name: 'Status',
+      selector: row => row.request_status,
+      sortable: true,
+    },
+    {
+      name: 'Document',
+      selector: row => row.document,
     },
     {
       name: 'Pay Slip',
-      selector: row => row.slip,
+      selector: row => row.payment_pic,
     },
     {
       name: 'Date: Latest',
-      selector: row => row.date,
+      selector: row => row.request_timestamp,
       sortable: true,
     },
     {
       name: 'Send feedback',
-      selector: row => row.feedback,
+      selector: row => <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane} /></Button>,
     },
-];
+  ];
 
-const SchoolOpenRequest = () => {
-  const [isOpen, setisOpen] = useState(false)
-  const data = [
-    {
-        school: 'KU',
-        owner: 'Earth',
-        document: <a href='#'>Earth.pdf</a>,
-        slip: <a href='#'>Earth.png</a>,
-        date: '11/9/2565',
-        feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-        school: 'CU',
-        owner: 'Kanon',
-        document: <a href='#'>Kanon.pdf</a>,
-        slip: <a href='#'>Kanon.png</a>,
-        date: '11/10/2565',
-        feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-        school: 'BU',
-        owner: 'View',
-        document: <a href='#'>View.pdf</a>,
-        slip: <a href='#'>View.png</a>,
-        date: '11/11/2565',
-        feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-        school: 'RU',
-        owner: 'Fai',
-        document: <a href='#'>Fai.pdf</a>,
-        slip: <a href='#'>Fai.png</a>,
-        date: '11/25/2565',
-        feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-    {
-        school: 'TU',
-        owner: 'Tul',
-        document: <a href='#'>Tul.pdf</a>,
-        slip: <a href='#'>Tul.png</a>,
-        date: '11/7/2565',
-        feedback: <Button onClick={() => setisOpen(true)}><FontAwesomeIcon icon={faPaperPlane}/></Button>
-    },
-  ]
+  const handleConfirmed = () => {
+    for(var i in selectRow){
+      editRequestStatus(selectRow[i].request_id,"Confirmed")
+    }
+    window.location.reload()
+  }
+
+  const handleRejected = () => {
+    for(var i in selectRow){
+      editRequestStatus(selectRow[i].request_id,"Rejected")
+    }
+    window.location.reload()
+  }
+
+  const handleConfirmDoc = () => {
+    for(var i in selectRow){
+      editRequestStatus(selectRow[i].request_id,"WaitForPayment")
+    }
+    window.location.reload()
+  }
+
+  useEffect(() => {
+    dispatch(startLoading())
+    getAllRequest().then(response => {
+      dispatch(stopLoading())
+      setdata(response.data.requests)
+    })
+  }, [])
+
   return (
     <Container fluid className='full-scr-con'>
       <Row className='pt-28'>
@@ -88,17 +92,21 @@ const SchoolOpenRequest = () => {
           <h1 className='pl-10'>School Open Request</h1>
         </Col>
         <Col className='justify-center flex'>
-          <SearchBar/>
+          <SearchBar />
+          <Button onClick={() => dispatch(openComfirmation({message: "Are you sure do you want to confirm?",action: handleConfirmed}))} className="mx-3" color="success">Confirmed</Button>
+          <Button onClick={() => dispatch(openComfirmation({message: "Are you sure do you want to confirm?",action: handleConfirmDoc}))} className="mx-3" color="warning">ConfirmDoc</Button>
+          <Button onClick={() => dispatch(openComfirmation({message: "Are you sure do you want to rejected?",action: handleRejected}))} color="danger">Rejected</Button>
         </Col>
       </Row>
       <Row className='pt-12 pl-10'>
         <DataTable
-            columns={columns}
-            data={data}
-            selectableRows
+          onSelectedRowsChange={e => setselectRow(e.selectedRows)}
+          columns={columns}
+          data={data}
+          selectableRows
         />
       </Row>
-      <SendNoti toggle={() => setisOpen(false)} isOpen={isOpen} label="Feedback"/>
+      <SendNoti toggle={() => setisOpen(false)} isOpen={isOpen} label="Feedback" />
     </Container>
   )
 }

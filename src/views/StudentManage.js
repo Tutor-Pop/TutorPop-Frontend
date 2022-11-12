@@ -30,6 +30,9 @@ function StudentManage() {
   const [account, setAccount] = useState({});
   const [allReserve, setReserve] = useState([]);
 
+  const [waitReserve,setwaitReserve] = useState([])
+  const [confirmReserve,setconfirmReserve] = useState([])
+
   useEffect(() => {
     dispatch(startLoading())
     getCourse(courseid).then((res) => {
@@ -38,14 +41,18 @@ function StudentManage() {
     }
     ).then((response) => {
       dispatch(stopLoading())
-      setAccount([response.data.result])
-      return getAccount()
+      setReserve(response.data.reservations)
     }
     ).catch( err => {
       console.log(err)
       dispatch(stopLoading())
     })
   }, [])
+
+  useEffect(()=>{
+    setwaitReserve(allReserve.filter(value => value.status != "Confirmed"))
+    setconfirmReserve(allReserve.filter(value => value.status == "Confirmed"))
+  },[allReserve])
 
   return (
     <div>
@@ -55,29 +62,29 @@ function StudentManage() {
       </div>
       <Accordion open={open} toggle={toggle}>
         <AccordionItem>
-          <AccordionHeader targetId="1">Waiting for Confirmation (2)</AccordionHeader>
+          <AccordionHeader targetId="1">Waiting for Confirmation ({waitReserve.length})</AccordionHeader>
           <AccordionBody accordionId="1">
-            <StudentCard/>
-            <Table>
-              <tbody>
-                {
-                  allReserve.map(
-                    (reserve) => (
-                      <tr>
-                        <td>{reserve.status}</td>
-                        
-                      </tr>
-                    )
-                  )
-                }
-              </tbody>
-            </Table>
+            { waitReserve.map(value => 
+              <StudentCard
+                username={value.username}
+                email={value.email}
+                payment_pic={value.payment_pic}
+                reservation_id={value.id}
+              />)}
+            
           </AccordionBody>
         </AccordionItem>
         <AccordionItem>
-          <AccordionHeader targetId="2">Already Confirmed (18)</AccordionHeader>
+          <AccordionHeader targetId="2">Already Confirmed ({confirmReserve.length})</AccordionHeader>
           <AccordionBody accordionId="2">
-            <StudentCard/>
+          { confirmReserve.map(value => 
+              <StudentCard
+                username={value.username}
+                email={value.email}
+                payment_pic={value.payment_pic}
+                reservation_id={value.id}
+                noSelect={true}
+              />)}
           </AccordionBody>
         </AccordionItem>
       </Accordion>
