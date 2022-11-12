@@ -13,6 +13,18 @@ $theme-colors: (
   color: white !important;
 }
 
+.btn-success {
+  background-color: rgb(0, 205, 68) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-success:hover {
+  background-color: rgb(0, 167, 56) !important;
+  color: white !important;
+  border: none !important;
+}
+
 .btn-secondary {
   color: #FFAA06 !important;
   border: #FFAA06 2px solid !important;

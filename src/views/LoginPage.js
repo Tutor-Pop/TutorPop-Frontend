@@ -32,7 +32,7 @@ const LoginPage = () => {
         localStorage.setItem("account_id", response.data.account_id);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);
-        navigate("/course/1")
+        navigate("/search")
       })
       .catch((err) => {
         dispatch(stopLoading())

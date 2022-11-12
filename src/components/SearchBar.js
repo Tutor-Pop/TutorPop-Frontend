@@ -3,13 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Button, Form, FormGroup, Input } from 'reactstrap'
 
-const SearchBar = () => {
+const SearchBar = ({searchValue,setsearchValue}) => {
   return (
     <div className='flex search-bar'>
         <div>
             <Form>
                 <FormGroup>
-                    <Input className='input-search'>
+                    <Input
+                    onChange={e => setsearchValue(e.target.value)}
+                    value={searchValue}
+                    type="search"
+                    className='input-search'
+                    >
                     </Input>
                 </FormGroup>
             </Form>

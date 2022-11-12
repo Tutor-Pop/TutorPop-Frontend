@@ -13,7 +13,7 @@ export async function getStudents(school_id, course_id) {
     return axios.get(`${BACKEND_URL}/api/courses/${course_id}/students`)
 }
 
-export async function getsinglecoursewithdetail(course_id) {
+export async function getSingleCourseWithDetail(course_id) {
     return axios.get(`${BACKEND_URL}/api/courses/${course_id}/details`)
 }
 

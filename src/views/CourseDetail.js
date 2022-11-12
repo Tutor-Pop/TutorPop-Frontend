@@ -6,7 +6,7 @@ import { Button, Col, Container, Row } from 'reactstrap';
 import CardList from '../components/CardList';
 import FavButton from '../components/FavButton';
 import { startLoading, stopLoading } from '../redux/loading.reducer';
-import { getsinglecoursewithdetail } from '../services/course.service';
+import { getSingleCourseWithDetail } from '../services/course.service';
 import { createReservation } from '../services/reserveation.service';
 //ไปหน้าคอร์ส หน้าอาจารย์ แล้วก็หน้า reserve คอร์ส พร้อมเอาหัวใจออก
 
@@ -73,7 +73,7 @@ const CourseDetail = () => {
   }
 
   useEffect(()=>{
-    getsinglecoursewithdetail(courseid).then(response => {
+    getSingleCourseWithDetail(courseid).then(response => {
       setCourse(response.data.result)
     })
   },[])
