@@ -15,7 +15,7 @@ const LogoEdit = () => {
                             LOGO
                         </div>
                         <div className='text'>
-                            Nun Fak algorithm
+                             
                         </div>
                         <div className='payment'>
                             <div className='upload'>
@@ -38,7 +38,7 @@ const LogoEdit = () => {
                             BANNER
                         </div>
                         <div className='text'>
-                            Nun Fak algorithm
+                             
                         </div>
                         <div className='payment'>
                             <div className='upload'>
