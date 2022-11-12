@@ -32,19 +32,14 @@ const CoursePayment = () => {
         )
     },[])
             
-        
-        const findDate = () => {
-          console.log('reservationId',reservationId)
-          console.log('reservationDetails',reservationDetails)}
           
       return (
       <div>
-        <div className="PaymentCard">
+        <div className="PaymentCard mt-20">
           <div className="payment-info-text">
             <h4>You are now reserved Course 3</h4>
             <h4>Please pay the fee in 2022 07 09</h4>
           </div>
-          {findDate()}
           <PaymentCard details={details}/>
 
           <div className="div-pay-btn mx-auto">

@@ -56,7 +56,6 @@ const Views = ({ isLogin = false }) => {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/my-course' element={<MyCourse />} />
-        <Route path='/school/:schoolid' element={<SchoolDetail />} />
         <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
         <Route path='/favorite' element={<FavoritePage />} />
         <Route path='/school/:schoolid/edit' element={<SchoolEditing />} />
@@ -82,9 +81,9 @@ const Views = ({ isLogin = false }) => {
         <Route path='/admin/open-school-request' element={<OpenSchoolRequest />} />
         <Route path='/admin/school-manage' element={<AdminSchoolManagement />} />
         <Route path='/admin/user-manage' element={<UserManagement />} />
-        <Route path='/course-payment/:courseid' element={<CoursePayment />}/>
 
         { /* Authorization is required after this line */ isLogin && <>
+          <Route path='/course-payment/:courseid' element={<CoursePayment />}/>
           <Route path='/my-school' element={<MySchool />} />
           <Route path='/my-profile' element={<MyProfile />} />
           <Route path='/my-profile/edit' element={<MyProfileEdit />} />
