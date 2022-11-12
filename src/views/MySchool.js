@@ -8,7 +8,7 @@ import SchoolAddCard from '../components/SchoolAddCard'
 import SchoolCard from '../components/SchoolCard'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getSchoolOwner } from '../services/personal.service'
- 
+//ลอง + ดู
 const MySchool = () => {
  
   const dispatch = useDispatch();
@@ -17,10 +17,11 @@ const MySchool = () => {
  
  
   useEffect(() => {
-   
+    dispatch(startLoading())
     getSchoolOwner(localStorage.getItem("account_id")).then((res)=>{
+      dispatch(stopLoading())
       console.log(res.data);
-      setmyAllSchool(...res.data.schools)
+      setmyAllSchool(res.data.schools)
     }
     )
   }, []);
@@ -40,6 +41,7 @@ const MySchool = () => {
                     school_id={owner.school_id}
                     school_name={owner.name}
                     logo_url={owner.logo_pic}
+                    status={owner.status}
                   />
                 </Col>
               ))}

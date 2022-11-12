@@ -1,14 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Select from 'react-select'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 import { Address } from '../constants/location.constant'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { createRequest } from '../services/request.service'
+import { createSchool } from '../services/school.service'
 
 const SchoolRegister = () => {
+
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -22,16 +25,37 @@ const SchoolRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    let formData = new FormData()
-    formData.append('account_id', localStorage.getItem("account_id"));
-    formData.append('school_id', 1);
-    formData.append('document', e.target['school-verify-doc'].files[0]);
-
+    
+    let schoolFormData = new FormData()
+    schoolFormData.append('name', e.target['school-name'].value)
+    schoolFormData.append('description', e.target['school-description'].value)
+    schoolFormData.append('addr_description', (e.target['school-road'].value + ' ' + e.target['school-village'].value))
+    schoolFormData.append('sub_district', subdistrictSelect)
+    schoolFormData.append('district', districtSelect)
+    schoolFormData.append('province', provinceSelect)
+    schoolFormData.append('postal_code', e.target['school-postalcode'].value)
+    schoolFormData.append('owner_id', localStorage.getItem('account_id'))
+    
+    // for (let [key, value] of schoolFormData) {
+    //   console.log(`${key}: ${value}`)
+    // }
     dispatch(startLoading())
-    createRequest(formData).then(response => {
+    createSchool(schoolFormData)
+    .then(response => {
+      const schoolID = response.data.school_id
+
+      let requestFormData = new FormData()
+      requestFormData.append('account_id', localStorage.getItem("account_id"));
+      requestFormData.append('school_id', schoolID);
+      requestFormData.append('document', e.target['school-verify-doc'].files[0]);
+      // console.log(response)
+      return createRequest(requestFormData) 
+    })
+    .then((response) => {
       dispatch(stopLoading())
-      console.log(response)
-    }).catch(err => {
+      navigate(`/my-school`)
+    })
+    .catch(err => {
       console.log(err)
       dispatch(stopLoading())
     })

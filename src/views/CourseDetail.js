@@ -51,7 +51,6 @@ const relatedCourse = [{
 }]
 
 const CourseDetail = () => {
-
   const { courseid } = useParams();
 
   const [course,setCourse] = useState({})
