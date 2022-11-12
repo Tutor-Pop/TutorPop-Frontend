@@ -43,6 +43,16 @@ const SchoolCard = ({school_id, school_name , logo_url, status}) => {
         </div>
       </>
     }
+    {(status === "SchoolCard") &&
+    <Link to={`/school/${school_id}`}>
+      <div className='imgschool'>
+        <img src={logo_url} alt='school-logo'/>
+      </div>
+      <div className='text-center textbox-myschool'>
+        <p>{school_name}</p>
+      </div>
+    </Link>
+    }
     </span>
   )
 }
