@@ -692,6 +692,12 @@
   margin-inline: 40px;
 }
 
+.con-to-web-btn.btn {
+  width: 400px;
+  margin-top: 35px;
+  margin-left: 100px;
+}
+
 .div-pay-btn {
   display: flex;
   justify-content: center;

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const CoursePicturebtn = () => {
   return (
     <span style={{"display": "inline-block"}} >
-      <Link to=''>
+      <Link to='/course-manage/:schoolid/:courseid/course-picture'>
         <div className='textbox-schoolman text-left'>
           <h3>Course Picture</h3>
         </div>
