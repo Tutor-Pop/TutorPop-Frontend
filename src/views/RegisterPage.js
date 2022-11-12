@@ -16,12 +16,12 @@ import { register } from "../services/auth.service";
 
 const RegisterPage = () => {
   const [firstname, setFirstname] = useState("")
-  const [validation,setValidation] = useState({ submit:false, username: false ,password:false,confirm_password: false})
-  const [allAccounts,setAllAccounts] = useState({})
-  const navigate=useNavigate()
+  const [validation, setValidation] = useState({ submit: false, username: false, password: false, confirm_password: false })
+  const [allAccounts, setAllAccounts] = useState({})
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     const usernames_list = []
     console.log(allAccounts)
     allAccounts.result.map(value => usernames_list.push(value.username))
@@ -30,16 +30,16 @@ const RegisterPage = () => {
     let valid_username = !usernames_list.includes(e.target.username.value)
     let valid_password = e.target.password.value.length >= 8
     let match_password = e.target.password.value == e.target.confirm_password.value
-    
+
     setValidation({
       ...validation,
       submit: true,
       username: valid_username,
       password: valid_password,
-      confirm_password: match_password 
+      confirm_password: match_password
     })
 
-    if(valid_username && valid_password && match_password){
+    if (valid_username && valid_password && match_password) {
       const registration_body = {
         firstname: e.target.firstname ? e.target.firstname.value : null,
         lastname: e.target.lastname ? e.target.lastname.value : null,
@@ -52,24 +52,24 @@ const RegisterPage = () => {
         is_verified: false,
         is_deleted: false,
       }
-      register(registration_body).then((response)=>{
+      register(registration_body).then((response) => {
         // alert("Registration Completed!")
         navigate("/email/:userid")
-      }).catch((err)=> console.log('ERROR',err))
+      }).catch((err) => console.log('ERROR', err))
     }
-    else{
+    else {
       console.log("No")
     }
-  } 
+  }
 
-  useEffect(()=>{
+  useEffect(() => {
     getAllAccounts().then(
-        response => setAllAccounts(response.data)
-      )
-  },[])
+      response => setAllAccounts(response.data)
+    )
+  }, [])
 
   return (
-    <Form onSubmit={(e)=>handleSubmit(e)}>
+    <Form onSubmit={(e) => handleSubmit(e)}>
       <Container className="register">
         <Row className="register-box">
           <Row>
