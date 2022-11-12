@@ -28,4 +28,6 @@ export function uploadPaymentPicture(reservation_id,form) {
         }
     })
 }
-
+export async function getResevationIdFromAccountCourse(account_id,course_id){
+    return axios.delete(`${BACKEND_URL}/api/reservations/${account_id}/${course_id}/rev_id`)
+}
