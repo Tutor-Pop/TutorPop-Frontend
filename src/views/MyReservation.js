@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import CourseContainer from '../components/CourseContainer'
 import CardList from '../components/CardList'
 import { useEffect } from 'react'
-import { getAllReservations } from '../services/personal.service'
+import { getAllReservations, getAllReservationsInDetail } from '../services/personal.service'
+import { useDispatch } from 'react-redux'
+import { startLoading, stopLoading } from '../redux/loading.reducer'
 
 const MyReservation = () => {
 
@@ -10,6 +12,8 @@ const MyReservation = () => {
   const [isSelectRight, setSelectRight] = useState(0)
 
   const [reservedCourse, setreservedCourse] = useState([])
+  const [payCourse,setpayCouse] = useState([])
+  const dispatch = useDispatch()
 
   const onClick = () => {
     if (isSelectRight)
@@ -18,29 +22,39 @@ const MyReservation = () => {
   }
 
   useEffect(() => {
-    getAllReservations(account_id).then(response => {
-      console.log(response.data.reservations)
-      response.data.reservations.map(reserve => ({
-        'course_id': reserve,
-        'course_name': reserve,
-        'course_description': reserve,
-        'course_price': reserve,
-        'school_name': reserve,
-        'school_address': reserve
-      }))
+    dispatch(startLoading())
+    getAllReservationsInDetail(account_id).then(response => {
+      dispatch(stopLoading())
+      setreservedCourse(response.data.wait_for_payment.result.map(reserve => ({
+        'course_id': reserve.course_id,
+        'course_name': reserve.course_detail.course_name,
+        'course_description': reserve.course_detail.course_description,
+        'course_price': reserve.course_detail.course_price,
+        'school_name': reserve.course_detail.school_name,
+        'school_address': `${reserve.school_detail.district}, ${reserve.school_detail.province}`,
+      })))
+
+      setpayCouse(response.data.wait_for_confirm.result.map(reserve => ({
+        'course_id': reserve.course_id,
+        'course_name': reserve.course_detail.course_name,
+        'course_description': reserve.course_detail.course_description,
+        'course_price': reserve.course_detail.course_price,
+        'school_name': reserve.course_detail.school_name,
+        'school_address': `${reserve.school_detail.district}, ${reserve.school_detail.province}`,
+      })))
     })
   }, [])
 
 
-  const payCourse = [
-    {
-      'course_id': '8',
-      'course_name': 'Calculus I',
-      'course_price': '4000฿',
-      'school_name': 'School 8',
-      'school_address': '123 Street, Bangkok'
-    },
-  ]
+  // const payCourse = [
+  //   {
+  //     'course_id': '8',
+  //     'course_name': 'Calculus I',
+  //     'course_price': '4000฿',
+  //     'school_name': 'School 8',
+  //     'school_address': '123 Street, Bangkok'
+  //   },
+  // ]
   const courseData = [
     reservedCourse,
     payCourse
