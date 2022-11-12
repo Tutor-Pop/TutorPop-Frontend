@@ -9,17 +9,17 @@ import { getAllReservationInCourse, getResevationIdFromAccountCourse } from "../
 
 //กด continue to website
 const CoursePayment = () => {
-    // const accountId = localStorage.getItem('account_Id')
-    const accountId = 40;
-    const {courseid} = useParams();
-    const [details, setDetails] = useState([]);
-    const [reservationId, setReservationId] = useState(0);
-    const [reservationDetails , setReservationDetails] = useState([])
-    const [payDate,setPayDate] = useState("");
-    const [done,isDone] = useState(false);
-    const [done1,isDone1] = useState(false);
-    const [done2,isDone2] = useState(false);
-    const [done3,isDone3] = useState(false);
+  // const accountId = localStorage.getItem('account_Id')
+  const accountId = 40;
+  const { courseid } = useParams();
+  const [details, setDetails] = useState([]);
+  const [reservationId, setReservationId] = useState(0);
+  const [reservationDetails, setReservationDetails] = useState([])
+  const [payDate, setPayDate] = useState("");
+  const [done, isDone] = useState(false);
+  const [done1, isDone1] = useState(false);
+  const [done2, isDone2] = useState(false);
+  const [done3, isDone3] = useState(false);
 
     useEffect(()=>{
         getSingleCourseWithDetail(courseid).then(
@@ -35,6 +35,7 @@ const CoursePayment = () => {
             
           
       return (
+        <div>
       <div>
         <div className="PaymentCard mt-20">
           <div className="payment-info-text">
@@ -43,12 +44,20 @@ const CoursePayment = () => {
           </div>
           <PaymentCard details={details}/>
           </div>
+          
         <div className="div-pay-btn mx-auto">
           <LinkButton color="primary" className="pay-now-btn" size="lg" to={`/course-payment/${courseid}/payment-method`} label="Pay Now"/>
           <LinkButton color='secondary' className='con-to-web-btn' size='lg' to="/search" label="Continue To Website"/>
         </div>
+        <PaymentCard details={details} />
       </div>
-    );
+      <div className="div-pay-btn mx-auto">
+        <LinkButton color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now" />
+        <LinkButton color='secondary' className='con-to-web-btn' size='lg' to="/search" label="Continue To Website" />
+      </div>
+    </div>
+    
+  );
 };
 
 export default CoursePayment;

@@ -13,13 +13,13 @@ const SendNoti = ({...args}) => {
                 <Select
                     isMulti
                     name="colors"
-                    options={[{ value: 'ocean', label: 'Ocean', isFixed: true },
-                    { value: 'blue', label: 'Blue', isDisabled: true },
-                    { value: 'purple', label: 'Purple'},
-                    { value: 'red', label: 'Red', isFixed: true },
+                    options={[{ value: 'kanon', label: 'KanonKC', isFixed: true },
+                    { value: 'plapud', label: 'Plapud', isFixed: true },
+                    { value: 'Puifaii', label: 'FaiiFaii', isFixed: true},
+                    { value: 'veiw', label: 'Viewblah', isFixed: true },
                     ]}
                     className="basic-multi-select"
-                    classNamePrefix="select"
+                    classNamePrefix="noti-feedback"
                      />
             </div>
             <Input type='textarea' className='noti-body'/>
