@@ -43,10 +43,9 @@ const CoursePayment = () => {
           </div>
           <PaymentCard details={details}/>
 
-          <div className="div-pay-btn mx-auto">
-            <LinkButton color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now"/>
-            <Button color='secondary' className='pay-btn' size='lg' to="/search">Continue To Website</Button>
-          </div>
+        <div className="div-pay-btn mx-auto">
+          <LinkButton color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now"/>
+          <LinkButton color='secondary' className='con-to-web-btn' size='lg' to="/search" label="Continue To Website"/>
         </div>
       </div>
     );

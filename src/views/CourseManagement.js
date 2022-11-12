@@ -1,27 +1,35 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Button, Col, Container, Row } from 'reactstrap'
 import CoursePicturebtn from "../components/CoursePictureBtn";
 import CourseEditBtn from "../components/CourseEditBtn";
 import StudentManageBtn from "../components/StudentManageBtn";
 import NotificationBtn from "../components/NotificationBtn";
 import SendNoti from "../components/SendNoti";
-import { Link, useNavigate } from 'react-router-dom'
+import { getCourse } from "../services/course.service";
+import { useParams } from "react-router-dom";
 
-//กด delete course ไม่ได้
+
 const CourseManagement = () => {
-    const navigate=useNavigate()
     const [isOpen, setisOpen] = useState(false)
+    const [courseid] = useParams();
+    const [course, setcourse] = useState("");
+    useEffect(() => {
+        getCourse(courseid).then(
+            res => setcourse(res.data.result)
+        )
+    }, [])
+
     return (
         <div className="course-manage">
             <div className="course-manage-title"> 
                 <h1>Course Management</h1>
-                <h4>course name</h4>
+                <h4>{course.course_name}</h4>
             </div>
             <Container className='SchoolBox'>
                 <Row className="course-manamge-menu" md={3} xs={2} xl={4} xxl={5}>
-                    <Col className='border' onClick={() => navigate("/course-manage/:courseid/course-picture")}><CoursePicturebtn /></Col>
-                    <Col className='border' onClick={() => navigate("/course-manage/edit/:courseid")}><CourseEditBtn /></Col>
-                    <Col className='border' onClick={() => navigate("/course-manage/:schoolid/:courseid/student-manage")}><StudentManageBtn /></Col>
+                    <Col className='border'><CoursePicturebtn /></Col>
+                    <Col className='border'><CourseEditBtn /></Col>
+                    <Col className='border'><StudentManageBtn /></Col>
                     <Col  onClick={() => setisOpen(true)} className='border'><NotificationBtn /></Col>
                 </Row>
             </Container>
