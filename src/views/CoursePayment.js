@@ -2,8 +2,10 @@ import React from "react";
 import { Button } from "reactstrap";
 import LinkButton from "../components/LinkButton";
 import PaymentCard from "../components/PaymentCard";
+import { Link, useNavigate } from 'react-router-dom'
 //กด continue to website
 const CoursePayment = () => {
+  const navigate=useNavigate()
   return (
     <div>
       <div className="PaymentCard">
@@ -14,11 +16,12 @@ const CoursePayment = () => {
         <PaymentCard />
 
         <div className="div-pay-btn mx-auto">
-          <LinkButton color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now"/>
-          <Button color='secondary' className='pay-btn' size='lg'>Continue To Website</Button>
+          <LinkButton onClick={() => navigate("/course-payment/:courseid/payment-method")} color="primary" className="pay-now-btn" size="lg" to="/course-payment/payment-method" label="Pay Now"/>
+          <Button onClick={() => navigate("/course/:courseid")} color='secondary' className='pay-btn' size='lg'>Continue To Website</Button>
         </div>
       </div>
     </div>
+    
   );
 };
 

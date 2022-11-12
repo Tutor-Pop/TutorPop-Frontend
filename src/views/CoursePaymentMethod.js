@@ -6,6 +6,9 @@ import Upload from '../components/Upload'
 //กด enrolled
 const CoursePaymentMethod = () => {
   const [isOpen, setisOpen] = useState(false)
+  
+  
+  
   return (
     <div className='pt-20'>
         <PaymentCard/>
