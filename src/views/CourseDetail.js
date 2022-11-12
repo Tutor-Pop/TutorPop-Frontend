@@ -3,11 +3,12 @@ import { Link, useParams } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'reactstrap';
 import CardList from '../components/CardList';
 import FavButton from '../components/FavButton';
-//ไปหน้าคอร์ส หน้าอาจารย์ แล้วก็หน้า reserve คอร์ส พร้อมเอาหัวใจออก
+import { useNavigate } from 'react-router-dom'
+//ไปหน้าคอร์ส หน้าอาจารย์ แล้วก็หน้า reserve คอร์ส
+
 const CourseDetail = () => {
-
   const { courseid } = useParams();
-
+  const navigate=useNavigate()
   const course = {
     'course_id' : '1',
     'school_id' : '1',
@@ -103,7 +104,7 @@ const CourseDetail = () => {
                     { (seatRemain <= 5) && 
                     <h5 style={{color: 'red'}}>{seatRemain} SEATS AVAILABLE!</h5>
                     }
-                    <Button color='primary'> 
+                    <Button onClick={() => navigate("/course-payment/:courseid")}color='primary'> 
                       Reserve Course
                     </Button>
                     <h4>

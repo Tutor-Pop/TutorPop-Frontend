@@ -85,6 +85,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/my-reservation' element={<MyReservation />} />
         <Route path='/my-profile/edit' element={<MyProfileEdit />} />
         <Route path='/my-profile' element={<MyProfile />} />
+        <Route path='/course-payment/:courseid' element={<CoursePayment />} />
         { /* Authorization is required after this line */ isLogin && <>
         <Route path='/admin/course-manage' element={<CourseManagementAdmin />} />
         <Route path='/my-profile/change-password' element={<ChangePassword />} />
@@ -97,7 +98,7 @@ const Views = ({ isLogin = false }) => {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/my-course' element={<MyCourse />} />
-          <Route path='/course-payment/:courseid' element={<CoursePayment />} />
+          
           <Route path='/school/:schoolid' element={<SchoolDetail />} />
           <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
           <Route path='/course-manage/:coursesid' element={<CourseManagement />}/>
