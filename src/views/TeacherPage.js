@@ -104,7 +104,8 @@ const TeacherPage = () => {
             <Row>
                 {allSchools.map((school) => (
                     <Col xs={4} className='border myschool-img'>
-                        <SchoolCard 
+                        <SchoolCard
+                        status={'SchoolCard'} 
                         school_id={school.school_id}
                         school_name={school.name}
                         logo_url={'https://cdn-icons-png.flaticon.com/512/2830/2830191.png'}
