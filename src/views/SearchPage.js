@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import { getAllCoursePopulate } from '../services/course.service'
 import { courseSearchFilter, schoolSearchFilter } from '../services/search.service'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
+import { hasSubstring } from '../functions/search.function'
 
 const SearchPage = () => {
 
@@ -26,8 +27,12 @@ const SearchPage = () => {
     const [swap, setswap] = useState(0)
     const [allCourse, setallCourse] = useState([])
     const [allSchool, setallSchool] = useState([])
+    const [allFilCourse, setallFilCourse] = useState([])
+    const [allFilSchool, setallFilSchool] = useState([])
 
-    const [ready,setready] = useState([false,false])
+    const [searchValue, setsearchValue] = useState("")
+
+    const [ready, setready] = useState([false, false])
 
     const toggle = () => {
         setswap(swap == 0 ? 1 : 0)
@@ -47,16 +52,31 @@ const SearchPage = () => {
             setallCourse(response.data.result)
             return schoolSearchFilter()
         })
-        .then(response => {
-            setallSchool(response.data.result)
-            dispatch(stopLoading())
-        })
+            .then(response => {
+                setallSchool(response.data.result)
+                dispatch(stopLoading())
+            })
     }, [])
+
+    useEffect(() => {
+        console.log(allCourse,allSchool)
+        if(searchValue != ''){
+            setallFilCourse(allCourse.filter(value => hasSubstring(value.course_name,searchValue)))
+            setallFilSchool(allSchool.filter(value => hasSubstring(value.name,searchValue)))
+        }
+        else{
+            setallFilCourse(allCourse)
+            setallFilSchool(allSchool)
+        }
+    }, [searchValue])
 
     return (
         <div className='pt-20 mx-20 search-page'>
             <div className='mx-auto w-1/4 my-3'>
-                <SearchBar />
+                <SearchBar
+                    searchValue={searchValue}
+                    setsearchValue={setsearchValue}
+                />
             </div>
             <CourseContainer
                 leftText="Course"
@@ -68,11 +88,11 @@ const SearchPage = () => {
                     swap == 0 ? <>
                         {/* Course */}
                         {
-                            TYPE.map(type => <>
+                            TYPE.map(type => allFilCourse.filter(value => value.type == type.value).length != 0 && <>
                                 <h3>{type.label}</h3>
                                 <div className='search-scroll'>
                                     {
-                                        allCourse.filter(value => value.type == type.value).map(course =>
+                                        allFilCourse.filter(value => value.type == type.value).map(course => 
                                             <CourseCardMiniHorizontal
                                                 id={course.course_id}
                                                 courseName={course.course_name}
@@ -88,14 +108,14 @@ const SearchPage = () => {
                     </> : <>
                         {/* School */}
                         {
-                            allSchool.map(school => <SchoolCardMiniHorizontal 
+                            allFilSchool.map(school => <SchoolCardMiniHorizontal
                                 schoolName={school.name}
                                 description={school.description}
                                 location={`${school.district},${school.province}`}
                             />)
                         }
-                        
-                    
+
+
                     </>
                 }
             </CourseContainer>
