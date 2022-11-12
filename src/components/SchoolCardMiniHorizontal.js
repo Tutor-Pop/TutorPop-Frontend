@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'reactstrap'
 
-const SchoolCardMiniHorizontal = () => {
+const SchoolCardMiniHorizontal = ({schoolName,description,location}) => {
     return (
       // mx-2
       <div className='school-card-mini-horizontal'>
@@ -10,15 +10,15 @@ const SchoolCardMiniHorizontal = () => {
         <div className='description'>
           <div className='top'>
             <div className='font-bold'>
-              School Name
+              {schoolName}
             </div>
             <div>
-              คำอธิบายสักอย่างที่มันยาววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววว
+               {description}
             </div>
           </div>
           <div className='bot'>
             <div className='text'>
-              3 Sep 2022
+              {location}
             </div>
           </div>
         </div>

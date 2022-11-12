@@ -84,3 +84,7 @@ export async function uploadpaymentmethodpictureforcourse(course_id,body) {
 export async function uploadcoursepicture(course_id,body) {
     return axios.get(`${BACKEND_URL}/api/courses/${course_id}/upload_poster`,body)
 }
+
+export async function getAllCoursePopulate(){
+    return axios.get(`${BACKEND_URL}/api/courses/populate`)
+}

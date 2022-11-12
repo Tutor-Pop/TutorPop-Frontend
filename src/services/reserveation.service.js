@@ -1,8 +1,12 @@
 const axios = require('axios')
 const { BACKEND_URL } = require('../constants/service.constant')
 
-export async function createReservation(){
-    return axios.post(`${BACKEND_URL}/api/reservations`)
+export async function createReservation(formData){
+    return axios.post(`${BACKEND_URL}/api/reservations`,formData,{
+        headers: {
+            'content-type': 'multipart/form-data',
+        }
+    })
 }
 
 export async function getAllReservationInCourse(course_id){
@@ -17,7 +21,7 @@ export async function deleteReservation(reservation_id){
     return axios.delete(`${BACKEND_URL}/api/reservations/${reservation_id}`)
 }
 
-export function uploadPaymentPicture(form) {
+export function uploadPaymentPicture(reservation_id,form) {
     return axios.post(`${BACKEND_URL}/api/reservations/${reservation_id}/payment`, form, {
         headers: {
             'content-type': 'multipart/form-data',
