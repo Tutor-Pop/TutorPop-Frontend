@@ -1,36 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Col, Row } from 'reactstrap'
 
 const PROFILE = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/800px-Solid_blue.svg.png"
 
-const CourseCardMiniHorizontal = () => {
+const CourseCardMiniHorizontal = ({id,courseName,schoolName,price,remSeat}) => {
   return (
     // mx-2
+    <Link className="text-black" to={`/course/${id}`}>
     <div className='course-card-mini-horizontal'>
       <div className='pic'>
       </div>
       <div className='description'>
         <div className='top'>
           <div className='font-bold'>
-            Course Name
+            {courseName}
           </div>
           <div>
-            Teacher
+            {schoolName}
           </div>
           <div>
-            School Name
-          </div>
-          <div>
-            200 THB
+            {price} THB
           </div>
         </div>
         <div className='bot'>
           <div className='text'>
-            3 seats available
+            {remSeat} seats available
           </div>
         </div>
       </div>
     </div>
+    </Link>
   )
 }
 

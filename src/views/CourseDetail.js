@@ -1,71 +1,84 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'reactstrap';
 import CardList from '../components/CardList';
 import FavButton from '../components/FavButton';
-import { useNavigate } from 'react-router-dom'
-//ไปหน้าคอร์ส หน้าอาจารย์ แล้วก็หน้า reserve คอร์ส
+import { startLoading, stopLoading } from '../redux/loading.reducer';
+import { getsinglecoursewithdetail } from '../services/course.service';
+import { createReservation } from '../services/reserveation.service';
+//ไปหน้าคอร์ส หน้าอาจารย์ แล้วก็หน้า reserve คอร์ส พร้อมเอาหัวใจออก
+
+const teachers = [
+  { 
+    'user_id' : '1',
+    'firstname' : 'John',
+    'lastname' : 'Doe',
+    'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU'
+  },
+  {
+    'user_id' : '2',
+    'firstname' : 'Jane',
+    'lastname' : 'Doe',
+    'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU'
+  }
+]
+
+const relatedCourse = [{
+  'course_id' : '8',
+  'course_name' : 'Economy I',
+  'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+  'course_price' : '2500฿',
+  'school_name' : 'Stonk Business School',
+  'school_address' : '123 Street, Bangkok'
+},
+{
+  'course_id' : '9',
+  'course_name' : 'Economy II',
+  'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+  'course_price' : '2500฿',
+  'school_name' : 'Stonk Business School',
+  'school_address' : '123 Street, Bangkok'
+},
+{
+  'course_id' : '10',
+  'course_name' : 'How to STONK with NFTs',
+  'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
+  'course_price' : '2500฿',
+  'school_name' : 'Stonk Business School',
+  'school_address' : '123 Street, Bangkok'
+}]
 
 const CourseDetail = () => {
   const { courseid } = useParams();
-  const navigate=useNavigate()
-  const course = {
-    'course_id' : '1',
-    'school_id' : '1',
-    'course_name' : 'Business 101',
-    'maximum_student': '20',
-    'reserved_student': '15',
-    'course_price': '12500'
-  }
 
-  const school = {
-    'school_id' : '1',
-    'name' : 'Stonk Business School'
-  }
-
-  const teachers = [
-    { 
-      'user_id' : '1',
-      'firstname' : 'John',
-      'lastname' : 'Doe',
-      'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU'
-    },
-    {
-      'user_id' : '2',
-      'firstname' : 'Jane',
-      'lastname' : 'Doe',
-      'picture_url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29woM2pCbrauRfpGBg_AnFUuHFKQIwovD-Xz8vQ58PNQl6idY72L53gngFAvhLYXy0b4&usqp=CAU'
-    }
-  ]
-
-  const relatedCourse = [{
-    'course_id' : '8',
-    'course_name' : 'Economy I',
-    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
-    'course_price' : '2500฿',
-    'school_name' : 'Stonk Business School',
-    'school_address' : '123 Street, Bangkok'
-  },
-  {
-    'course_id' : '9',
-    'course_name' : 'Economy II',
-    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
-    'course_price' : '2500฿',
-    'school_name' : 'Stonk Business School',
-    'school_address' : '123 Street, Bangkok'
-  },
-  {
-    'course_id' : '10',
-    'course_name' : 'How to STONK with NFTs',
-    'course_description' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis.',
-    'course_price' : '2500฿',
-    'school_name' : 'Stonk Business School',
-    'school_address' : '123 Street, Bangkok'
-  }]
-
+  const [course,setCourse] = useState({})
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+    
   const seatRemain = Number(course.maximum_student) - Number(course.reserved_student)
 
-  return (
+  const handleClick = () => {
+    
+    let formData = new FormData()
+      formData.append('account_id',localStorage.getItem('account_id'))
+      formData.append('course_id',course.course_id)
+      
+      dispatch(startLoading())
+      createReservation(formData).then( response =>{
+          dispatch(stopLoading())
+          navigate(`/course-payment/${course.course_id}`)
+      })
+  }
+
+  useEffect(()=>{
+    getsinglecoursewithdetail(courseid).then(response => {
+      setCourse(response.data.result)
+    })
+  },[])
+
+  return course.course_id && (
     <div className='course-detail'>
       <div className='course-main-detail'>
         <Container>
@@ -85,26 +98,30 @@ const CourseDetail = () => {
                   </Row>
                   <Row>
                     <h5>School: <Link to={`/school/${course.school_id}`}>
-                        {school.name}
+                        {course.school_name}
                       </Link>
                     </h5>
                     <Col xs={2}>
                       <h5>Duration: </h5>
                     </Col>
                     <Col xs={9} className='duration-list'>
-                      <p>WED 15.00 - 17.00</p>
-                      <p>SUN 7.00 - 10.00</p>
+                      {
+                        course.study_time.map(value => (
+                          <p>{value.day} {value.start_time} - {value.end_time}</p>
+                        ))
+                      }
+             
                     </Col>
-                    <h5>Address: </h5>
+                    {/* <h5>Address: </h5>
+                    <p></p> */}
                   </Row>
                 </Col>
                 <Col xs={4} className='right-course-detail'>
-                  <FavButton/>
                   <div>
                     { (seatRemain <= 5) && 
                     <h5 style={{color: 'red'}}>{seatRemain} SEATS AVAILABLE!</h5>
                     }
-                    <Button onClick={() => navigate("/course-payment/:courseid")}color='primary'> 
+                    <Button color='primary' onClick={handleClick}> 
                       Reserve Course
                     </Button>
                     <h4>
@@ -123,7 +140,7 @@ const CourseDetail = () => {
             <Col>
               <h2 className='mb-3'>Course Detail</h2>
               <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in varius nisi. Sed aliquet arcu at leo feugiat congue eget maximus sapien. Quisque eu egestas nulla. Quisque vitae gravida est, sed facilisis libero. Donec posuere aliquam egestas. Phasellus a lacus in enim varius posuere et a magna. In massa sem, scelerisque sed elit at, luctus mattis dolor.
+              {course.course_description}
               </p>
             </Col>
             <Col>

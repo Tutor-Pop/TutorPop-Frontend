@@ -77,11 +77,6 @@ const CourseCreation = () => {
         setStudyTime([...studyTime.slice(0, i), { ...studyTime[i], end_time: e.target.value }, ...studyTime.slice(i + 1)])
     }
 
-    useEffect(() => {
-        console.log(studyTime)
-        console.log(duplicate)
-    }, [studyTime])
-
     const handleSubmit = (e) => {
         e.preventDefault()
 
