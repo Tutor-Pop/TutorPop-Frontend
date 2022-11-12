@@ -60,7 +60,7 @@ const CourseCard = (
       </div>
       <div className='course-text-right'>
         { toggleFavorite &&  
-        <FavButton/>
+         
       }
         <h4>{courseDetail.course_price}</h4>
       </div>
@@ -94,7 +94,7 @@ const CourseCard = (
       </div>
       <div className='course-text-right'>
         { toggleFavorite &&  
-        <FavButton/>
+         
       }
         <h4>{courseDetail.course_price}</h4>
       </div>
@@ -115,7 +115,7 @@ const CourseCard = (
       </div>
       <div className='course-text-right'>
         { toggleFavorite &&  
-        <FavButton/>
+         
       }
       </div>
       </Link>

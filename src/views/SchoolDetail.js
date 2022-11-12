@@ -31,7 +31,7 @@ const SchoolDetail = () => {
         <Row>
           <div className='school-title'>
             <h2>{alldetail.name}</h2>
-            <FavButton/>
+             
           </div>
         </Row>
         <Row className='description-teacher'>
