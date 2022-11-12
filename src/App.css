@@ -1423,7 +1423,7 @@ a:active {
 
 .logo-edit .Hidden {
   margin-top: 10px;
-  opacity: 50%;
+  opacity: 0%;
   position: absolute;
   width: 100px;
   height: 50px;
