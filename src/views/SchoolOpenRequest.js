@@ -43,7 +43,7 @@ const SchoolOpenRequest = () => {
     },
     {
       name: 'Pay Slip',
-      selector: row => row.payment_pic,
+      selector: row => <img src={"/src/img/add.png"}/>,
     },
     {
       name: 'Date: Latest',

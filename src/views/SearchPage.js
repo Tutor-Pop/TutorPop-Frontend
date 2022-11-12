@@ -60,7 +60,7 @@ const SearchPage = () => {
 
     useEffect(() => {
         console.log(allCourse,allSchool)
-        if(searchValue != ''){
+        if(searchValue != '' || searchValue){
             setallFilCourse(allCourse.filter(value => hasSubstring(value.course_name,searchValue)))
             setallFilSchool(allSchool.filter(value => hasSubstring(value.name,searchValue)))
         }
