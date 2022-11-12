@@ -16,7 +16,7 @@ const LoginPage = () => {
     username: false,
     password: false,
   });
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,14 +32,14 @@ const LoginPage = () => {
         localStorage.setItem("account_id", response.data.account_id);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);
-        navigate("/course/1")
+        navigate("/search")
       })
       .catch((err) => {
         dispatch(stopLoading())
         if (err.response.status == 404) {
           setInvalid({ ...invalid, username: true, password: false });
         }
-        else if(err.response.status == 0){
+        else if (err.response.status == 0) {
           emitError("Connection timeout! Please check your internet connection")
         }
         else {
