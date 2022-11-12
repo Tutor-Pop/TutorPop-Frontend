@@ -68,3 +68,24 @@ export async function uploadCoursePicture(course_id, form) {
 export async function updateCourse(course_id, body) {
     return axios.put(`${BACKEND_URL}/api/courses/${course_id}`, body)
 }
+
+export async function putCourse(course_id,body) {
+    return axios.get(`${BACKEND_URL}/api/courses/${course_id}`,body)
+}
+
+export async function getallcoursespopulate() {
+    return axios.get(`${BACKEND_URL}/api/courses/populate`)
+}
+
+export async function uploadpaymentmethodpictureforcourse(course_id,body) {
+    return axios.get(`${BACKEND_URL}/api/courses/${course_id}/upload_payment`,body)
+}
+
+
+export async function uploadcoursepicture(course_id,body) {
+    return axios.get(`${BACKEND_URL}/api/courses/${course_id}/upload_poster`,body)
+}
+
+export async function getAllCoursePopulate(){
+    return axios.get(`${BACKEND_URL}/api/courses/populate`)
+}
