@@ -40,7 +40,7 @@ import MyReservation from './MyReservation';
 import Verify from './Verify';
 import SchoolRegisterPending from './SchoolRegisterPending';
 import LogoEdit from './LogoEdit';
-import CreatCourse from './CreateCourse';
+import CreateCourse from './CreateCourse';
 import Notification from './Notification';
 import SchoolOpenRequest from './SchoolOpenRequest';
 
@@ -67,7 +67,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/course-manage/:schoolid/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
         <Route path='/school/:schoolid/pending' element={<SchoolRegisterPending />} />
-        <Route path='/create-course' element={<CreatCourse />} />
+        <Route path='/create-course' element={<CreateCourse />} />
         <Route path='/notification' element={<Notification />} />
         <Route path='/email/:userid' element={<Verify />} />
         <Route path='/course/:courseid' element={<CourseDetail />} />

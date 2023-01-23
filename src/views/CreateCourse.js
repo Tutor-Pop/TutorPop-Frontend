@@ -6,6 +6,7 @@ import CourseCreateFrame from '../components/CourseCreateFrame'
 import { getSchoolOwner } from '../services/personal.service'
 
 const CreatCourse = () => {
+
   const dispatch = useDispatch();
   const [myallSchool,setmyAllSchool] = useState([]);
 

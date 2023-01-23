@@ -7,9 +7,11 @@ import { useParams } from "react-router-dom";
 import Select from "react-select";
 import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import Upload from "../components/Upload";
+import { BACKEND_URL } from "../constants/service.constant";
 import { emitError, emitSuccess } from "../functions/toastify.function";
 import { startLoading, stopLoading } from "../redux/loading.reducer";
 import { createCourse, uploadPaymentMethod } from "../services/course.service";
+import { getSchoolOwner } from "../services/personal.service";
 import { getAllRooms } from "../services/room.service";
 import { getSchool, getTeacher } from "../services/school.service";
 
@@ -23,7 +25,10 @@ const CourseCreation = () => {
     const [isNumberEmpty, setIsNumberEmpty] = useState(true);
     const [numberStudents, setNumberStudents] = useState(0);
     const [allTeachers, setAllTeachers] = useState([]);
+    const [ownedSchool, setownedSchool] = useState([])
+    const [schoolOptions, setschoolOptions] = useState([])
 
+    const [selectedSchool,setselectedSchool] = useState(null)
     const [courseType, setcourseType] = useState(null);
     const [teacher, setTeacher] = useState([]);
     const [classroom, setClassroom] = useState([]);
@@ -47,10 +52,32 @@ const CourseCreation = () => {
                 return getTeacher(schoolid);
             })
             .then((response) => {
-                dispatch(stopLoading());
                 setAllTeachers(response.data.teachers);
-            });
+                return getSchoolOwner(localStorage.getItem('account_id'))
+            })
+            .then((response) => {
+                setownedSchool(response.data.schools)
+                dispatch(stopLoading());
+            })
     }, []);
+
+    useEffect(() => {
+        setschoolOptions(ownedSchool.filter(school => school.status === "Confirmed").map(school => ({
+            value: school.school_id,
+            label: (
+                <div className="d-flex">
+                    <img
+                        width={23}
+                        height={23}
+                        className="mr-2 rounded-full"
+                        src={school.logo_pic != "" ? `${BACKEND_URL}/media/${school.logo_pic}` : require("../img/school.png")}
+                    />
+                    {school.name}
+                </div>
+            ),
+            disable: true
+        })))
+    }, [ownedSchool])
 
     const addStudyTime = (i) => {
         setduplicate([...duplicate, 0]);
@@ -128,41 +155,50 @@ const CourseCreation = () => {
             maximum_student: Number(e.target["number-student"].value),
             payment_method_text: e.target["payment-text"].value,
             study_time: studyTime.filter((v, i) => duplicate[i] == 0),
-            teachers: teacher,
+            teachers: teacher.map(t => t.value),
         };
 
         console.log(body);
-        console.log(e.target["payment-picture"].files[0]);
+        // console.log(e.target["payment-picture"].files[0]);
 
         let formData = new FormData();
         formData.append(
             "payment_method_pic",
             e.target["payment-picture"].files[0]
         );
+        console.log(selectedSchool.value)
 
-        // dispatch(startLoading());
-        // createCourse(schoolid, body)
-        //     .then((response) => {
-        //         return uploadPaymentMethod(
-        //             response.data.result.course_id,
-        //             formData
-        //         );
-        //     })
-        //     .then((response) => {
-        //         emitSuccess("Your course has been created!");
-        //         dispatch(stopLoading());
-        //     })
-        //     .catch((err) => {
-        //         dispatch(stopLoading());
-        //         emitError("มึงผิด");
-        //         console.log(err);
-        //     });
+        dispatch(startLoading());
+        createCourse(selectedSchool.value, body)
+            .then((response) => {
+                return uploadPaymentMethod(
+                    response.data.result.course_id,
+                    formData
+                );
+            })
+            .then((response) => {
+                emitSuccess("Your course has been created!");
+                dispatch(stopLoading());
+            })
+            .catch((err) => {
+                dispatch(stopLoading());
+                emitError("Something went wrong! Please try again.");
+                console.log(err);
+            });
     };
 
     return (
         <div className="course-creation">
-            <h1>Create new course</h1>
+            <h1>Create New Course</h1>
             <Form onSubmit={e => handleSubmit(e)}>
+                <FormGroup>
+                    <Label>School</Label>
+                    <Select
+                        onChange={(e) => setselectedSchool(e)}
+                        options={schoolOptions}
+                        required
+                    />
+                </FormGroup>
                 <FormGroup>
                     <Label>Course Name</Label>
                     <Input type="text" id="name" />
