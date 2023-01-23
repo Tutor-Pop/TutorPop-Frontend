@@ -42,6 +42,9 @@ const SchoolRegister = () => {
     dispatch(startLoading())
     createSchool(schoolFormData)
     .then(response => {
+
+      console.log(response)
+
       const schoolID = response.data.school_id
 
       let requestFormData = new FormData()

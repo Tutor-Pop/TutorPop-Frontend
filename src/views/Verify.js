@@ -1,19 +1,22 @@
 import { AppBar } from '@material-ui/core'
-import React, { useEffect } from 'react'
-import { Link, useLocation, useRoutes } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation, useParams, useRoutes } from 'react-router-dom'
 import { Col, Container, Row } from 'reactstrap'
 import '../App.css'
+import { getAccount } from '../services/account.service'
 // export const Resent =()=>{
 
 const Verify = () => {
 
   // const { state } = useLocation()
-  // const { email } = state
+  const [email,setemail] = useState("")
 
-  const route = useRoutes()
+  const { userid } = useParams()
   
   useEffect(()=>{
-    console.log("WORK",route.params.id)
+    getAccount(userid).then(response => {
+      setemail(response.data.result.email)
+    })
   },[])
 
   return (
@@ -26,12 +29,12 @@ const Verify = () => {
       <Row className="verify-text">
         <Col className="verify-col">
           <h1>Please Verify Your Account</h1>
-          <h3>We’ve sent you and confirmation to your email: </h3>
+          <h3>We’ve sent you and confirmation to your email: <b>{ email }</b></h3>
           <h3>Please check your inbox to confirm your email</h3>
           <br />
           <br />
 
-          <h3 className="resent-style">Didn’t recived your confirmation? <span className="resent-click">Click here</span> to resend.</h3>
+          {/* เดะทำ <h3 className="resent-style">Didn’t recived your confirmation? <span className="resent-click">Click here</span> to resend.</h3> */}
 
         </Col>
       </Row>

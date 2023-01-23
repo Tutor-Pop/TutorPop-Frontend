@@ -16,7 +16,7 @@ const SchoolRegisterPending = () => {
         </Row>
         <Row>
         <Col className="div-pay-btn">
-          <Link to='/search'  className="pay-btn" >
+          <Link to='/my-school'  className="pay-btn" >
             <Button color='primary' size="lg">
             CONTINUE TO WEBSITE
             </Button>

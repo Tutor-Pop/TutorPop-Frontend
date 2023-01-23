@@ -4,7 +4,7 @@ import { BACKEND_URL } from '../constants/service.constant'
 
 const SchoolCard = ({school_id, school_name , logo_url, status}) => {
   useEffect(()=>{
-    console.log(logo_url)
+    console.log('URL',logo_url)
   },[logo_url])
   return (
     <span  className='schoolcard' style={{"display": "block"}}>
@@ -28,7 +28,7 @@ const SchoolCard = ({school_id, school_name , logo_url, status}) => {
     </Link>
                 }
     {(status === "PaymentPending") &&
-    <Link to={`/school-manage/${school_id}/pending`}>
+    <Link to={`/school/${school_id}/pending`}>
       <div className='imgschool'>
         <img src={`${BACKEND_URL}/media/${logo_url}`} alt='school-logo'/>
       </div>
