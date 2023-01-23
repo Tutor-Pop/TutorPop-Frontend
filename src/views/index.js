@@ -56,19 +56,17 @@ const Views = ({ isLogin = false }) => {
         <Route path='/my-course' element={<MyCourse />} />
         <Route path='/school/:schoolid/teachers' element={<OurTeachers />} />
         <Route path='/favorite' element={<FavoritePage />} />
-        <Route path='/school/:schoolid/edit' element={<SchoolEditing />} />
         <Route path='/school-register' element={<SchoolRegister />} />
         <Route path='/school/:schoolid/school-payment' element={<SchoolPayment />} />
-        <Route path='/:schoolid/classroom-manage' element={<ClassroomManage />} />
-        <Route path='/school-manage/:schoolid' element={<SchoolManagement />} />
         <Route path='/search' element={<SearchPage />} />
-        <Route path='/:schoolid/teacher-manage' element={<TeacherManagement />} />
+
+        
+        
         <Route path='/create-course/:schoolid' element={<CourseCreation />} />
         <Route path='/support' element={<Support />} />
         <Route path='/course-manage/:schoolid/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
         <Route path='/school/:schoolid/pending' element={<SchoolRegisterPending />} />
-        <Route path='/:schoolid/logo-editing' element={<LogoEdit />} />
         <Route path='/create-course' element={<CreatCourse />} />
         <Route path='/notification' element={<Notification />} />
         <Route path='/email/:userid' element={<Verify />} />
@@ -83,7 +81,15 @@ const Views = ({ isLogin = false }) => {
 
         { /* Authorization is required after this line */ isLogin && <>
           <Route path='/course-payment/:courseid' element={<CoursePayment />} />
+
+          {/* School Manage */}
           <Route path='/my-school' element={<MySchool />} />
+          <Route path='/my-school/:schoolid' element={<SchoolManagement />} />
+          <Route path='/my-school/:schoolid/logo-edit' element={<LogoEdit />} />
+          <Route path='/my-school/:schoolid/school-edit' element={<SchoolEditing />} />
+          <Route path='/my-school/:schoolid/teacher-manage' element={<TeacherManagement />} />
+          <Route path='/my-school/:schoolid/classroom-manage' element={<ClassroomManage />} />
+          
           <Route path='/my-profile' element={<MyProfile />} />
           <Route path='/my-profile/edit' element={<MyProfileEdit />} />
           <Route path='/my-reservation' element={<MyReservation />} />

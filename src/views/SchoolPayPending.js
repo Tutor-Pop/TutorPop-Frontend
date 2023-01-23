@@ -20,7 +20,7 @@ const SchoolPayPending = () => {
         <h3>
           Typically this takes about 2 days 
         </h3>
-        <Link class='link-btn-txt mx-auto' to='/my-school'>
+        <Link className='link-btn-txt mx-auto' to='/my-school'>
           <Button className='mt-3 px-5' size='lg' color='primary'>
               Back to My Schools
           </Button>

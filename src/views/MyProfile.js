@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Col, Container, Row } from 'reactstrap'
+import { BACKEND_URL } from '../constants/service.constant'
 import { startLoading, stopLoading } from '../redux/loading.reducer'
 import { getAccount } from '../services/account.service'
 //หมุนเป็นลูกข่างเลยจ้าาาา
@@ -41,7 +42,7 @@ const MyProfile = () => {
       <div className='my-profile-picture-box'>
         <h1 className='m-5'>My Profile</h1>
         <div className='picture-container'>
-          <img src={userInfo.profile_picture == "" ? DEFAULT_PROFILE_PICTURE : userInfo.profile_picture}></img>
+          <img width={100} height={100} src={userInfo.profile_picture == "" ? DEFAULT_PROFILE_PICTURE : `${BACKEND_URL}/media/${userInfo.profile_picture}`}/>
           <Button color='primary' size='lg' className='change-profile-btn mt-5'>Change Profile Picture</Button>
         </div>
       </div>

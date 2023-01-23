@@ -1,14 +1,20 @@
 import { AppBar } from '@material-ui/core'
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation, useRoutes } from 'react-router-dom'
 import { Col, Container, Row } from 'reactstrap'
 import '../App.css'
 // export const Resent =()=>{
 
 const Verify = () => {
 
-  const { state } = useLocation()
-  const { email } = state
+  // const { state } = useLocation()
+  // const { email } = state
+
+  const route = useRoutes()
+  
+  useEffect(()=>{
+    console.log("WORK",route.params.id)
+  },[])
 
   return (
     <Container>
@@ -20,7 +26,7 @@ const Verify = () => {
       <Row className="verify-text">
         <Col className="verify-col">
           <h1>Please Verify Your Account</h1>
-          <h3>We’ve sent you and confirmation to your email: {email}</h3>
+          <h3>We’ve sent you and confirmation to your email: </h3>
           <h3>Please check your inbox to confirm your email</h3>
           <br />
           <br />

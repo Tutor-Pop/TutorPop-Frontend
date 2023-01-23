@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { Col, Container, Input, Row, Table } from 'reactstrap';
 import AddClassroom from '../components/AddClassroom';
+import BackButton from '../components/BackButton';
 import EditClassroom from '../components/EditClassroom';
 import RemoveClassrooms from '../components/RemoveClassrooms';
 import { startLoading, stopLoading } from '../redux/loading.reducer';
@@ -33,10 +34,6 @@ const ClassroomManage = () => {
     )
   }, [])
 
-  // useEffect(() => {
-  //   console.log(allClassrooms)
-  // }, [allClassrooms])
-
   const handleBoxCheck = (e) => {
     if (e.target.checked) {
       setCheckedClassrooms([...checkedClassrooms, Number(e.target.value)])
@@ -45,7 +42,6 @@ const ClassroomManage = () => {
     const removed = checkedClassrooms
                       .filter(id => id !== Number(e.target.value))
     setCheckedClassrooms(removed)
-    // console.log(checkedClassrooms)
   }
 
 
@@ -56,6 +52,7 @@ const ClassroomManage = () => {
                                             setCheckedClassrooms ]}>
     <div className='classroom-manage'>
       <Container className='pt-5'>
+        <BackButton>Back</BackButton>
         <Row>
           <h1>
             Classroom management

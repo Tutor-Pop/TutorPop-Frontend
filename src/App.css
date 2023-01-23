@@ -447,8 +447,8 @@
 }
 
 .nav-icon {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .nav-app-icon {
@@ -1876,4 +1876,15 @@ a.fc-col-header-cell-cushion:hover {
 /* School Pay Pending */
 .school-pay-pending {
   padding-top: 200px;
+}
+
+/* Profile Card */
+
+.profile-card {
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.profile-card:hover {
+  background-color: rgb(241, 241, 241);
 }

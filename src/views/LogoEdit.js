@@ -1,10 +1,14 @@
 import { faCloudArrowUp, faPlus, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button, Col, Row } from 'reactstrap'
 import '../App.css'
 //แนบไฟร์ไม่ได้
 const LogoEdit = () => {
+
+    const nevigate = useNavigate()
+
   return (
     <div className='logo-edit'>
         <div className='top'>
@@ -69,7 +73,7 @@ const LogoEdit = () => {
                         </Button>
                     </Col>
                     <Col>
-                        <Button type="submit" color="secondary" size="lg" className="Pair_Button">
+                        <Button onClick={() => nevigate('./../')} type="submit" color="secondary" size="lg" className="Pair_Button">
                             Cancel
                         </Button>
                     </Col>

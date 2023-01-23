@@ -32,6 +32,7 @@ const LoginPage = () => {
         localStorage.setItem("account_id", response.data.account_id);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("profile_picture", response.data.profile_picture);
         navigate("/search")
       })
       .catch((err) => {

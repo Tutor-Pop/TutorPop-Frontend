@@ -4,8 +4,8 @@ import Select from 'react-select'
 function UserShortChip() {
   return (
     <div className="Element">
-       <div class="teacher">
-           <div class="FontText">Add teacher</div>
+       <div className="teacher">
+           <div className="FontText">Add teacher</div>
            <Select isMultiname="colors"
            options={[{ value: 'ocean', label: 'Ocean', isFixed: true },
            { value: 'blue', label: 'Blue', isDisabled: true },

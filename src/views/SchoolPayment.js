@@ -7,6 +7,7 @@ import { getRequestID, uploadPaymentSlipForRequest } from '../services/request.s
 import { getSchool } from '../services/school.service';
 import { useDispatch } from 'react-redux';
 import { startLoading, stopLoading } from '../redux/loading.reducer';
+import { emitError } from '../functions/toastify.function';
 
 const SchoolPayment = () => {
 
@@ -19,6 +20,8 @@ const SchoolPayment = () => {
   const [imageURLs, setImageURLs] = useState([]);
   const [schoolData, setSchoolData] = useState({})
   const [requestID, setRequestID] = useState('')
+
+  const [alreadyEmit,setalreadyEmit] = useState(false)
 
 
   const imageOnchangeHandler = (e) => {
@@ -33,13 +36,7 @@ const SchoolPayment = () => {
   }, [images])
 
   useEffect(() => {
-    toast.error('You haven\’t paid the subscription for this school \nPlease pay to gain the access' , {
-      position: toast.POSITION.TOP_CENTER,
-      theme: "colored",
-      hideProgressBar: true,
-      closeOnClick: false,
-      draggable: false
-    })
+    emitError('You haven\’t paid the subscription for this school \nPlease pay to gain the access')
   }, [])
 
   useEffect(() => {

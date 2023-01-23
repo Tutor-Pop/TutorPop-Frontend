@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import CourseCard from './CourseCard'
+
 
 const CardList = ({ cardType='course',
                     cardData=[], 
@@ -9,7 +11,7 @@ const CardList = ({ cardType='course',
                     toggleFavorite=false,
                     isEditable=false
                   }) => {
-  
+  const nevigate = useNavigate()
   return (
     <div className='card-list-box'>
       {cardData.map((card) => 

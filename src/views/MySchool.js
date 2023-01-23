@@ -20,7 +20,7 @@ const MySchool = () => {
     dispatch(startLoading())
     getSchoolOwner(localStorage.getItem("account_id")).then((res) => {
       dispatch(stopLoading())
-      console.log(res.data);
+      console.log("SchoolOwner",res.data);
       setmyAllSchool(res.data.schools)
     }
     ).catch(err => {

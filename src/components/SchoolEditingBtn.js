@@ -7,7 +7,7 @@ const SchoolEditingBtn = ({school}) => {
 
   return (
     <span style={{"display": "block"}}>
-      <Link to={`/school/${school.school_id}/edit`}>
+      <Link to={`./school-edit`}>
         <div className='textbox-schoolman text-left'>
             <h3>School Editing</h3>
         </div>

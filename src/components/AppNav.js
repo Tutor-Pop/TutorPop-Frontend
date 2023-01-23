@@ -25,8 +25,12 @@ import {
   NavbarText,
 } from 'reactstrap';
 import { logout } from '../services/auth.service';
+import { BACKEND_URL } from '../constants/service.constant';
 
 const AppNav = ({isLogin=false}) => {
+
+  const profile_picture = localStorage.getItem("profile_picture")
+
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const [dropdownDelay, setDropdownDelay] = useState(false)
 
@@ -42,7 +46,7 @@ const AppNav = ({isLogin=false}) => {
     <div>
       <Navbar className='nav'>
         <NavbarBrand href="/search">
-          <img class='nav-app-icon' src={AppLogo} all='tutor-pop'/>
+          <img className='nav-app-icon' src={AppLogo} all='tutor-pop'/>
         </NavbarBrand>
         <NavbarText><h5 className='nav-title'>TUTOR POP</h5></NavbarText>
         <Nav className="d-none d-md-flex ms-auto nav-items" navbar>
@@ -65,7 +69,7 @@ const AppNav = ({isLogin=false}) => {
             <>
             <Dropdown isOpen={isOpenDropdown} toggle={toggle}>
               <DropdownToggle nav caret>
-                <img className='nav-icon' src={UserProfile} alt='user'/>                
+                <img className='nav-icon rounded-full' src={profile_picture ? `${BACKEND_URL}${profile_picture}` : UserProfile} alt='user'/>                
                 <NavbarText><h5 className='nav-name'>{localStorage.getItem('username')}</h5></NavbarText>
               </DropdownToggle>
               <DropdownMenu>

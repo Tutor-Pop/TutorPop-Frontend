@@ -4,6 +4,7 @@ import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reac
 import { Address } from '../constants/location.constant'
 import Select from 'react-select'
 import { getSchool, updateSchool } from '../services/school.service'
+import BackButton from '../components/BackButton'
 
 const SchoolEditing = () => {
   const [provinceSelect, setProvinceSelect] = useState('');
@@ -20,8 +21,8 @@ const SchoolEditing = () => {
 
 
   useEffect(()=>{
-    getSchool(schoolid).then(
-      response => setDetails(response.data.result)
+    getSchool(schoolid).then(response => {
+      setDetails(response.data.result)}
     )
   },[])
 
@@ -111,9 +112,10 @@ const SchoolEditing = () => {
                       Province<span className="required-star">*</span>
                     </Label>
                     <Select
+                    isDisabled
                       id='school-address'
-                      value={{value: provinceSelect,label:provinceSelect }}
-                      defaultValue={{value: details.province, label: details.province}}
+                      value={{value: provinceSelect,label:details.province }}
+                      // defaultValue={{value: details.province, label: details.province}}
                       required={true}
                       onChange={e => onChangeProvince(e)}
                       options={
@@ -130,11 +132,12 @@ const SchoolEditing = () => {
                       District<span className="required-star">*</span>
                     </Label>
                     <Select
-                    value={{value: districtSelect,label:districtSelect }}
+                    isDisabled
+                    value={{value: districtSelect,label:details.district }}
                       // isDisabled={disable.district}
                       id='school-district'
                       required={true}
-                      defaultValue={{value:details.district,label:details.district}}
+                      // defaultValue={{value:details.district,label:details.district}}
                       onChange={e => onChangeDistrict(e)}
                       options={disable.district ? [] :
                         Address[provinceSelect].map((el) => (
@@ -150,13 +153,15 @@ const SchoolEditing = () => {
                       Subdistrict<span className="required-star">*</span>
                     </Label>
                     <Select
-                    value={{value: subdistrictSelect,label:subdistrictSelect }}
+                    
+                    isDisabled
+                    value={{value: subdistrictSelect,label:details.sub_district }}
                       onChange={e => onChangeSubdistrict(e)}
                       // isDisabled={disable.subdistrict}
                       id='school-subdistrict'
                       type='select'
                       required={true}
-                      defaultValue={{value:details.sub_district,label:details.sub_district}}
+                      // defaultValue={{value:details.sub_district,label:details.sub_district}}
                       options={disable.subdistrict ? [] : Address[provinceSelect]
                         .filter((value) => (value.district === districtSelect))[0].subdistrict
                         .map((subdist) => ({ value: subdist, label: subdist }))
@@ -194,20 +199,15 @@ const SchoolEditing = () => {
               </FormGroup>
             </Row>
             </Row>
-            <Row className="justify-evenly mt-4">
+            <Row className="justify-evenly my-4">
               <Col>
-                <Link className='link-btn-text' to={`/school/${schoolid}/edit`}>
                   <Button className="edit-save-btn" type="submit" color="primary" size="lg" onClick={handleClick}>
                     Save
                   </Button>
-                </Link>
               </Col>
               <Col>
-                <Link className='link-btn-text' to={`/school-manage/${schoolid}`}>
-                  <Button className='edit-cancel-btn' color='secondary' size='lg'>
-                    Cancel
-                  </Button>
-                </Link>
+              <BackButton className="edit-save-btn" size="lg">Cancel</BackButton>
+                
               </Col>
             </Row> 
           </Row>

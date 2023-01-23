@@ -35,7 +35,7 @@ function App() {
         theme="light"
       />
       {/* Same as */}
-      <ToastContainer />
+
     </div>
   );
 }

@@ -9,7 +9,7 @@ const LoadingSpinner = () => {
         <>
         {isLoading && <div className="loading-background">
             <div className="loading-spinner spinner-border text-warning" role="status">
-                <span class="sr-only">Loading...</span>
+                <span className="sr-only">Loading...</span>
             </div>
             
         </div>}
