@@ -109,7 +109,6 @@ const Views = ({ isLogin = false }) => {
           <Route path='/admin/course-manage' element={<CourseManagementAdmin />} />
           <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/my-reservation' element={<MyReservation />} />
-          <Route path='/school-manage/pending' element={<SchoolPayPending />} />
           <Route path='/course-manage/:schoolid/:courseid' element={<CourseManagement />} />
           <Route path='/course-payment/:courseid/payment-method' element={<CoursePaymentMethod />} />
           <Route path='/admin' element={<Admin />} />
