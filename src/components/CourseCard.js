@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardImg, Col, Row } from 'reactstrap'
+import { BACKEND_URL } from '../constants/service.constant'
 import FavButton from './FavButton'
 
 const CourseCard = (
@@ -12,7 +13,7 @@ const CourseCard = (
             course_name: 'Course Name',
             type: 'General',
             course_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet semper mollis. Cras commodo ullamcorper sapien, eget molestie ligula accumsan quis. Pellentesque id ex non nibh facilisis condimentum eget aliquet elit.',
-            course_price: '2500฿',
+            course_price: '2500',
             school_name: 'School Name',
             school_address: 'School Location, Bangkok',
             teachers: [],
@@ -29,6 +30,10 @@ const CourseCard = (
           toggleFavorite=false
         } 
       ) => {
+
+        useEffect(()=>{
+          console.log(courseDetail)
+        },[courseDetail])
   return (
     <div className='course-card'>
       {/* <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/> */}
@@ -60,13 +65,13 @@ const CourseCard = (
       </div>
       <div className='course-text-right'>
 
-        <h4>{courseDetail.course_price}</h4>
+        <h4>{courseDetail.course_price} ฿asdwd</h4>
       </div>
       </Link>
     }
     { ( cardType === 'course' ) && ( isEditable === true ) &&
       <Link className='course-card-link' to={`/course-manage/${courseDetail.course_id}`}>
-      <img className='course-card-img' src={require('../img/logo-white-no-name.png')}/>
+      <img className='course-card-img' src={courseDetail.payment_method_pic == "" ? require('../img/logo-white-no-name.png') : `${BACKEND_URL}/media/${courseDetail.payment_method_pic}`}/>
       <div className='course-text-left'>
         <div className='course-card-title'>
           <h4>{courseDetail.course_name}</h4>
@@ -92,7 +97,7 @@ const CourseCard = (
       </div>
       <div className='course-text-right'>
 
-        <h4>{courseDetail.course_price}</h4>
+        <h4>{courseDetail.course_price} ฿</h4>
       </div>
       </Link>
     }

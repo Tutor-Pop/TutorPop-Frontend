@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CourseContainer from '../components/CourseContainer'
 import CardList from '../components/CardList'
 import { getStudyCourses, getTeachingCourses } from '../services/course.service'
+import { getTeachings } from '../services/personal.service'
 //teaching กับปุ่มหัวใจ  กับปุ่ม create new course
 const MyCourse = () => {
 
@@ -71,6 +72,16 @@ const MyCourse = () => {
       },
     ]
 
+  const [courses,setcourses] = useState([])
+
+  useEffect(()=>{
+    let account_id = localStorage.getItem('account_id')
+    getTeachings(account_id).then(response => {
+      console.log('COURSE',response)
+      setcourses(response.data.courses)
+    })
+  },[])
+
   // const [studyCourse, setStudyCourse] = useState([]);
   // const [teachCourse, setTeachCourse] = useState([]);
 
@@ -108,7 +119,7 @@ const MyCourse = () => {
           <CardList
             cardType='course'
             isEditable={true} 
-            cardData={teachCourse} 
+            cardData={courses} 
             createCourseOption={true}
             toggleProgress={true}
             toggleFavorite={true}

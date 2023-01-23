@@ -28,7 +28,7 @@ const CardList = ({ cardType='course',
               school_address: card.school_address,
               teachers: card.teachers,
               course_progress: card.course_progress,
-              thumbnail_url: card.thumbnail_url
+              payment_method_pic: card.payment_method_pic
             }}
             schoolDetail={{
               school_id: card.school_id,

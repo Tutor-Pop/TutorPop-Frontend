@@ -9,8 +9,8 @@ export async function getReserve(){
  
 }
  
-export async function getTeachings(){
- 
+export async function getTeachings(account_id){
+    return axios.get(`${BACKEND_URL}/api/accounts/${account_id}/teachings`)
 }
  
 export async function getTime(){
