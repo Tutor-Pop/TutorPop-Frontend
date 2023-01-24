@@ -13,7 +13,7 @@ import { startLoading, stopLoading } from "../redux/loading.reducer";
 import { createCourse, uploadPaymentMethod } from "../services/course.service";
 import { getSchoolOwner } from "../services/personal.service";
 import { getAllRooms } from "../services/room.service";
-import { getSchool, getTeacher } from "../services/school.service";
+import { getSchool, getSchoolDetail, getTeacher } from "../services/school.service";
 
 const CourseCreation = () => {
     const dispatch = useDispatch();
@@ -27,6 +27,8 @@ const CourseCreation = () => {
     const [allTeachers, setAllTeachers] = useState([]);
     const [ownedSchool, setownedSchool] = useState([])
     const [schoolOptions, setschoolOptions] = useState([])
+    const [addTeacherOptions,setaddTeacherOptions] = useState([])
+    const [disabledAddTeacher,setdisabledAddTeacher] = useState(false)
 
     const [selectedSchool,setselectedSchool] = useState(null)
     const [courseType, setcourseType] = useState(null);
@@ -60,6 +62,29 @@ const CourseCreation = () => {
                 dispatch(stopLoading());
             })
     }, []);
+
+    useEffect(() => {
+        if(selectedSchool){
+            setdisabledAddTeacher(true)
+            getSchoolDetail(selectedSchool.value).then(response => {
+                setaddTeacherOptions(response.data.all_teachers.teachers.map(teacher => ({
+                    value: teacher.account_id,
+                    label: (
+                        <div className="d-flex">
+                            <img
+                                width={23}
+                                height={23}
+                                className="mr-2 rounded-full"
+                                src={teacher.profile_picture ? `${BACKEND_URL}/media/${teacher.profile_picture}` : require("../img/user.png")}
+                            />
+                            <span>{teacher.firstname} {teacher.lastname}</span> 
+                        </div>
+                    )
+                })))
+                setdisabledAddTeacher(false)
+            })
+        }
+    }, [selectedSchool])
 
     useEffect(() => {
         setschoolOptions(ownedSchool.filter(school => school.status === "Confirmed").map(school => ({
@@ -226,13 +251,16 @@ const CourseCreation = () => {
                 <FormGroup>
                     <Label>Add Teacher</Label>
                     <Select
+
                         // required
+                        isDisabled={disabledAddTeacher}
                         onChange={(e) => setTeacher(e)}
                         isMulti
-                        options={allTeachers.map((teacher) => ({
-                            value: teacher.account_id,
-                            label: teacher.firstname + " " + teacher.lastname,
-                        }))}
+                        // options={allTeachers.map((teacher) => ({
+                        //     value: teacher.account_id,
+                        //     label: teacher.firstname + " " + teacher.lastname,
+                        // }))}
+                        options={addTeacherOptions}
                     />
                 </FormGroup>
                 <Row>

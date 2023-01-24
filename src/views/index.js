@@ -62,12 +62,12 @@ const Views = ({ isLogin = false }) => {
 
         
         
-        <Route path='/create-course/:schoolid' element={<CourseCreation />} />
+        {/* <Route path='/create-course/:schoolid' element={<CourseCreation />} /> */}
         <Route path='/support' element={<Support />} />
         <Route path='/course-manage/:schoolid/:courseid/course-picture' element={<CoursePicture />} />
         <Route path='/course/:courseid/payed' element={<PayedPage />} />
         <Route path='/school/:schoolid/pending' element={<SchoolRegisterPending />} />
-        <Route path='/create-course' element={<CreateCourse />} />
+        <Route path='/create-course' element={<CourseCreation />} />
         <Route path='/notification' element={<Notification />} />
         <Route path='/email/:userid' element={<Verify />} />
         <Route path='/course/:courseid' element={<CourseDetail />} />

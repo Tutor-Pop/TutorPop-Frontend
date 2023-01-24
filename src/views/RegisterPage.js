@@ -53,7 +53,7 @@ const RegisterPage = () => {
         is_deleted: false,
       }
       register(registration_body).then((response) => {
-        navigate("/email/1",{account_id:1})
+        navigate(`/email/${response.data.result.account_id}`,{account_id:1})
       }).catch((err) => console.log('ERROR', err))
     }
     else {

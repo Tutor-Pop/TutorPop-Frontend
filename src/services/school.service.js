@@ -5,6 +5,10 @@ export async function getSchool(school_id){
     return axios.get(`${BACKEND_URL}/api/schools/${school_id}`)
 }
 
+export async function getSchoolDetail(school_id){
+    return axios.get(`${BACKEND_URL}/api/schools/${school_id}/details`)
+}
+
 export async function createSchool(form){
     return axios.post(`${BACKEND_URL}/api/schools`, form, {
         headers: {
