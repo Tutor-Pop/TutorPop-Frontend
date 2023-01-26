@@ -78,7 +78,7 @@ const MyCourse = () => {
     let account_id = localStorage.getItem('account_id')
     getTeachings(account_id).then(response => {
       console.log('COURSE',response)
-      setcourses(response.data.courses)
+      setcourses(response.data.courses.filter(course => !course.is_deleted))
     })
   },[])
 

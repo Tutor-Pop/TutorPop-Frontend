@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const AdminSchoolRequestBtn = () => {
   return (
     <span style={{"display": "block"}}>
-    <Link to='/admin/open-school-request'>
+    <Link to='./school-open-request'>
         <div className='textbox-schoolman text-left'>
             <h3>School Open Request</h3>
         </div>

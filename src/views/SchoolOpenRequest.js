@@ -10,6 +10,7 @@ import { editRequestStatus, getAllRequest } from '../services/request.service';
 import { useDispatch } from 'react-redux';
 import { openComfirmation } from '../redux/confirmation.reducer';
 import { startLoading, stopLoading } from '../redux/loading.reducer';
+import { BACKEND_URL } from '../constants/service.constant';
 
 // ยัง search ไม่ได้ , send feedback ยังไม่ได้ คลิ๊กดูเชี่ยอะไรไม่ได้เลย ตรงเสิร์จเเว่นขยายติดช่องเสิร์จมากไป
 
@@ -81,7 +82,10 @@ const SchoolOpenRequest = () => {
     dispatch(startLoading())
     getAllRequest().then(response => {
       dispatch(stopLoading())
-      setdata(response.data.requests)
+      setdata(response.data.requests.map(request => ({
+        ...request,
+        document: <a href={`${BACKEND_URL}${request.document}`} target="_blank">{request.document.split('/')[3]}</a>
+      })))
     })
   }, [])
 

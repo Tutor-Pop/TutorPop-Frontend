@@ -1,5 +1,5 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faL, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -27,8 +27,10 @@ const CourseCreation = () => {
     const [allTeachers, setAllTeachers] = useState([]);
     const [ownedSchool, setownedSchool] = useState([])
     const [schoolOptions, setschoolOptions] = useState([])
+
+    const [loadingSchool,setloadingSchool] = useState(false)
     const [addTeacherOptions,setaddTeacherOptions] = useState([])
-    const [disabledAddTeacher,setdisabledAddTeacher] = useState(false)
+    const [selectRoomOptions,setselectRoomOptions] = useState([])
 
     const [selectedSchool,setselectedSchool] = useState(null)
     const [courseType, setcourseType] = useState(null);
@@ -65,7 +67,7 @@ const CourseCreation = () => {
 
     useEffect(() => {
         if(selectedSchool){
-            setdisabledAddTeacher(true)
+            setloadingSchool(true)
             getSchoolDetail(selectedSchool.value).then(response => {
                 setaddTeacherOptions(response.data.all_teachers.teachers.map(teacher => ({
                     value: teacher.account_id,
@@ -77,13 +79,21 @@ const CourseCreation = () => {
                                 className="mr-2 rounded-full"
                                 src={teacher.profile_picture ? `${BACKEND_URL}/media/${teacher.profile_picture}` : require("../img/user.png")}
                             />
-                            <span>{teacher.firstname} {teacher.lastname}</span> 
+                            <span>{teacher.username} ({teacher.firstname} {teacher.lastname})</span> 
                         </div>
                     )
                 })))
-                setdisabledAddTeacher(false)
+                return getAllRooms(selectedSchool.value).then(response => {
+                    setselectRoomOptions(response.data.result.map(room => ({
+                        value: room.room_id,
+                        label: <>{room.room_name} (Max Students : {room.maximum_seat})</>
+                    })))
+                    setloadingSchool(false)
+                })
             })
         }
+        setTeacher([])
+        setClassroom([])
     }, [selectedSchool])
 
     useEffect(() => {
@@ -213,7 +223,7 @@ const CourseCreation = () => {
     };
 
     return (
-        <div className="course-creation">
+        <div className="course-creation mb-10">
             <h1>Create New Course</h1>
             <Form onSubmit={e => handleSubmit(e)}>
                 <FormGroup>
@@ -224,6 +234,35 @@ const CourseCreation = () => {
                         required
                     />
                 </FormGroup>
+                
+                <FormGroup>
+                    <Label>Add Teacher</Label>
+                    <Select
+
+                        // required
+                        onChange={(e) => setTeacher(e)}
+                        value={teacher}
+                        placeholder="Select Teacher"
+                        isDisabled={loadingSchool}
+                        isMulti
+                        // options={allTeachers.map((teacher) => ({
+                        //     value: teacher.account_id,
+                        //     label: teacher.firstname + " " + teacher.lastname,
+                        // }))}
+                        options={addTeacherOptions}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label>Classroom</Label>
+                    <Select
+                        onChange={(e) => setClassroom(e)}
+                        value={classroom}
+                        isDisabled={loadingSchool}
+                        placeholder="Select Classroom"
+                        options={selectRoomOptions}
+                    />
+                </FormGroup>
+                <br></br>
                 <FormGroup>
                     <Label>Course Name</Label>
                     <Input type="text" id="name" />
@@ -248,21 +287,7 @@ const CourseCreation = () => {
                     <Label>Course Description</Label>
                     <Input type="textarea" id="description" />
                 </FormGroup>
-                <FormGroup>
-                    <Label>Add Teacher</Label>
-                    <Select
-
-                        // required
-                        isDisabled={disabledAddTeacher}
-                        onChange={(e) => setTeacher(e)}
-                        isMulti
-                        // options={allTeachers.map((teacher) => ({
-                        //     value: teacher.account_id,
-                        //     label: teacher.firstname + " " + teacher.lastname,
-                        // }))}
-                        options={addTeacherOptions}
-                    />
-                </FormGroup>
+                
                 <Row>
                     <Col>
                         <Label>Reserve Open Date</Label>
@@ -351,27 +376,7 @@ const CourseCreation = () => {
                     <Label>Number Of student</Label>
                     <Input type="number" id="number-student" />
                 </FormGroup>
-                <FormGroup>
-                    <Label>Classroom</Label>
-                    <Select
-                        onChange={(e) => setClassroom(e)}
-                        placeholder="Select Classroom"
-                        options={allClassrooms
-                            .filter(
-                                (room) =>
-                                    Number(room.maximum_seat) >=
-                                    Number(numberStudents)
-                            )
-                            .map((room) => ({
-                                value: room.room_id,
-                                label:
-                                    room.room_name +
-                                    " (Max Students : " +
-                                    room.maximum_seat +
-                                    ")",
-                            }))}
-                    />
-                </FormGroup>
+                
 
                 <div>
                     <Label>Teacher Schedule</Label>
