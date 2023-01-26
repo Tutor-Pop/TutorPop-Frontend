@@ -29,7 +29,7 @@ const Verify = () => {
       <Row className="verify-text">
         <Col className="verify-col">
           <h1>Please Verify Your Account</h1>
-          <h3>We’ve sent you and confirmation to your email: <b>{ email }</b></h3>
+          <h3>We’ve sent you and confirmation to your email: <b className='text-sky-700'>{ email }</b></h3>
           <h3>Please check your inbox to confirm your email</h3>
           <br />
           <br />

@@ -1,6 +1,7 @@
 import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import {
   Button,
   Col,
@@ -13,12 +14,14 @@ import {
 } from "reactstrap";
 import { getAllAccounts } from "../services/account.service";
 import { register } from "../services/auth.service";
+import { startLoading, stopLoading } from "../redux/loading.reducer";
 
 const RegisterPage = () => {
   const [firstname, setFirstname] = useState("")
   const [validation, setValidation] = useState({ submit: false, username: false, password: false, confirm_password: false })
   const [allAccounts, setAllAccounts] = useState({})
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -52,7 +55,9 @@ const RegisterPage = () => {
         is_verified: false,
         is_deleted: false,
       }
+      dispatch(startLoading())
       register(registration_body).then((response) => {
+        dispatch(stopLoading())
         navigate(`/email/${response.data.result.account_id}`,{account_id:1})
       }).catch((err) => console.log('ERROR', err))
     }

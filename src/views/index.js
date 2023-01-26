@@ -50,7 +50,7 @@ const Views = ({ isLogin = false }) => {
     <div className="App">
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage isLogin={isLogin}/>} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/my-course' element={<MyCourse />} />

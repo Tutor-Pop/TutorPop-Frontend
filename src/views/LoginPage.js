@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../img/Logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Input, Row, Col, Form, FormGroup, Label, Button, FormFeedback } from "reactstrap";
@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { startLoading, stopLoading } from "../redux/loading.reducer";
 import { emitError } from "../functions/toastify.function";
 
-const LoginPage = () => {
+const LoginPage = ({isLogin=false}) => {
 
   const dispatch = useDispatch()
 
@@ -33,7 +33,8 @@ const LoginPage = () => {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("profile_picture", response.data.profile_picture);
-        navigate("/search")
+        window.location.reload(false);
+        // navigate("/search")
       })
       .catch((err) => {
         dispatch(stopLoading())
@@ -48,6 +49,13 @@ const LoginPage = () => {
         }
       });
   };
+
+  useEffect(()=>{
+    if(isLogin){
+      navigate("/search")
+    }
+  },[isLogin])
+
   return (
     <div className="login">
       <Row className="cardlogin">
