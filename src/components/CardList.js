@@ -44,7 +44,7 @@ const CardList = ({ cardType='course',
       { createCourseOption &&
         <div>
           <Button
-                  onClick={() => nevigate('/create-course/1')}
+                  onClick={() => nevigate('/create-course')}
                   className="create-course-btn"
                   color="primary"
                   size="md"

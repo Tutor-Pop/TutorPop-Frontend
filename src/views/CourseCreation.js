@@ -17,7 +17,7 @@ import { getSchool, getSchoolDetail, getTeacher } from "../services/school.servi
 
 const CourseCreation = () => {
     const dispatch = useDispatch();
-    const { schoolid } = useParams();
+    const schoolid = 1;
 
     const [schoolName, setSchoolName] = useState("");
     const [duplicate, setduplicate] = useState([0]);
