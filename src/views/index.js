@@ -59,8 +59,6 @@ const Views = ({ isLogin = false }) => {
         <Route path='/school-register' element={<SchoolRegister />} />
         <Route path='/school/:schoolid/school-payment' element={<SchoolPayment />} />
         <Route path='/search' element={<SearchPage />} />
-
-        
         
         {/* <Route path='/create-course/:schoolid' element={<CourseCreation />} /> */}
         <Route path='/support' element={<Support />} />
@@ -76,7 +74,7 @@ const Views = ({ isLogin = false }) => {
         <Route path='/admin' element={<Admin />} />
         <Route path='/admin/school-open-request' element={<SchoolOpenRequest />} />
         <Route path='/admin/school-manage' element={<AdminSchoolManagement />} />
-        <Route path='/course-manage/:schoolid/:courseid/student-manage' element={<StudentManage />} />
+        <Route path='/course-manage/:courseid/student-manage' element={<StudentManage />} />
         <Route path='/admin/user-manage' element={<UserManagement />} />
 
         { /* Authorization is required after this line */ isLogin && <>

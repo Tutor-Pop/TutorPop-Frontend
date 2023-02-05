@@ -70,7 +70,7 @@ const CourseCard = (
       </Link>
     }
     { ( cardType === 'course' ) && ( isEditable === true ) &&
-      <Link className='course-card-link' to={`/course-manage/${courseDetail.course_id}`}>
+      <Link className='course-card-link' to={`/course-manage/${courseDetail.course_id}/student-manage`}>
       <img className='course-card-img' src={courseDetail.payment_method_pic == "" ? require('../img/logo-white-no-name.png') : `${BACKEND_URL}/media/${courseDetail.payment_method_pic}`}/>
       <div className='course-text-left'>
         <div className='course-card-title'>
