@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { openComfirmation } from '../redux/confirmation.reducer';
 import { startLoading, stopLoading } from '../redux/loading.reducer';
 import { BACKEND_URL } from '../constants/service.constant';
+import { updateTeacher } from '../services/school.service';
 
 // ยัง search ไม่ได้ , send feedback ยังไม่ได้ คลิ๊กดูเชี่ยอะไรไม่ได้เลย ตรงเสิร์จเเว่นขยายติดช่องเสิร์จมากไป
 
@@ -57,9 +58,14 @@ const SchoolOpenRequest = () => {
     },
   ];
 
-  const handleConfirmed = () => {
+  const handleConfirmed = async () => {
     for(var i in selectRow){
-      editRequestStatus(selectRow[i].request_id,"Confirmed")
+      await editRequestStatus(selectRow[i].request_id,"Confirmed")
+      await updateTeacher(selectRow[i].school_id, 
+        {
+          "teachers" : [selectRow[i].account_id]
+        }
+      )
     }
     window.location.reload()
   }
